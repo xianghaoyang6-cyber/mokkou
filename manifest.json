@@ -1,0 +1,26 @@
+{
+  "name": "我の木工",
+  "short_name": "我の木工",
+  "description": "我の木工：v32 盒子進階版，加入蓋型細分、自動排版、DXF 匯出、提把孔/磁吸/合頁孔位、內外尺寸切換與按鈕回頂。",
+  "start_url": "./index.html?v=32",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f6f0e6",
+  "theme_color": "#c9a56a",
+  "lang": "zh-Hant",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
