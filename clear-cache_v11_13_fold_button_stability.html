@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>木工 PWA v11.13 清快取頁</title>
+<style>
+:root{--bg:#f8f1e5;--card:#fffaf1;--line:#d7bf8c;--text:#2b2216;--sub:#766247;--dark:#231b12}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f8f1e5,#fffaf1);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);line-height:1.55}
+.app{max-width:760px;margin:0 auto;padding:16px}.card{background:rgba(255,250,241,.95);border:1.5px solid var(--line);border-radius:24px;padding:18px;margin:12px 0;box-shadow:0 8px 24px rgba(70,50,20,.08)}
+h1{font-size:1.35rem;margin:0 0 8px}.small{color:var(--sub);font-weight:650}.btns{display:grid;gap:10px;margin-top:14px}button,a{display:block;width:100%;border:1.5px solid var(--line);border-radius:16px;padding:13px 14px;font-size:1rem;font-weight:900;text-align:center;text-decoration:none}
+button{background:var(--dark);color:#fff}a{background:#fffdf8;color:#4b3b22}.log{white-space:pre-wrap;background:#fffdf8;border:1px dashed var(--line);border-radius:16px;padding:12px;margin-top:12px;font-size:.9rem;color:#4b3b22}
+.warn{background:#fff3d6;border:1.5px solid #e5c984;border-radius:16px;padding:12px;margin-top:12px;color:#7b5720;font-weight:800}
+</style>
+</head>
+<body>
+<div class="app">
+  <section class="card">
+    <h1>木工 PWA v11.13 清快取頁</h1>
+    <div class="small">用途：更新 GitHub Pages 後，如果手機還看到舊版或按鈕沒變，用這頁清除瀏覽器 Cache Storage 與 Service Worker。</div>
+    <div class="warn">安全說明：此頁預設不刪 localStorage、不刪 IndexedDB、不刪照片庫，不會清掉你的木工資料與照片。</div>
+    <div class="btns">
+      <button id="clearBtn" type="button">清除 PWA 快取 / Service Worker</button>
+      <a href="./index.html">回到木工 PWA 首頁</a>
+      <a href="https://xianghaoyang6-cyber.github.io/mokkou/">打開正式網站</a>
+    </div>
+    <div class="log" id="log">尚未執行。</div>
+  </section>
+</div>
+<script>
+(function(){
+  const log=document.getElementById('log');
+  function line(t){log.textContent += (log.textContent==='尚未執行。'?'':'\n') + t;}
+  document.getElementById('clearBtn').onclick=async function(){
+    log.textContent='';
+    try{
+      if('serviceWorker' in navigator){
+        const regs=await navigator.serviceWorker.getRegistrations();
+        for(const r of regs){await r.unregister();}
+        line('Service Worker 已解除：'+regs.length+' 個');
+      }else{line('此瀏覽器沒有 Service Worker。');}
+    }catch(e){line('Service Worker 清除失敗：'+e.message);}
+    try{
+      if(window.caches){
+        const keys=await caches.keys();
+        for(const k of keys){await caches.delete(k);}
+        line('Cache Storage 已清除：'+keys.length+' 筆');
+      }else{line('此瀏覽器沒有 Cache Storage。');}
+    }catch(e){line('Cache Storage 清除失敗：'+e.message);}
+    line('完成。現在請按「回到木工 PWA 首頁」，或關閉再重開正式網站。');
+  };
+})();
+</script>
+</body>
+</html>
