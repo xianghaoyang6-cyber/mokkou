@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>我の木工 PWA v12.10 SVG 幾何切縫補償版</title>
+<title>我の木工 PWA v12.15.3.8 版本號金屬藍顯示版</title>
 <meta name="theme-color" content="#b88a44">
 <style>
 :root{
+  --metal-blue:#2f7fa7;--metal-blue-dark:#1f5f83;--metal-blue-light:#74b8d8;
   --bg:#f6efe3;--card:#fffaf1;--card2:#fffdf8;--line:#d7bf8c;--line2:#eadcc2;
   --text:#2b2216;--sub:#766247;--accent:#b88a44;--accent2:#6b4a1f;
   --dark:#20170f;--ok:#2f6b43;--warn:#8a5c1c;--danger:#8a3b25;
@@ -17,41 +18,207 @@ html{max-width:100%;overflow-x:hidden;scroll-behavior:auto}
 body{margin:0;max-width:100%;overflow-x:hidden;background:linear-gradient(180deg,var(--bg),#fffaf1);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .app{width:100%;max-width:1120px;margin:0 auto;padding:14px;overflow-x:hidden}
 .hero,.card,.fold-card{background:rgba(255,250,241,.94);border:1.5px solid var(--line);border-radius:24px;box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
-.hero{padding:18px}.hero-kicker{font-weight:950;color:var(--accent2);font-size:.92rem}.hero h1{margin:5px 0 6px;font-size:1.42rem;line-height:1.24}.hero p{margin:0;color:var(--sub);font-weight:700}.status{margin-top:12px;border:1.5px solid var(--line2);background:#fffdf8;border-radius:18px;padding:10px 12px;display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.badge,.pill{display:inline-flex;align-items:center;border:1px solid #e0cda8;background:#f3e6cd;border-radius:999px;color:#5c492b;padding:5px 10px;font-size:.82rem;font-weight:900}.badge{background:#2b2015;color:#fff;border-color:#2b2015}.card{padding:16px}.card h2,.fold-title{margin:0 0 8px;font-size:1.12rem;color:#2b2216}.small{font-size:.86rem;color:var(--sub);font-weight:700}.muted{background:#f8edd8;border:1.5px dashed var(--line);border-radius:16px;padding:10px;color:#6b5737;font-weight:800}.grid{display:grid;gap:10px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:760px){.grid.two,.grid.three,.grid.four{grid-template-columns:1fr}}
+.version-blue{
+  color:var(--metal-blue)!important;
+  font-weight:950!important;
+  letter-spacing:.01em;
+  text-shadow:0 1px 0 #ffffffcc,0 0 8px rgba(47,127,167,.18);
+}
+.version-blue::selection{background:#d7efff;color:#174b66}
+.hero{padding:18px}.hero-kicker{font-weight:950;color:var(--accent2);font-size:.92rem}.hero h1{margin:5px 0 6px;font-size:1.42rem;line-height:1.24}.hero p{margin:0;color:var(--sub);font-weight:700}.status{margin-top:12px;border:1.5px solid var(--line2);background:#fffdf8;border-radius:18px;padding:10px 12px;display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.badge,.pill{display:inline-flex;align-items:center;border:1px solid #e0cda8;background:#f3e6cd;border-radius:999px;color:#5c492b;padding:5px 10px;font-size:.82rem;font-weight:900}.badge{background:#2b2015;color:#fff;border-color:#2b2015}.card{padding:16px}.card h2,.fold-title{margin:0 0 8px;font-size:1.12rem;color:#2b2216}.small{font-size:.86rem;color:var(--sub);font-weight:700}.muted{background:#f8edd8;border:1.5px dashed var(--line);border-radius:16px;padding:10px;color:#6b5737;font-weight:800}.grid{display:grid;gap:10px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.five{grid-template-columns:repeat(5,minmax(0,1fr))}@media(max-width:760px){.grid.two,.grid.three,.grid.four,.grid.five{grid-template-columns:1fr}}
 label{display:block}.label{font-weight:950;color:#5c492b;margin-bottom:5px}.hint{font-size:.78rem;color:#927a55;font-weight:750}
 input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffdf8;color:var(--text);border-radius:15px;padding:11px 12px;font-size:1rem;font-weight:700;outline:none}textarea{min-height:120px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.86rem}
 .range-field input[type=range]{padding:0;border:none;box-shadow:none;background:transparent;accent-color:#0b84ff}.range-wrap{display:grid;gap:8px}.range-value{font-size:1.05rem;font-weight:900;color:#2b2216}.live-status{font-size:.86rem;font-weight:800;color:#6f624b;margin-top:6px}input:focus,select:focus,textarea:focus{border-color:#8d6c37;box-shadow:0 0 0 3px rgba(184,138,68,.2)}
 .btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(184,138,68,.18);font-family:inherit}button.primary,button.secondary,.quick-btn,.file-btn{border:1.5px solid var(--line);border-radius:15px;padding:11px 13px;font-weight:950;font-size:.94rem;cursor:pointer}button.primary{background:var(--dark);border-color:var(--dark);color:#fff}button.secondary,.quick-btn,.file-btn{background:#fffdf8;color:#4b3b22}.quick-btn.active{background:var(--accent);border-color:var(--accent2);color:#fff}.quick-btn small{display:block;font-size:.72rem;font-weight:800;opacity:.82;margin-top:2px}.danger{color:var(--danger)!important}.ok{color:var(--ok)!important}.warn{color:var(--warn)!important}
 .fold-head{width:100%;border:0;background:linear-gradient(180deg,#fffaf1,#f8edd8);padding:15px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;cursor:pointer}.fold-head-main{min-width:0}.fold-title{margin:0;font-weight:950}.fold-sub{font-size:.84rem;color:#806a48;font-weight:800;margin-top:3px}.fold-state{flex:0 0 auto;display:inline-flex;border:1.5px solid var(--line);border-radius:999px;background:#fffdf8;color:#4b3b22;padding:6px 11px;font-weight:950}.fold-card.open .fold-state{background:var(--dark);border-color:var(--dark);color:#fff}.fold-body{border-top:1px solid var(--line2);padding:14px 16px 16px}.fold-card:not(.open) .fold-body{display:none}
-.table-wrap{overflow:auto;border:1.5px solid var(--line2);border-radius:16px;background:#fffdf8}table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{border-bottom:1px solid #eadcc2;padding:9px 10px;text-align:left;vertical-align:top;white-space:nowrap}th{background:#f4e6cb;color:#5c492b;font-size:.8rem}tr:last-child td{border-bottom:0}.svg-box{background:#fff;border:1.5px solid var(--line2);border-radius:16px;padding:10px;overflow:auto}.svg-box svg{display:block;width:100%;height:auto;min-width:320px;background:#fff}.svg-small svg{min-width:620px}.dim{font-size:9px;fill:#333}.cut{fill:none;stroke:#111;stroke-width:1.2;vector-effect:non-scaling-stroke}.guide{fill:none;stroke:#777;stroke-width:.7;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}.engrave{fill:none;stroke:#444;stroke-width:.8;vector-effect:non-scaling-stroke}.labelText{font-size:10px;fill:#222;font-weight:700}.home-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:12px}@media(max-width:760px){.home-grid{grid-template-columns:1fr}}
-.bottom-nav{position:fixed;left:10px;right:10px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:60;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;background:rgba(255,250,241,.96);border:1.5px solid var(--line);border-radius:22px;padding:8px;box-shadow:0 10px 30px rgba(45,31,12,.18);backdrop-filter:blur(10px)}.bottom-nav button{min-width:0;border:1.5px solid var(--line2);background:#fffdf8;color:#5c492b;border-radius:15px;padding:8px 3px;font-weight:950;font-size:.78rem;line-height:1.12;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px}.bottom-nav button.active{background:var(--accent);border-color:var(--accent2);color:#fff}.nav-ico{font-size:1.05rem}.top-btn{position:fixed;right:14px;bottom:calc(92px + env(safe-area-inset-bottom));z-index:58;border:0;background:#111;color:#fff;border-radius:999px;padding:12px 14px;font-weight:950;box-shadow:0 8px 24px rgba(0,0,0,.22);cursor:pointer}.footer{text-align:center;color:#806a48;font-size:.82rem;font-weight:700;padding:10px 0 22px}.notice-list{margin:8px 0 0;padding-left:1.1rem}.notice-list li{margin:4px 0}.source-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0 12px}@media(max-width:480px){.source-tabs{grid-template-columns:1fr}.bottom-nav{left:6px;right:6px;padding:7px;gap:5px}.bottom-nav button{font-size:.72rem;min-height:49px}.app{padding:10px}.card,.hero{border-radius:20px;padding:14px}.fold-head{padding:14px}.fold-body{padding:12px 14px 14px}.top-btn{right:8px}}
+.table-wrap{overflow:auto;border:1.5px solid var(--line2);border-radius:16px;background:#fffdf8}table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{border-bottom:1px solid #eadcc2;padding:9px 10px;text-align:left;vertical-align:top;white-space:nowrap}th{background:#f4e6cb;color:#5c492b;font-size:.8rem}tr:last-child td{border-bottom:0}.svg-box{background:#fff;border:1.5px solid var(--line2);border-radius:16px;padding:10px;overflow:auto}.svg-box svg{display:block;width:100%;height:auto;min-width:320px;background:#fff}.svg-small svg{min-width:620px}
+.zoom-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 10px}.zoom-toolbar button{border:1.5px solid var(--line);background:#fffdf8;color:#4b3b22;border-radius:13px;padding:8px 10px;font-weight:950}.zoom-readout{font-size:.84rem;color:#6b5737;font-weight:900}.zoom-shell{display:grid;grid-template-columns:24px minmax(0,1fr) 24px;gap:4px;align-items:stretch;width:100%}.zoom-side-scroll{min-height:340px;border:0;background:transparent;color:transparent;font-size:0;line-height:0;display:block;touch-action:pan-y;user-select:none}.zoom-box{height:min(62vh,560px);min-height:340px;overflow:hidden;padding:0;position:relative;touch-action:none;overscroll-behavior:contain;background:#fff;min-width:0}.zoom-stage{transform-origin:0 0;will-change:transform;display:inline-block}.zoom-box svg{width:auto!important;height:auto!important;min-width:0!important;max-width:none!important;background:#fff;display:block}.zoom-help{font-size:.78rem;color:#806a48;font-weight:800;margin-top:8px}.zoom-help strong{color:#2b2216}.preview-modal .zoom-shell{display:block}.preview-modal .zoom-side-scroll{display:none}
+.preview-modal{position:fixed;inset:0;z-index:9999;background:#f7efe0;display:flex;flex-direction:column}.preview-modal-head{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#2a2117;color:#fff;box-shadow:0 2px 10px #0003}.preview-modal-title{font-weight:950;flex:1;font-size:.95rem;line-height:1.25}.preview-modal-head button{border:1px solid #fff4;background:#fff;color:#2a2117;border-radius:12px;padding:8px 10px;font-weight:950}.preview-modal-body{flex:1;min-height:0;padding:10px}.preview-modal .zoom-box{height:100%;min-height:0;border-radius:18px;background:#fff}.preview-modal .zoom-toolbar{margin:0;gap:6px}.preview-modal .zoom-toolbar button{background:#fff;color:#2a2117;border-color:#d7bf8c}.body-lock{overflow:hidden!important;touch-action:none}.zoom-toolbar .full-btn{background:#2b2015;color:#fff;border-color:#2b2015}
+@media(max-width:480px){.zoom-shell{grid-template-columns:30px minmax(0,1fr) 30px;gap:4px}.zoom-side-scroll{min-height:320px}.zoom-box{height:58vh;min-height:320px}.zoom-toolbar button{padding:7px 9px;font-size:.86rem}}
+.dim{font-size:9px;fill:#333}.cut{fill:none;stroke:#111;stroke-width:1.2;vector-effect:non-scaling-stroke}.guide{fill:none;stroke:#777;stroke-width:.7;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}.engrave{fill:none;stroke:#444;stroke-width:.8;vector-effect:non-scaling-stroke}.labelText{font-size:10px;fill:#222;font-weight:700}.home-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:12px}@media(max-width:760px){.home-grid{grid-template-columns:1fr}}
+.bottom-nav{position:fixed;left:10px;right:10px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:60;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;background:rgba(255,250,241,.96);border:1.5px solid var(--line);border-radius:22px;padding:8px;box-shadow:0 10px 30px rgba(45,31,12,.18);backdrop-filter:blur(10px)}.bottom-nav button{min-width:0;border:1.5px solid var(--line2);background:#fffdf8;color:#5c492b;border-radius:15px;padding:8px 3px;font-weight:950;font-size:.78rem;line-height:1.12;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px}.bottom-nav button.active{background:var(--accent);border-color:var(--accent2);color:#fff}.nav-ico{font-size:1.05rem}.top-btn{position:fixed;right:14px;bottom:calc(92px + env(safe-area-inset-bottom));z-index:58;border:0;background:#111;color:#fff;border-radius:999px;padding:12px 14px;font-weight:950;box-shadow:0 8px 24px rgba(0,0,0,.22);cursor:pointer}.footer{text-align:center;color:#806a48;font-size:.82rem;font-weight:700;padding:10px 0 22px}.notice-list{margin:8px 0 0;padding-left:1.1rem}.notice-list li{margin:4px 0}
+.layout-card{display:grid;gap:10px}.mode-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.mode-row .quick-btn{width:100%}.toggle-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.layout-summary{border:1.5px solid var(--line2);background:#fffdf8;border-radius:16px;padding:10px 12px;font-weight:850;color:#5c492b}.layout-summary strong{color:#2b2216}.layout-list{margin:6px 0 0;padding-left:1.1rem}.layout-list li{margin:3px 0}.rot-tag{font-size:8px;fill:#8a5c1c;font-weight:800}.oversize-table td,.oversize-table th{white-space:normal}@media(max-width:480px){.mode-row,.toggle-row{grid-template-columns:1fr}}.check-box{border:1.5px solid var(--line2);border-radius:16px;padding:10px 12px;margin:10px 0;background:#fffdf8;font-weight:800;color:#5c492b}.check-box ul{margin:6px 0 0;padding-left:1.1rem}.check-ok{border-color:#b8d6ba;background:#f3fff4;color:#2f6b43}.check-warn{border-color:#e1b36e;background:#fff7e8;color:#7a4d13}.check-danger{border-color:#d19a84;background:#fff0ea;color:#8a3b25}.safe-frame{fill:none;stroke:#b88a44;stroke-width:.7;stroke-dasharray:5 3;vector-effect:non-scaling-stroke}.download-check{display:grid;gap:8px}.download-check div{border:1px solid #eadcc2;background:#fffdf8;border-radius:14px;padding:9px 10px;font-weight:800;color:#5c492b}.check-top{border-width:2px;margin-bottom:14px}.check-top h2{margin:0 0 6px;font-size:1.05rem}.check-top .check-main{font-weight:950;line-height:1.45}.check-top .check-meta{font-size:.82rem;font-weight:800;margin-top:6px;opacity:.9}.check-top ul{margin:8px 0 0;padding-left:1.15rem}.check-top li{margin:4px 0}.check-pass{border-color:#87bd8e!important;background:#f2fff4!important;color:#235b34!important}.check-attn{border-color:#d18a55!important;background:#fff1df!important;color:#773e16!important}.manual-rotate-box{display:grid;gap:8px;margin-top:10px}.manual-toggle{width:100%;text-align:left;display:flex!important;align-items:center;justify-content:space-between;gap:8px}.manual-toggle small{text-align:right;min-width:120px}.manual-row{border:1.5px solid var(--line2);background:#fffdf8;border-radius:15px;padding:9px 10px;display:grid;gap:7px}.manual-row-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;flex-wrap:wrap;font-weight:950;color:#3c2b17}.manual-row-head small{display:block;font-weight:800;color:#806a48}.manual-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.manual-actions .quick-btn{padding:8px 6px;font-size:.82rem}.manual-badge{display:inline-flex;border:1px solid #e0cda8;background:#f8edd8;border-radius:999px;padding:3px 8px;font-size:.76rem;font-weight:950;color:#6b4a1f}.manual-note{border:1px dashed var(--line);background:#fffaf1;border-radius:14px;padding:8px 10px;color:#6b5737;font-weight:850;font-size:.86rem}
+.manual-rotate-box .manual-toggle{
+  background:#eaf6ff!important;
+  border-color:#8fc7f3!important;
+  color:#214766!important;
+  box-shadow:0 2px 0 rgba(44,118,180,.12) inset;
+}
+.manual-rotate-box .manual-toggle.active{
+  background:#d7efff!important;
+  border-color:#5aaeea!important;
+  color:#153a57!important;
+}
+.manual-rotate-box .manual-toggle small,
+.manual-rotate-box .manual-toggle .hint{
+  color:#315d7a!important;
+}
+.manual-rotate-box .manual-note{
+  background:#f2f9ff!important;
+  border-color:#a8d7f6!important;
+  color:#31536b!important;
+}
+.manual-rotate-box .manual-row{
+  background:#f8fcff!important;
+  border-color:#c5e3f7!important;
+}
+.manual-rotate-box .manual-badge{
+  transition:background .12s ease,border-color .12s ease,color .12s ease;
+}
+.manual-rotate-box .manual-badge-auto{
+  background:#e5bd78!important;
+  border-color:#9a7130!important;
+  color:#3d2a14!important;
+}
+.manual-rotate-box .manual-badge-normal{
+  background:#2f2c28!important;
+  border-color:#2f2c28!important;
+  color:#fffdf8!important;
+}
+.manual-rotate-box .manual-badge-rotate{
+  background:#f3c5bf!important;
+  border-color:#dc8a80!important;
+  color:#64231d!important;
+}
+
+/* v12.14.1.8 手動旋轉色彩：自動金棕；原方向黑色；旋轉 90° 淡紅；右上角目前狀態跟著選項變色 */
+.manual-actions [data-manual-rotate-mode="normal"].active{
+  background:#2b2925!important;
+  border-color:#2b2925!important;
+  color:#fffdf8!important;
+}
+.manual-actions [data-manual-rotate-mode="normal"].active small{
+  color:#fff6e8!important;
+  opacity:.95!important;
+}
+.manual-actions [data-manual-rotate-mode="rotate"].active{
+  background:#f3c5bf!important;
+  border-color:#dc8a80!important;
+  color:#64231d!important;
+}
+.manual-actions [data-manual-rotate-mode="rotate"].active small{
+  color:#7b312a!important;
+  opacity:.95!important;
+}
+
+
+.edge-control-box{display:grid;gap:10px;margin-top:10px}.edge-control-head{border:2px solid #8ec7e8;background:#e5f5ff;border-radius:18px;padding:10px 12px;font-weight:950;color:#174b66;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.edge-note{border:1px dashed #8ec7e8;background:#f0f9ff;border-radius:14px;padding:9px 10px;color:#174b66;font-weight:850}.edge-row{border:1.5px solid #b7dff2;background:#f7fcff;border-radius:16px;padding:10px 12px;display:grid;gap:10px}.edge-row-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;font-weight:950}.edge-row-head small{display:block;font-weight:800;color:#806a48}.edge-badge{border:1px solid #8ec7e8;background:#d9f0ff;color:#174b66;border-radius:999px;padding:3px 8px;font-size:.78rem;font-weight:950}.edge-side{display:grid;grid-template-columns:58px repeat(3,minmax(0,1fr));gap:6px;align-items:center}.edge-side-name{font-weight:950;color:#174b66}.edge-side .quick-btn{padding:8px 5px;font-size:.82rem}.edge-side [data-edge-mode="flat"].active{background:#2b2015!important;border-color:#2b2015!important;color:#fff!important}.edge-side [data-edge-mode="out"].active{background:#b88a44!important;border-color:#6b4a1f!important;color:#fff!important}.edge-side [data-edge-mode="in"].active{background:#d9f0ff!important;border-color:#58acd8!important;color:#174b66!important}.edge-summary{font-size:.82rem;font-weight:900;color:#174b66}.edge-actions{display:flex;gap:8px;flex-wrap:wrap}.edge-actions .secondary{border-color:#8ec7e8;background:#f0f9ff;color:#174b66}@media(max-width:520px){.edge-side{grid-template-columns:48px repeat(3,minmax(0,1fr));gap:5px}.edge-side .quick-btn{font-size:.76rem;padding:7px 3px}.edge-row{padding:9px}.edge-side-name{font-size:.86rem}}
+
+
+.bottom-joint-box{display:grid;gap:10px;margin-top:10px}
+.bottom-joint-head{border:2px solid #8ec7e8;background:#e5f5ff;border-radius:18px;padding:10px 12px;font-weight:950;color:#174b66;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.bottom-joint-note{border:1px dashed #8ec7e8;background:#f0f9ff;border-radius:14px;padding:9px 10px;color:#174b66;font-weight:850}
+.bottom-joint-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.bottom-joint-options .quick-btn{min-height:66px}
+.bottom-joint-options [data-bottom-joint="flat"].active{background:#2b2015!important;border-color:#2b2015!important;color:#fff!important}
+.bottom-joint-options [data-bottom-joint="inset"].active{background:#d9f0ff!important;border-color:#58acd8!important;color:#174b66!important}
+.bottom-joint-options [data-bottom-joint="finger"].active{background:#b88a44!important;border-color:#6b4a1f!important;color:#fff!important}
+.bottom-joint-options [data-bottom-joint="none"].active{background:#f3c5bd!important;border-color:#d68175!important;color:#7f2f25!important}
+.bottom-joint-summary{border:1.5px solid #b7dff2;background:#f7fcff;border-radius:16px;padding:10px 12px;font-weight:900;color:#174b66}
+.bottom-joint-guide{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.bottom-joint-guide div{border:1px solid #b7dff2;background:#fff;border-radius:14px;padding:9px 10px;color:#174b66;font-weight:850}
+.bottom-joint-guide strong{display:block;color:#12384b;margin-bottom:2px}
+.bottom-joint-summary .bottom-joint-tip{display:block;margin-top:6px;color:#5f7480;font-weight:850}
+@media(max-width:560px){.bottom-joint-guide{grid-template-columns:1fr}}
+@media(max-width:560px){.bottom-joint-options{grid-template-columns:1fr 1fr}.bottom-joint-options .quick-btn{font-size:.84rem;padding:9px 5px}}
+
+.piece-output-box{display:grid;gap:8px;margin-top:10px}.piece-output-head{border:2px solid #8ec7e8;background:#e5f5ff;border-radius:18px;padding:10px 12px;font-weight:950;color:#174b66;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.piece-output-row{border:1.5px solid #b7dff2;background:#f7fcff;border-radius:16px;padding:10px 12px;display:grid;gap:8px}.piece-output-row.off{background:#fff7f5;border-color:#e5b8aa;color:#7c3828}.piece-output-row-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;flex-wrap:wrap;font-weight:950}.piece-output-row-head small{display:block;font-weight:800;color:#806a48}.piece-output-badge{border:1px solid #8ec7e8;background:#d9f0ff;color:#174b66;border-radius:999px;padding:3px 8px;font-size:.78rem;font-weight:950}.piece-output-badge.off{border-color:#d8a092;background:#fff0ea;color:#8a3b25}.piece-output-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.piece-output-actions .quick-btn{padding:9px 8px}.piece-output-actions [data-piece-output-mode="on"].active{background:#b88a44!important;border-color:#6b4a1f!important;color:#fff!important}.piece-output-actions [data-piece-output-mode="off"].active{background:#f3c5bd!important;border-color:#d68175!important;color:#7f2f25!important}.piece-output-note{border:1px dashed #8ec7e8;background:#f0f9ff;border-radius:14px;padding:9px 10px;color:#174b66;font-weight:850}.piece-output-summary{border:1.5px solid #b7dff2;background:#f7fcff;border-radius:16px;padding:10px 12px;font-weight:900;color:#174b66}.piece-output-bulk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}.piece-output-bulk .quick-btn{min-height:68px}.piece-output-bulk .bulk-all.active{background:#b88a44!important;border-color:#6b4a1f!important;color:#fff!important;box-shadow:0 0 0 3px rgba(184,138,68,.18)}.piece-output-bulk .bulk-bottom.active{background:#d9f0ff!important;border-color:#58acd8!important;color:#174b66!important;box-shadow:0 0 0 3px rgba(88,172,216,.18)}.piece-output-mode-note{font-size:.86rem;color:#174b66;font-weight:900;margin-top:8px}@media(max-width:480px){.piece-output-actions{grid-template-columns:1fr 1fr}.piece-output-actions .quick-btn{font-size:.82rem;padding:8px 5px}.piece-output-bulk{grid-template-columns:1fr 1fr}.piece-output-bulk .quick-btn{font-size:.86rem;padding:9px 5px}}
+.layout-summary-grid{display:grid;gap:10px}.layout-summary-card{border:1.5px solid var(--line2);background:#fffdf8;border-radius:16px;padding:10px 12px;font-weight:850;color:#5c492b}.layout-summary-card strong{color:#2b2216}.board-summary{display:grid;gap:8px}.board-card{border:1.5px solid #d8c397;background:#fffdf8;border-radius:16px;padding:10px 12px}.board-title{font-weight:950;color:#2b2216;margin-bottom:4px}.usage-bar{height:9px;background:#f0e2c8;border-radius:999px;overflow:hidden;margin:6px 0}.usage-fill{height:100%;background:#b88a44;border-radius:999px}.status-chip{display:inline-flex;align-items:center;border-radius:999px;border:1px solid #d8c397;background:#fffdf8;padding:4px 9px;font-weight:950;font-size:.82rem}.status-chip.ok{background:#eaf8ed;border-color:#8fc99a;color:#235b34}.status-chip.warn{background:#fff3df;border-color:#e1b36e;color:#754613}.status-chip.danger{background:#fff0ea;border-color:#d19a84;color:#8a3b25}.summary-list{margin:5px 0 0;padding-left:1.1rem}.summary-list li{margin:3px 0}.only-fit-on{background:#eaf8ed!important;border-color:#8fc99a!important;color:#235b34!important}.summary-mode-row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.summary-toggle-btn{border:1.5px solid #8ec7e8!important;background:#d9f0ff!important;color:#174b66!important;border-radius:14px;padding:9px 12px;font-weight:950}.summary-compact{border:2px solid #8ec7e8;background:#f0f9ff;border-radius:18px;padding:12px 13px;font-weight:900;color:#18475f}.summary-detail{display:grid;gap:10px}.summary-kpi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}.summary-kpi div{border:1px solid #b7dff2;background:#fff;border-radius:14px;padding:8px;text-align:center}.summary-kpi strong{display:block;font-size:1.05rem;color:#17364a}.summary-kpi span{font-size:.78rem;color:#5f7480;font-weight:850}@media(max-width:480px){.summary-kpi{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.manual-actions{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.manual-actions .quick-btn{font-size:.76rem;padding:7px 3px}}
+
+
+
+.drawing-overview-grid{display:grid;gap:10px}
+.drawing-kpi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.drawing-kpi{border:1.5px solid var(--line2);background:#fffdf8;border-radius:16px;padding:10px 12px}
+.drawing-kpi strong{display:block;font-size:1.04rem;color:#2b2216}
+.drawing-kpi span{display:block;font-size:.78rem;color:#806a48;font-weight:850;margin-top:2px}
+.drawing-flow{border:1.5px solid #b7dff2;background:#f0f9ff;border-radius:16px;padding:10px 12px;color:#174b66;font-weight:850}
+.drawing-flow ol{margin:6px 0 0;padding-left:1.2rem}
+.drawing-flow li{margin:4px 0}
+.drawing-download-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+.drawing-download-grid button{width:100%;min-height:58px;text-align:center}
+.drawing-download-grid .download-main{grid-column:1/-1}
+.drawing-download-note{border:1.5px dashed var(--line);background:#fffaf1;border-radius:16px;padding:10px 12px;color:#6b5737;font-weight:850}
+.drawing-compact-note{border:1.5px solid var(--line2);background:#fffdf8;border-radius:16px;padding:10px 12px;color:#5c492b;font-weight:850}
+.drawing-preview-actions{display:grid;gap:8px;margin-top:10px}
+@media(max-width:520px){
+  .drawing-kpi-grid{grid-template-columns:1fr 1fr}
+  .drawing-download-grid{grid-template-columns:1fr}
+  .drawing-download-grid .download-main{grid-column:auto}
+}
+
+.calc-overview-grid{display:grid;gap:10px}
+.calc-kpi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.calc-kpi{border:1.5px solid var(--line2);background:#fffdf8;border-radius:16px;padding:10px 12px}
+.calc-kpi strong{display:block;font-size:1.04rem;color:#2b2216}
+.calc-kpi span{display:block;font-size:.78rem;color:#806a48;font-weight:850;margin-top:2px}
+.calc-flow{border:1.5px solid #b7dff2;background:#f0f9ff;border-radius:16px;padding:10px 12px;color:#174b66;font-weight:850}
+.calc-flow ol{margin:6px 0 0;padding-left:1.2rem}
+.calc-flow li{margin:4px 0}
+.calc-action-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.calc-action-row button{width:100%;min-height:52px}
+.calc-check-wrap{display:grid;gap:10px}
+.calc-priority-note{border:1.5px dashed var(--line);background:#fffaf1;border-radius:16px;padding:10px 12px;color:#6b5737;font-weight:850}
+.calc-size-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.calc-type-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media(max-width:520px){
+  .calc-size-grid{grid-template-columns:1fr 1fr}
+  .calc-type-grid{grid-template-columns:1fr}
+  .calc-action-row{grid-template-columns:1fr}
+  .calc-kpi-grid{grid-template-columns:1fr 1fr}
+}
+
+.more-mobile-grid{display:grid;gap:10px}
+.more-kpi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.more-kpi{border:1.5px solid var(--line2);background:#fffdf8;border-radius:16px;padding:10px 12px}
+.more-kpi strong{display:block;font-size:1.05rem;color:#2b2216}
+.more-kpi span{display:block;font-size:.78rem;color:#806a48;font-weight:850;margin-top:2px}
+.more-note-card{border:1.5px solid #b7dff2;background:#f0f9ff;border-radius:16px;padding:10px 12px;color:#174b66;font-weight:850}
+.more-step-list{margin:6px 0 0;padding-left:1.15rem}
+.more-step-list li{margin:4px 0}
+.backup-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.backup-actions .primary,.backup-actions .file-btn,.backup-actions .secondary{width:100%;text-align:center;display:flex;align-items:center;justify-content:center;min-height:48px}
+.json-preview{max-height:220px;min-height:160px;font-size:.76rem;line-height:1.35}
+.release-list{display:grid;gap:8px}
+.release-item{border:1.5px solid var(--line2);background:#fffdf8;border-radius:15px;padding:9px 11px}
+.release-item strong{display:block;color:#2b2216}
+.release-item span{display:block;color:#806a48;font-size:.84rem;font-weight:800;margin-top:2px}
+.more-warning{border:1.5px dashed var(--line);background:#fffaf1;border-radius:16px;padding:10px 12px;color:#6b5737;font-weight:850}
+@media(max-width:520px){
+  .more-kpi-grid{grid-template-columns:1fr 1fr}
+  .backup-actions{grid-template-columns:1fr}
+  .json-preview{font-size:.72rem;max-height:180px}
+}
+
+.source-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0 12px}@media(max-width:480px){.source-tabs{grid-template-columns:1fr}.bottom-nav{left:6px;right:6px;padding:7px;gap:5px}.bottom-nav button{font-size:.72rem;min-height:49px}.app{padding:10px}.card,.hero{border-radius:20px;padding:14px}.fold-head{padding:14px}.fold-body{padding:12px 14px 14px}.top-btn{right:8px}}
 </style>
 </head>
 <body>
 <div class="app" id="top">
   <section class="hero">
-    <div class="hero-kicker">我の木工 PWA v12.10</div>
-    <h1>SVG 幾何切縫補償版｜外輪廓 / 內孔實際套用</h1>
-    <p>v12.09 將你的 10W 藍光實測切縫補償正式套用到 SVG 幾何：外輪廓向外補償、中心孔向內補償；乾淨 SVG 可直接用於正式切割測試。</p>
+    <div class="hero-kicker">我の木工 PWA v12.15.3.1</div>
+    <h1>底板接合介面說明優化版｜底板模式更容易判斷與驗收</h1>
+    <p>v12.15.3.8 將 App 介面中所有顯示的版本號文字改為金屬藍，不改計算與 SVG 邏輯。</p>
     <div class="status"><strong id="saveNote">本機儲存：已就緒</strong><span class="badge">10W 藍光｜300×300｜有效 280×280 mm</span></div>
   </section>
   <main id="view"></main>
-  <div class="footer">PWA v12.10 分層 SVG 版｜單一 HTML｜手機優先｜SVG 優先｜不自動滾動</div>
+  <div class="footer">PWA v12.15.3.8 版本號金屬藍顯示版｜單一 HTML｜手機優先｜SVG 優先｜不自動滾動</div>
 </div>
 <button class="top-btn" type="button" id="topBtn">↑</button>
 <nav class="bottom-nav" id="bottomNav" aria-label="底部導航"></nav>
 <script>
 (function(){
 'use strict';
-const VERSION='v12.10';
+const VERSION='v12.15.3.8';
 const STORE='mokkou_v12_state';
 const NAV=[['home','首頁','⌂'],['calc','計算','▣'],['knob','旋鈕','◎'],['drawing','圖紙','◇'],['more','更多','☰']];
 const defaults={
   page:'home',
-  ui:{foldOpen:{'home-start':true,'calc-type':true,'calc-size':true,'knob-style':true,'knob-size':true,'drawing-source':true,'more-diagram':true}},
-  calc:{type:'box',width:250,depth:280,height:250,thickness:3,backThickness:5,bottomThickness:3,sizeMode:'outer',boxLid:'hinge',boxJoint:'finger',fingerSize:18,kerf:0.065,slideClearance:13,slideLength:350,drawerGap:2,shelfCount:2,doorGap:2},
+  ui:{foldOpen:{'home-start':true,'calc-type':true,'calc-size':true,'knob-style':true,'knob-size':true,'drawing-source':true,'more-diagram':true},manualRotateOpen:false,summaryDetailOpen:false,pieceOutputOpen:false},
+  calc:{type:'box',width:250,depth:280,height:250,thickness:3,backThickness:5,bottomThickness:3,sizeMode:'outer',boxLid:'hinge',boxJoint:'finger',bottomJoint:'finger',fingerSize:18,kerf:0.065,slideClearance:13,slideLength:350,drawerGap:2,shelfCount:2,doorGap:2,pieceOutput:{},edgeModes:{}},
   knob:{style:'round',template:'M5',outerDiameter:48,centerHole:5.2,thickness:3,targetThickness:12,layerCount:4,nutShape:'hex',nutAcross:8.2,nutDepth:3,kerf:0.065,roundness:42,count:6},
-  drawing:{source:'calc',workArea:300,effectiveArea:280,margin:10,showLabels:true,showDimensions:true},
+  drawing:{source:'calc',workArea:300,effectiveArea:280,margin:10,showLabels:true,showDimensions:true,layoutMode:'standard',pieceGap:8,autoRotate:true,showSafeFrame:true,outputOnlyFit:false,manualRotate:{}},
   params:{ply3:'功率 100%，速度 100～180，2～4 刀，氣輔開。實際需依板材測試。',ply5:'功率 100%，速度 60～100，4～7 刀，氣輔開。建議先切小片。',kerf:'10W 藍光實測：LightBurn 以 20 mm 為基礎製作 10 個獨立方塊，切口偏移設 0；實測總長 98.7～98.8 mm，推算切縫寬約 0.12～0.13 mm；建議軟體切口偏移補償 0.06～0.065 mm。App 內預設採 0.065 mm。',kerfTest:'LightBurn｜20 mm 方塊 × 10 個｜切口偏移 0｜實測總長 98.7～98.8 mm｜推算切縫 0.12～0.13 mm｜補償值 0.06～0.065 mm。'}
 };
 let state=loadState();
@@ -74,34 +241,308 @@ function textArea(path,label,hint=''){return `<label><div class="label">${esc(la
 function getPath(path){return path.split('.').reduce((o,k)=>o?o[k]:undefined,state)}
 function setPath(path,val){const parts=path.split('.');let o=state;for(let i=0;i<parts.length-1;i++)o=o[parts[i]];o[parts[parts.length-1]]=val}
 
-function bindInputs(){document.querySelectorAll('[data-bind]').forEach(el=>{const update=()=>{let v=el.value;if(el.type==='number'||el.type==='range')v=el.value===''?'':Number(el.value);if(el.type==='checkbox')v=el.checked;setPath(el.dataset.bind,v);const out=document.getElementById('range-'+el.dataset.bind.replace(/\./g,'-'));if(out)out.textContent=String(v);save('資料已更新');if(el.dataset.livePreview==='knob'){updateKnobPreview(true);return}if(el.dataset.bind==='calc.type'||el.dataset.bind==='drawing.source'||el.dataset.bind==='knob.style'||el.dataset.bind==='knob.template'){applyTemplateIfNeeded(el.dataset.bind);render();}};el.addEventListener('input',()=>{if(el.tagName==='SELECT')return;update();},{passive:true});el.addEventListener('change',update);});}
+function bindInputs(){document.querySelectorAll('[data-bind]').forEach(el=>{const update=()=>{let v=el.value;if(el.type==='number'||el.type==='range')v=el.value===''?'':Number(el.value);if(el.type==='checkbox')v=el.checked;setPath(el.dataset.bind,v);const out=document.getElementById('range-'+el.dataset.bind.replace(/\./g,'-'));if(out)out.textContent=String(v);save('資料已更新');if(/^(calc|drawing|knob)\./.test(el.dataset.bind))updateCheckPanels();if(el.dataset.bind==='drawing.layoutMode'){state.drawing.pieceGap=gapForMode(state.drawing.layoutMode);render();return}if(/^drawing\.(effectiveArea|margin|pieceGap)$/.test(el.dataset.bind)){if(el.dataset.bind==='drawing.pieceGap')state.drawing.layoutMode='custom';render();return}if(el.dataset.livePreview==='knob'){updateKnobPreview(true);return}if(el.dataset.bind==='calc.type'||el.dataset.bind==='drawing.source'||el.dataset.bind==='knob.style'||el.dataset.bind==='knob.template'||el.dataset.bind==='drawing.layoutMode'){applyTemplateIfNeeded(el.dataset.bind);render();}};el.addEventListener('input',()=>{if(el.tagName==='SELECT')return;update();},{passive:true});el.addEventListener('change',update);});}
 function applyTemplateIfNeeded(path){if(path==='knob.template'){const t=state.knob.template;const map={M3:[3.2,5.7],M4:[4.2,7.2],M5:[5.2,8.2],M6:[6.2,10.2],M8:[8.3,13.2]};if(map[t]){state.knob.centerHole=map[t][0];state.knob.nutAcross=map[t][1];}}}
 function projectName(t){return {box:'盒子',drawer:'抽屜',cabinet:'櫃子'}[t]||t}
 function calcResult(){const f=state.calc;const type=f.type;if(type==='drawer')return calcDrawer(f);if(type==='cabinet')return calcCabinet(f);return calcBox(f)}
 function piece(part,qty,w,h,t,note){return {part,qty:Math.max(0,Math.floor(num(qty))),w:round(w),h:round(h),t:round(t),size:`${round(w)} × ${round(h)} × ${round(t)} mm`,note}}
 
-function calcBox(f){let W=num(f.width),D=num(f.depth),H=num(f.height),t=num(f.thickness),bt=num(f.bottomThickness,t);let innerW=W-2*t,innerD=D-2*t,innerH=H-t;if(f.sizeMode==='inner'){innerW=W;innerD=D;innerH=H;W=innerW+2*t;D=innerD+2*t;H=innerH+t}const hasLid=f.boxLid!=='none';const joint=f.boxJoint==='finger'?'finger':'straight';const pieces=[piece('前板',1,W,H,t,'正面板'),piece('後板',1,W,H,t,'背面板'),piece('左側板',1,D,H,t,'側板'),piece('右側板',1,D,H,t,'側板'),piece('底板',1,innerW,innerD,bt,joint==='finger'?'底板四邊帶榫卯':'底板')];pieces.forEach(p=>{p.sourceType='box';p.joint=joint;p.fingerSize=num(f.fingerSize,18);p.jointDepth=t;if(joint==='finger'){if(['前板','後板'].includes(p.part))p.edgeModes={top:'flat',right:'out',bottom:'in',left:'out'};else if(['左側板','右側板'].includes(p.part))p.edgeModes={top:'flat',right:'in',bottom:'in',left:'in'};else if(p.part==='底板')p.edgeModes={top:'out',right:'out',bottom:'out',left:'out'};}});if(hasLid){const lid=piece('上蓋',1,W,D,t,f.boxLid==='hinge'?'合頁蓋':'平蓋');lid.sourceType='box';lid.joint='straight';pieces.push(lid)}return {name:'盒子',summary:[`外尺寸 ${round(W)} × ${round(D)} × ${round(H)} mm`,`內尺寸約 ${round(innerW)} × ${round(innerD)} × ${round(innerH)} mm`,`接合：${joint==='finger'?'榫卯':'直切'}`,`榫齒寬：${round(f.fingerSize)} mm｜切縫補償：${round(f.kerf,2)} mm`,`板件 ${pieces.reduce((s,p)=>s+p.qty,0)} 件`],pieces};}
+function calcBox(f){let W=num(f.width),D=num(f.depth),H=num(f.height),t=num(f.thickness),bt=num(f.bottomThickness,t);let innerW=W-2*t,innerD=D-2*t,innerH=H-t;if(f.sizeMode==='inner'){innerW=W;innerD=D;innerH=H;W=innerW+2*t;D=innerD+2*t;H=innerH+t}const hasLid=f.boxLid!=='none';const joint=f.boxJoint==='finger'?'finger':'straight';const bottomMode=f.bottomJoint||'finger';const bottomLabel=bottomJointLabel(bottomMode);const pieces=[piece('前板',1,W,H,t,'正面板'),piece('後板',1,W,H,t,'背面板'),piece('左側板',1,D,H,t,'側板'),piece('右側板',1,D,H,t,'側板')];if(bottomMode!=='none'){let bw=innerW,bh=innerD,bnote=bottomLabel,bjoint='straight',bem=null;if(bottomMode==='flat'){bw=W;bh=D;bnote='平放底板｜外尺寸底貼'}else if(bottomMode==='inset'){bw=innerW;bh=innerD;bnote='內嵌底板｜放入盒內'}else{bw=innerW;bh=innerD;bnote='榫卯底板｜四邊可卡合';bjoint='finger';bem={top:'out',right:'out',bottom:'out',left:'out'}}const bottom=piece('底板',1,bw,bh,bt,bnote);bottom.sourceType='box';bottom.joint=bjoint;bottom.bottomJoint=bottomMode;bottom.fingerSize=num(f.fingerSize,18);bottom.jointDepth=t;if(bem)bottom.edgeModes=bem;pieces.push(bottom);}pieces.forEach(p=>{p.sourceType='box';if(!p.joint)p.joint=joint;p.fingerSize=num(f.fingerSize,18);p.jointDepth=t;if(joint==='finger'&&p.part!=='底板'){if(['前板','後板'].includes(p.part))p.edgeModes={top:'flat',right:'out',bottom:'in',left:'out'};else if(['左側板','右側板'].includes(p.part))p.edgeModes={top:'flat',right:'in',bottom:'in',left:'in'};}});if(hasLid){const lid=piece('上蓋',1,W,D,t,f.boxLid==='hinge'?'合頁蓋':'平蓋');lid.sourceType='box';lid.joint='straight';pieces.push(lid)}applyBoxEdgeOverrides(pieces);return {name:'盒子',summary:[`外尺寸 ${round(W)} × ${round(D)} × ${round(H)} mm`,`內尺寸約 ${round(innerW)} × ${round(innerD)} × ${round(innerH)} mm`,`盒體接合：${joint==='finger'?'榫卯':'直切'}`,`底板接合：${bottomLabel}`,`榫齒寬：${round(f.fingerSize)} mm｜切縫補償：${round(f.kerf,2)} mm`,`板件 ${pieces.reduce((s,p)=>s+p.qty,0)} 件`],pieces};}
 function calcDrawer(f){const W=num(f.width),D=num(f.depth),H=num(f.height),t=num(f.thickness),bt=num(f.bottomThickness,t),gap=num(f.drawerGap),clr=num(f.slideClearance),sl=num(f.slideLength);const boxW=W-2*clr,boxD=Math.min(D-20,sl),boxH=Math.max(40,H-20);return {name:'抽屜',summary:[`抽屜箱外寬 ${round(boxW)} mm`,`抽屜箱外深 ${round(boxD)} mm`,`滑軌每側 ${round(clr)} mm`,`抽面縫 ${round(gap)} mm`],pieces:[piece('側板',2,boxD,boxH,t,'左右側板'),piece('前板 / 後板',2,boxW-2*t,boxH,t,'夾在側板中間'),piece('底板',1,boxW-2*t,boxD-2*t,bt,'可入槽或底鎖'),piece('抽屜面板',1,W-2*gap,H-2*gap,t,'外露面板')]};}
 function calcCabinet(f){const W=num(f.width),D=num(f.depth),H=num(f.height),t=num(f.thickness),bt=num(f.backThickness),s=Math.max(0,Math.floor(num(f.shelfCount)));const innerW=W-2*t;return {name:'櫃子',summary:[`外尺寸 ${W} × ${D} × ${H} mm`,`內淨寬 ${round(innerW)} mm`,`層板 ${s} 片`,`背板 ${bt} mm`],pieces:[piece('側板',2,D,H,t,'左右側板'),piece('頂板 / 底板',2,innerW,D,t,'夾在側板中間'),piece('層板',s,innerW,D-10,t,'固定或活動層板'),piece('背板',1,W-12,H-12,bt,'增加抗扭')]};}
 
-function renderHome(){const res=calcResult();return `<section class="card"><h2>v12.09 SVG 幾何切縫補償版</h2><div class="home-grid"><div class="muted">這版把切縫補償真正套用到 SVG 幾何：外輪廓會依補償值向外擴，中心孔會依補償值向內縮；圖紙文字仍顯示設計尺寸，乾淨 SVG 保持無字。</div><div><div class="pill">工作區 300×300 mm</div> <div class="pill">有效區 280×280 mm</div> <div class="pill">SVG 優先</div></div></div></section>${fold('home-start','快速開始','選一個常用入口，不自動滾動。',`<div class="grid two"><button class="quick-btn" data-action="quick-calc" data-type="box">做盒子<small>榫卯 / 上蓋 / 板件</small></button><button class="quick-btn" data-action="quick-calc" data-type="drawer">做抽屜<small>滑軌間隙 / 面板縫</small></button><button class="quick-btn" data-action="quick-calc" data-type="cabinet">做櫃子<small>側板 / 層板 / 背板</small></button><button class="quick-btn" data-action="quick-page" data-page="knob">做旋鈕<small>中心孔 / 螺母槽</small></button><button class="quick-btn" data-action="quick-page" data-page="drawing">看圖紙<small>SVG / 280×280 分片</small></button><button class="quick-btn" data-action="quick-page" data-page="more">備份資料<small>JSON 匯出 / 匯入</small></button></div>`,true)}${fold('home-recent','最近設定','目前計算結果摘要。',summaryHtml(res),false)}${fold('home-notice','v12.00 暫緩功能','紙盒刀模、照片庫、DXF / PNG 暫不納入第一版。',`<ul class="notice-list"><li>紙盒刀模改列 v12.10 或之後加回。</li><li>照片庫 / 圖庫等大型功能等核心穩定後再加。</li><li>v11 保留為備份與功能參考，不再直接疊補丁。</li></ul>`,false)}`}
+function renderHome(){const res=calcResult();return `<section class="card"><h2>v12.15.3.8 版本號金屬藍顯示版</h2><div class="home-grid"><div class="muted">這版不新增新功能，主要把 App 介面中所有顯示的版本號套用金屬藍字色，包含首頁、頁尾、版本重點、關於紀錄與各頁可見版本文字。</div><div><div class="pill">工作區 300×300 mm</div> <div class="pill">有效區 280×280 mm</div> <div class="pill">SVG 優先</div><div class="pill">穩定整理版</div></div></div></section>${fold('home-start','快速開始','選一個常用入口，不自動滾動。',`<div class="grid two"><button class="quick-btn" data-action="quick-calc" data-type="box">做盒子<small>榫卯 / 上蓋 / 板件</small></button><button class="quick-btn" data-action="quick-calc" data-type="drawer">做抽屜<small>滑軌間隙 / 面板縫</small></button><button class="quick-btn" data-action="quick-calc" data-type="cabinet">做櫃子<small>側板 / 層板 / 背板</small></button><button class="quick-btn" data-action="quick-page" data-page="knob">做旋鈕<small>中心孔 / 螺母槽</small></button><button class="quick-btn" data-action="quick-page" data-page="drawing">看圖紙<small>SVG / 280×280 分片</small></button><button class="quick-btn" data-action="quick-page" data-page="more">備份資料<small>JSON 匯出 / 匯入</small></button></div>`,true)}${fold('home-recent','最近設定','目前計算結果摘要。',summaryHtml(res),false)}${fold('home-notice','v12.00 暫緩功能','紙盒刀模、照片庫、DXF / PNG 暫不納入第一版。',`<ul class="notice-list"><li>紙盒刀模改列 v12.10 或之後加回。</li><li>照片庫 / 圖庫等大型功能等核心穩定後再加。</li><li>v11 保留為備份與功能參考，不再直接疊補丁。</li></ul>`,false)}`}
 function summaryHtml(res){return `<div class="grid two"><div class="muted"><strong>目前類型：</strong>${esc(res.name)}<br><strong>摘要：</strong><br>${res.summary.map(x=>'・'+esc(x)).join('<br>')}</div><div class="table-wrap"><table><thead><tr><th>部件</th><th>數量</th><th>尺寸</th></tr></thead><tbody>${res.pieces.map(p=>`<tr><td>${esc(p.part)}</td><td>${p.qty}</td><td>${esc(p.size)}</td></tr>`).join('')}</tbody></table></div></div>`}
-function renderCalc(){const f=state.calc;const res=calcResult();const typeButtons=['box','drawer','cabinet'].map(t=>`<button class="quick-btn ${f.type===t?'active':''}" data-calc-type="${t}">${projectName(t)}<small>${t==='box'?'收納盒 / 雷射盒':t==='drawer'?'滑軌抽屜':'櫃體 / 層板'}</small></button>`).join('');let typeBody='';if(f.type==='box'){typeBody=`<div class="grid two">${select('calc.sizeMode','尺寸模式',[['outer','輸入外尺寸'],['inner','輸入內尺寸']])}${select('calc.boxLid','蓋型',[['none','無蓋'],['plain','平蓋'],['hinge','合頁蓋']])}${select('calc.boxJoint','接合',[['finger','榫卯'],['straight','直切']])}${field('calc.fingerSize','榫齒寬','number','mm')}${field('calc.kerf','切縫補償','number','mm')}</div>`}else if(f.type==='drawer'){typeBody=`<div class="grid two">${field('calc.slideClearance','滑軌單側預留','number','mm')}${field('calc.slideLength','滑軌長度','number','mm')}${field('calc.drawerGap','抽面縫隙','number','mm')}</div>`}else{typeBody=`<div class="grid two">${field('calc.shelfCount','層板數','number','片')}${field('calc.backThickness','背板厚','number','mm')}${field('calc.doorGap','門板預留縫','number','mm')}</div>`}return `${fold('calc-type','製作類型','v12.10 已加入分層 SVG；盒子 / 旋鈕切縫補償預設為 0.065 mm。',`<div class="grid three">${typeButtons}</div>`,true)}${fold('calc-size','主要尺寸','輸入寬、深、高與板厚。',`<div class="grid two">${field('calc.width','外寬 W','number','mm')}${field('calc.depth','外深 D','number','mm')}${field('calc.height','外高 H','number','mm')}${field('calc.thickness','主板厚','number','mm')}${field('calc.bottomThickness','底板厚','number','mm')}${field('calc.backThickness','背板厚','number','mm')}</div>`,true)}${fold('calc-type-settings','類型設定','依目前類型顯示需要的設定。',typeBody,false)}<section class="card"><h2>操作</h2><div class="btn-row"><button class="primary" data-action="save-calc">儲存設定</button><button class="secondary" data-action="apply-drawing-calc">套用到圖紙</button><button class="secondary" data-action="reset-calc">恢復預設尺寸</button></div></section>${fold('calc-result','計算結果','板件清單與尺寸。',summaryHtml(res),false)}`}
+
+function layoutModeLabel(mode){return {compact:'緊密',standard:'標準',safe:'保守',custom:'自訂'}[mode]||'自訂'}
+function gapForMode(mode){return {compact:4,standard:8,safe:12}[mode]??num(state.drawing.pieceGap,8)}
+function safeAreaInfo(){const area=Math.max(1,num(state.drawing.effectiveArea,280));const margin=Math.max(0,num(state.drawing.margin,10));const usable=Math.max(1,area-2*margin);const gap=Math.max(0,num(state.drawing.pieceGap,8));const autoRotate=state.drawing.autoRotate!==false;const showSafeFrame=state.drawing.showSafeFrame!==false;const outputOnlyFit=state.drawing.outputOnlyFit===true;const layoutMode=state.drawing.layoutMode||'standard';return {area,margin,usable,gap,autoRotate,showSafeFrame,outputOnlyFit,layoutMode,modeLabel:layoutModeLabel(layoutMode)}}
+function pieceDisplayName(p){return p.name||p.part||'板件'}
+function manualRotateMap(){if(!state.drawing.manualRotate||typeof state.drawing.manualRotate!=='object'||Array.isArray(state.drawing.manualRotate))state.drawing.manualRotate={};return state.drawing.manualRotate}
+function manualRotateKey(p){return state.calc.type+'::'+pieceDisplayName(p)}
+function getManualRotateMode(p){const m=manualRotateMap()[manualRotateKey(p)];return (m==='normal'||m==='rotate')?m:'auto'}
+function manualRotateModeLabel(mode){return {auto:'自動',normal:'原方向',rotate:'旋轉 90°'}[mode]||'自動'}
+function manualRotateCount(){const prefix=state.calc.type+'::';return Object.keys(manualRotateMap()).filter(k=>k.startsWith(prefix)).length}
+
+
+function bottomJointLabel(mode){return {flat:'平放底板',inset:'內嵌底板',finger:'榫卯底板',none:'無底板'}[mode]||'榫卯底板'}
+function bottomJointShort(mode){return {flat:'外尺寸底貼',inset:'縮入盒內',finger:'四邊榫卯',none:'不產生底板'}[mode]||'四邊榫卯'}
+function bottomJointDims(){const f=state.calc;let W=num(f.width),D=num(f.depth),H=num(f.height),t=num(f.thickness),bt=num(f.bottomThickness,t);let innerW=W-2*t,innerD=D-2*t,innerH=H-t;if(f.sizeMode==='inner'){innerW=W;innerD=D;innerH=H;W=innerW+2*t;D=innerD+2*t;H=innerH+t}const mode=f.bottomJoint||'finger';if(mode==='none')return {mode,label:bottomJointLabel(mode),w:0,h:0,t:bt,note:'不產生底板，SVG 與排版摘要不會列出底板。'};if(mode==='flat')return {mode,label:bottomJointLabel(mode),w:W,h:D,t:bt,note:'底板採外尺寸，適合直接黏在盒子底部；切割與組裝最簡單。'};if(mode==='inset')return {mode,label:bottomJointLabel(mode),w:innerW,h:innerD,t:bt,note:'底板採內尺寸，適合放入四邊板內側；外觀看起來較乾淨。'};return {mode,label:bottomJointLabel(mode),w:innerW,h:innerD,t:bt,note:'底板採內尺寸，四邊生成榫卯輪廓；適合需要卡合定位的雷射切割盒。'}}
+function bottomJointControlsHtml(){
+  if(state.calc.type!=='box')return `<div class="bottom-joint-note">底板接合方式目前只套用在「盒子」。抽屜與櫃子底板會在後續版本分開處理，避免不同結構混在同一套規則裡。</div>`;
+  const mode=state.calc.bottomJoint||'finger';
+  const d=bottomJointDims();
+  const opts=[
+    ['flat','平放底板','外寬 × 外深'],
+    ['inset','內嵌底板','內寬 × 內深'],
+    ['finger','榫卯底板','內尺寸＋四邊榫卯'],
+    ['none','無底板','完全不輸出']
+  ].map(o=>`<button class="quick-btn ${mode===o[0]?'active':''}" data-bottom-joint="${o[0]}">${o[1]}<small>${o[2]}</small></button>`).join('');
+  const size=d.mode==='none'?'不產生底板':`${round(d.w)} × ${round(d.h)} × ${round(d.t)} mm`;
+  const warn=(mode==='finger'&&state.calc.boxJoint!=='finger')?`<div class="bottom-joint-note" style="border-color:#e1b36e;background:#fff7e8;color:#7a4d13">提醒：目前盒體接合是直切，但底板選了榫卯底板。實際組裝可能沒有對應卡合面。建議把「盒子接合」也改成榫卯，或把底板改成平放 / 內嵌。</div>`:'';
+  return `<div class="bottom-joint-box">
+    <div class="bottom-joint-head"><span>底板接合方式</span><span>${esc(bottomJointLabel(mode))}</span></div>
+    <div class="bottom-joint-note">先選底板做法，再看「目前底板」尺寸。此設定會同步影響計算結果、SVG 預覽、預覽版 SVG、乾淨 SVG、分層 SVG、排版摘要與下載前摘要。</div>
+    <div class="bottom-joint-options">${opts}</div>
+    <div class="bottom-joint-guide">
+      <div><strong>平放底板</strong>底板使用外尺寸，適合快速測試、底部外貼或黏合。</div>
+      <div><strong>內嵌底板</strong>底板使用內尺寸，適合放入盒內，外觀較乾淨。</div>
+      <div><strong>榫卯底板</strong>底板使用內尺寸並生成四邊榫卯，適合需要卡合定位。</div>
+      <div><strong>無底板</strong>不產生底板；SVG、摘要與下載前提示都不列出底板。</div>
+    </div>
+    ${warn}
+    <div class="bottom-joint-summary"><strong>目前底板：</strong>${esc(bottomJointLabel(mode))}｜${esc(bottomJointShort(mode))}<br><strong>底板尺寸：</strong>${esc(size)}<br>${esc(d.note)}<span class="bottom-joint-tip">驗收順序：先看計算結果尺寸，再到圖紙頁下載預覽 SVG / 乾淨 SVG / 分層 SVG 檢查是否一致。</span></div>
+  </div>`
+}
+
+function pieceOutputMap(){if(!state.calc.pieceOutput||typeof state.calc.pieceOutput!=='object'||Array.isArray(state.calc.pieceOutput))state.calc.pieceOutput={};return state.calc.pieceOutput}
+function pieceOutputKey(p){return state.calc.type+'::'+pieceDisplayName(p)}
+function isPieceOutputEnabled(p){return pieceOutputMap()[pieceOutputKey(p)]!==false}
+function allCalcPiecesFlattened(){try{return flattenPieces(calcResult().pieces).filter(p=>p.w>0&&p.h>0)}catch(e){return []}}
+function selectedCalcPiecesForLayout(){return allCalcPiecesFlattened().filter(isPieceOutputEnabled)}
+function pieceOutputStats(){const pieces=allCalcPiecesFlattened();const enabled=pieces.filter(isPieceOutputEnabled);const disabled=pieces.filter(p=>!isPieceOutputEnabled(p));return {pieces,enabled,disabled,total:pieces.length,enabledCount:enabled.length,disabledCount:disabled.length}}
+function pieceOutputQuickMode(){const st=pieceOutputStats();if(!st.total)return 'none';if(st.disabledCount===0)return 'all';const bottom=p=>String(pieceDisplayName(p)).includes('底板');const bottomTotal=st.pieces.filter(bottom).length;const enabledBottom=st.enabled.filter(bottom).length;if(bottomTotal>0&&st.enabledCount===bottomTotal&&enabledBottom===bottomTotal)return 'bottom';return 'custom'}
+function pieceOutputQuickModeLabel(){const m=pieceOutputQuickMode();return m==='all'?'全部輸出':m==='bottom'?'只輸出底板':m==='custom'?'自訂輸出':'無板件'}
+function pieceOutputControlsHtml(){const st=pieceOutputStats();if(!st.total)return `<div class="piece-output-note">目前沒有可控制輸出的板件。</div>`;const quickMode=pieceOutputQuickMode();const rows=st.pieces.map(p=>{const on=isPieceOutputEnabled(p),key=pieceOutputKey(p);return `<div class="piece-output-row ${on?'':'off'}"><div class="piece-output-row-head"><div>${esc(pieceDisplayName(p))}<small>${round(p.w)} × ${round(p.h)} × ${round(p.t)} mm｜${esc(p.note||'板件')}</small></div><span class="piece-output-badge ${on?'':'off'}">${on?'會輸出':'不輸出'}</span></div><div class="piece-output-actions"><button class="quick-btn ${on?'active':''}" data-piece-output-key="${esc(key)}" data-piece-output-mode="on">輸出<small>加入圖紙 / SVG</small></button><button class="quick-btn ${!on?'active':''}" data-piece-output-key="${esc(key)}" data-piece-output-mode="off">不輸出<small>暫時排除</small></button></div></div>`}).join('');return `<div class="piece-output-box"><div class="piece-output-head"><span>板件輸出控制</span><span>輸出 ${st.enabledCount} / ${st.total} 件</span></div><div class="piece-output-note">關閉某片板件後，圖紙預覽、排版摘要、預覽 SVG、乾淨 SVG、分層 SVG 都會同步排除該板件；計算尺寸仍會保留，方便之後再打開。</div><div class="piece-output-bulk"><button class="quick-btn bulk-all ${quickMode==='all'?'active':''}" data-action="piece-output-all">全部輸出<small>所有板件加入圖紙 / SVG</small></button><button class="quick-btn bulk-bottom ${quickMode==='bottom'?'active':''}" data-action="piece-output-bottom-only">只輸出底板<small>只保留底板，其它暫時排除</small></button></div><div class="piece-output-mode-note">目前批次狀態：${pieceOutputQuickModeLabel()}</div>${rows}</div>`}
+function pieceOutputSummaryHtml(){const st=pieceOutputStats();if(!st.total)return '';const disabled=st.disabled.map(p=>pieceDisplayName(p)).join('、')||'無';return `<div class="piece-output-summary">目前 SVG 輸出板件：${st.enabledCount} / ${st.total} 件<br>不輸出：${esc(disabled)}</div>`}
+
+function boxEdgeMap(){if(!state.calc.edgeModes||typeof state.calc.edgeModes!=='object'||Array.isArray(state.calc.edgeModes))state.calc.edgeModes={};return state.calc.edgeModes}
+function edgeControlKey(p){return 'box::'+pieceDisplayName(p)}
+function edgeSideLabel(side){return {top:'上',right:'右',bottom:'下',left:'左'}[side]||side}
+function edgeModeLabel(mode){return {flat:'直邊',out:'公榫',in:'母榫'}[mode]||'直邊'}
+function edgeModeShort(mode){return {flat:'直',out:'公',in:'母'}[mode]||'直'}
+function cleanEdgeModes(m){const out={};['top','right','bottom','left'].forEach(side=>{const v=m&&m[side];out[side]=(v==='out'||v==='in'||v==='flat')?v:'flat'});return out}
+function getPieceEdgeModes(p){return cleanEdgeModes(p.edgeModes||{})}
+function getEdgeOverride(p){const map=boxEdgeMap();const raw=map[edgeControlKey(p)];return raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:null}
+function getEffectiveEdgeModes(p){return cleanEdgeModes(getEdgeOverride(p)||p.edgeModes||{})}
+function applyBoxEdgeOverrides(pieces){if(state.calc.type!=='box')return pieces;pieces.forEach(p=>{if(!(p.sourceType==='box'&&p.joint==='finger'))return;const o=getEdgeOverride(p);if(o)p.edgeModes=getEffectiveEdgeModes(p);});return pieces}
+function edgeControlPieces(){try{return allCalcPiecesFlattened().filter(p=>p.sourceType==='box'&&p.joint==='finger'&&p.edgeModes)}catch(e){return []}}
+function edgeOverrideCount(){const prefix='box::';return Object.keys(boxEdgeMap()).filter(k=>k.startsWith(prefix)).length}
+function edgeControlSummary(){const pieces=edgeControlPieces();if(!pieces.length)return '無可控制榫卯的盒子板件';return `已自訂 ${edgeOverrideCount()} / ${pieces.length} 件`}
+function setEdgeModeByKey(key,side,mode){if(!['top','right','bottom','left'].includes(side))return;if(!['flat','out','in'].includes(mode))return;const map=boxEdgeMap();if(!map[key])map[key]={};map[key][side]=mode;}
+function edgeControlHtml(){if(state.calc.type!=='box')return `<div class="edge-note">每邊榫卯控制目前只套用在「盒子」類型；抽屜與櫃子後續再分開設計。</div>`;if(state.calc.boxJoint!=='finger')return `<div class="edge-note">目前接合方式是直切。請在「類型設定」把接合改成「榫卯」，才會顯示每邊榫卯控制。</div>`;const pieces=edgeControlPieces();if(!pieces.length)return `<div class="edge-note">目前沒有可設定榫卯邊的盒子板件。</div>`;const rows=pieces.map(p=>{const key=edgeControlKey(p),m=getEffectiveEdgeModes(p);const summary=['top','right','bottom','left'].map(side=>edgeSideLabel(side)+':'+edgeModeShort(m[side])).join('｜');const sides=['top','right','bottom','left'].map(side=>`<div class="edge-side"><div class="edge-side-name">${edgeSideLabel(side)}邊</div><button class="quick-btn ${m[side]==='flat'?'active':''}" data-edge-key="${esc(key)}" data-edge-side="${side}" data-edge-mode="flat">直邊<small>不榫卯</small></button><button class="quick-btn ${m[side]==='out'?'active':''}" data-edge-key="${esc(key)}" data-edge-side="${side}" data-edge-mode="out">公榫<small>凸齒</small></button><button class="quick-btn ${m[side]==='in'?'active':''}" data-edge-key="${esc(key)}" data-edge-side="${side}" data-edge-mode="in">母榫<small>凹齒</small></button></div>`).join('');return `<div class="edge-row"><div class="edge-row-head"><div>${esc(pieceDisplayName(p))}<small>${round(p.w)} × ${round(p.h)} × ${round(p.t)} mm｜${esc(p.note||'盒子板件')}</small></div><span class="edge-badge">${esc(summary)}</span></div>${sides}</div>`}).join('');return `<div class="edge-control-box"><div class="edge-control-head"><span>每邊榫卯控制</span><span>${edgeControlSummary()}</span></div><div class="edge-note">可針對盒子每片板件的上、右、下、左邊設定「直邊 / 公榫 / 母榫」。設定會同步影響圖紙預覽、乾淨 SVG 與分層 SVG。若公母方向不確定，先下載預覽 SVG 放大檢查。</div>${rows}<div class="edge-actions"><button class="secondary" data-action="reset-edge-modes">恢復預設榫卯</button></div></div>`}
+
+function manualRotateControlsHtml(){let pieces=[];try{pieces=selectedCalcPiecesForLayout()}catch(e){return `<div class="manual-note">目前無法讀取板件清單，請先檢查尺寸設定。</div>`}if(!pieces.length)return `<div class="manual-note">目前沒有可設定旋轉的板件。</div>`;const open=bool(state.ui.manualRotateOpen);const count=manualRotateCount();const toggle=`<button class="quick-btn manual-toggle ${open?'active':''}" data-action="toggle-manual-rotate-panel"><span>手動旋轉板件｜${open?'收合':'展開'}</span><small>已指定 ${count} / ${pieces.length} 件</small></button>`;const note=open?`<div class="manual-note">自動旋轉仍會保留。若某一片板件你想固定方向，可在這裡手動指定；手動設定優先於自動旋轉。</div>`:`<div class="manual-note">平常收合即可。需要固定某片板件方向時，再展開此區設定「自動 / 原方向 / 旋轉 90°」。</div>`;if(!open)return `<div class="manual-rotate-box">${toggle}${note}</div>`;const rows=pieces.map(p=>{const key=manualRotateKey(p),mode=getManualRotateMode(p);return `<div class="manual-row"><div class="manual-row-head"><div>${esc(pieceDisplayName(p))}<small>${round(p.w)} × ${round(p.h)} mm</small></div><span class="manual-badge manual-badge-${mode}">目前：${manualRotateModeLabel(mode)}</span></div><div class="manual-actions"><button class="quick-btn ${mode==='auto'?'active':''}" data-manual-rotate-key="${esc(key)}" data-manual-rotate-mode="auto">自動<small>照排版判斷</small></button><button class="quick-btn ${mode==='normal'?'active':''}" data-manual-rotate-key="${esc(key)}" data-manual-rotate-mode="normal">原方向<small>禁止旋轉</small></button><button class="quick-btn ${mode==='rotate'?'active':''}" data-manual-rotate-key="${esc(key)}" data-manual-rotate-mode="rotate">旋轉<small>固定 90°</small></button></div></div>`}).join('');return `<div class="manual-rotate-box">${toggle}${note}${rows}<div class="btn-row"><button class="secondary" data-action="clear-manual-rotate">全部恢復自動</button></div></div>`}
+
+function analyzeCalcLayout(){
+  const info=safeAreaInfo();let pieces=[];
+  try{
+    pieces=selectedCalcPiecesForLayout();
+  }catch(e){
+    return {info,pieces:[],normal:[],rotated:[],oversize:[],placed:[],layout:null,error:e.message};
+  }
+  let lay;
+  try{
+    lay=nestPieces(pieces,info.area,info.margin);
+  }catch(e){
+    return {info,pieces,normal:[],rotated:[],oversize:[],placed:[],layout:null,error:e.message};
+  }
+  const placed=(lay.placed||[]).filter(p=>!p.overflow);
+  const normal=placed.filter(p=>!p.rot);
+  const rotated=placed.filter(p=>p.rot);
+  const oversize=(lay.oversize||[]).map(p=>({...p,origW:num(p.origW??p.w),origH:num(p.origH??p.h),canRotate:!!p.canRotate}));
+  return {info,pieces,normal,rotated,oversize,placed,layout:lay,error:null};
+}
+function layoutOutputStatus(scope='calc'){
+  const warnings=collectWarnings(scope).filter(w=>!w.includes('會自動旋轉')&&!w.includes('已手動指定旋轉'));
+  let level='ok',label='可安全輸出',detail='目前沒有主要警告。';
+  if(scope==='calc'||scope==='all'){
+    const a=analyzeCalcLayout();
+    if(a.error)return {level:'danger',label:'檢查失敗',detail:'排版分析失敗，請先檢查尺寸。'};
+    if(a.oversize.length)return {level:'danger',label:'有板件無法放入',detail:'有 '+a.oversize.length+' 件板件超出目前排版區。'};
+  }
+  if(warnings.some(w=>w.includes('必須')||w.includes('超出')||w.includes('吃掉'))){level='danger';label='設定需要修正';detail='有尺寸或排版設定需要修正。';}
+  else if(warnings.length){level='warn';label='可輸出但需注意';detail='有 '+warnings.length+' 項注意事項，建議切割前確認。';}
+  return {level,label,detail};
+}
+function layoutBoardStats(){
+  const a=analyzeCalcLayout();
+  if(a.error)return {error:a.error,info:a.info,boards:[],a};
+  const info=a.info,lay=a.layout||{placed:[],boards:0};
+  const placed=(lay.placed||[]).filter(p=>!p.overflow);
+  const boardNos=[...new Set(placed.map(p=>p.board))].sort((x,y)=>x-y);
+  const maxBoard=Math.max(lay.boards||0,...boardNos,1);
+  const boards=[];
+  for(let b=1;b<=maxBoard;b++){
+    const ps=placed.filter(p=>p.board===b);
+    if(!ps.length&&b>boardNos.length)continue;
+    const area=ps.reduce((sum,p)=>sum+num(p.w)*num(p.h),0);
+    const denom=Math.max(1,num(lay.usable||info.usable)*num(lay.usable||info.usable));
+    boards.push({board:b,pieces:ps,area,usage:Math.min(999,area/denom*100)});
+  }
+  return {info,boards,a,placedCount:placed.length,totalPieces:a.pieces.length,oversizeCount:a.oversize.length,manualCount:manualRotateCount(),rotatedCount:a.rotated.length};
+}
+function summaryModeButton(){const open=bool(state.ui.summaryDetailOpen);return `<div class="summary-mode-row"><button class="summary-toggle-btn" type="button" data-action="toggle-summary-detail">摘要模式：${open?'詳細':'精簡'}｜${open?'切回精簡':'展開詳細'}</button><span class="small">精簡適合手機快速檢查；詳細才列出每片板材與超尺寸清單。</span></div>`}
+function layoutSummaryHtml(scope='calc'){
+  if(scope==='knob')return knobLayoutSummaryHtml();
+  const s=layoutBoardStats();
+  if(s.error)return `<div class="check-box check-danger">排版摘要產生失敗：${esc(s.error)}</div>`;
+  const status=layoutOutputStatus('calc');
+  const info=s.info;
+  const oversize=s.a.oversize||[];
+  const open=bool(state.ui.summaryDetailOpen);
+  const outNote=info.outputOnlyFit?'只輸出可放入：開啟，超尺寸板件不會進入 SVG。':'只輸出可放入：關閉，超尺寸板件仍會在預覽中提示。';
+  const compact=`<div class="summary-compact"><div><span class="status-chip ${status.level}">${status.label}</span></div><div class="summary-kpi"><div><strong>${s.boards.length}</strong><span>分片</span></div><div><strong>${s.placedCount}</strong><span>可排入</span></div><div><strong>${s.oversizeCount}</strong><span>超尺寸</span></div></div><div style="margin-top:8px">排版區 ${round(info.usable)} × ${round(info.usable)} mm｜間距 ${round(info.gap)} mm｜手動指定 ${s.manualCount} 件｜已旋轉 ${s.rotatedCount} 件<br>SVG 輸出板件：${pieceOutputStats().enabledCount}/${pieceOutputStats().total} 件｜${outNote}</div></div>`;
+  if(!open)return `<div class="layout-summary-grid">${summaryModeButton()}${compact}</div>`;
+  const boardHtml=s.boards.length?s.boards.map(b=>`<div class="board-card"><div class="board-title">第 ${b.board} 片｜使用率 ${round(b.usage,1)}%</div><div class="usage-bar"><div class="usage-fill" style="width:${Math.max(1,Math.min(100,b.usage))}%"></div></div><div class="small">${b.pieces.length?b.pieces.map(p=>esc(pieceDisplayName(p))+(p.rot?'（旋轉）':'')).join('、'):'尚無板件'}</div></div>`).join(''):`<div class="layout-summary-card">目前沒有可排入板件。</div>`;
+  const oversizeHtml=oversize.length?`<div class="table-wrap"><table class="oversize-table"><thead><tr><th>未能放入</th><th>尺寸</th><th>處理</th></tr></thead><tbody>${oversize.map(p=>`<tr><td>${esc(pieceDisplayName(p))}</td><td>${round(p.origW)} × ${round(p.origH)} mm</td><td>${info.outputOnlyFit?'不輸出到 SVG':'列入提醒，切割前請確認'}</td></tr>`).join('')}</tbody></table></div>`:`<div class="layout-summary-card">沒有超尺寸板件。</div>`;
+  return `<div class="layout-summary-grid">${summaryModeButton()}${compact}<div class="summary-detail"><div class="layout-summary-card"><strong>詳細輸出摘要</strong><br>圖紙來源：${esc(calcResult().name)}<br>板材分片：${s.boards.length} 片<br>板件總數：${pieceOutputStats().total} 件｜已啟用輸出：${pieceOutputStats().enabledCount} 件｜已關閉：${pieceOutputStats().disabledCount} 件｜可排入：${s.placedCount} 件｜超尺寸：${s.oversizeCount} 件<br>已旋轉：${s.rotatedCount} 件｜手動指定：${s.manualCount} 件<br>有效區：${round(info.area)} × ${round(info.area)} mm｜排版區：${round(info.usable)} × ${round(info.usable)} mm｜邊距：${round(info.margin)} mm｜間距：${round(info.gap)} mm<br>${outNote}</div><div class="board-summary">${boardHtml}</div>${oversizeHtml}</div></div>`;
+}
+function knobLayoutSummaryHtml(){
+  const info=safeAreaInfo(),k=state.knob,dia=num(k.outerDiameter,0)+2*Math.max(0,num(k.kerf,0)),gap=info.gap;
+  const cols=Math.max(1,Math.floor((info.usable+gap)/(Math.max(1,dia)+gap))),rows=Math.max(1,Math.floor((info.usable+gap)/(Math.max(1,dia)+gap))),cap=cols*rows,count=Math.max(0,Math.floor(num(k.count,0))),boards=Math.max(1,Math.ceil(count/Math.max(1,cap))),areaOne=dia*dia,countOnFirst=Math.min(count,cap),usage=cap?countOnFirst*areaOne/(info.usable*info.usable)*100:0;
+  const level=count>cap?'warn':'ok';
+  const open=bool(state.ui.summaryDetailOpen);
+  const compact=`<div class="summary-compact"><div><span class="status-chip ${level}">${count>cap?'需要分多片':'可排入單片'}</span></div><div class="summary-kpi"><div><strong>${boards}</strong><span>預估分片</span></div><div><strong>${cap}</strong><span>單片容量</span></div><div><strong>${round(usage,1)}%</strong><span>首片使用率</span></div></div><div style="margin-top:8px">旋鈕數量 ${count} 個｜排版區 ${round(info.usable)} × ${round(info.usable)} mm｜間距 ${round(info.gap)} mm</div></div>`;
+  if(!open)return `<div class="layout-summary-grid">${summaryModeButton()}${compact}</div>`;
+  return `<div class="layout-summary-grid">${summaryModeButton()}${compact}<div class="layout-summary-card"><strong>旋鈕詳細排版摘要</strong><br>旋鈕數量：${count} 個｜預估單片容量：${cap} 個｜預估分片：${boards} 片<br>外徑加補償：約 ${round(dia,2)} mm｜排版區：${round(info.usable)} × ${round(info.usable)} mm｜間距：${round(info.gap)} mm</div><div class="board-card"><div class="board-title">第 1 片｜預估使用率 ${round(usage,1)}%</div><div class="usage-bar"><div class="usage-fill" style="width:${Math.max(1,Math.min(100,usage))}%"></div></div><div class="small">可放入約 ${countOnFirst} 個旋鈕。</div></div></div>`;
+}
+function downloadSummaryText(scope='calc',kind='SVG'){
+  const info=safeAreaInfo();
+  const detail=bool(state.ui.summaryDetailOpen);
+  if(scope==='knob'){
+    const k=state.knob,dia=num(k.outerDiameter,0)+2*Math.max(0,num(k.kerf,0)),gap=info.gap,cols=Math.max(1,Math.floor((info.usable+gap)/(Math.max(1,dia)+gap))),rows=cols,cap=cols*rows,count=Math.max(0,Math.floor(num(k.count,0)));
+    const compact=['即將下載 '+kind,'圖紙來源：旋鈕','旋鈕數量：'+count+' 個｜單片容量：約 '+cap+' 個','排版區：'+round(info.usable)+' × '+round(info.usable)+' mm｜間距：'+round(info.gap)+' mm'];
+    if(!detail)return compact.concat(['目前為精簡摘要；需要完整資料可先在「排版摘要」切到詳細。']).join('\n');
+    return compact.concat(['有效區：'+round(info.area)+' × '+round(info.area)+' mm','外徑加補償：約 '+round(dia,2)+' mm']).join('\n');
+  }
+  const s=layoutBoardStats();
+  if(s.error)return '即將下載 '+kind+'\n排版摘要產生失敗，請先檢查尺寸。';
+  const compact=['即將下載 '+kind,'圖紙來源：'+calcResult().name,'分片：'+s.boards.length+' 片｜可排入：'+s.placedCount+' 件｜超尺寸：'+s.oversizeCount+' 件','排版區：'+round(info.usable)+' × '+round(info.usable)+' mm｜間距：'+round(info.gap)+' mm','只輸出可放入：'+(info.outputOnlyFit?'開啟':'關閉')];
+  if(!detail)return compact.concat(['目前為精簡摘要；需要完整資料可先在「排版摘要」切到詳細。']).join('\n');
+  return compact.concat(['板件總數：'+pieceOutputStats().total+' 件｜已關閉輸出：'+pieceOutputStats().disabledCount+' 件','自動旋轉：'+(info.autoRotate?'開啟':'關閉'),'手動指定：'+s.manualCount+' 件｜已旋轉：'+s.rotatedCount+' 件','安全邊距：'+round(info.margin)+' mm']).join('\n');
+}
+function collectWarnings(scope='all'){
+  const out=[];const info=safeAreaInfo();
+  if(num(state.drawing.workArea,300)<=0)out.push('機台工作區必須大於 0 mm。');
+  if(info.area<=0)out.push('有效切割區必須大於 0 mm。');
+  if(info.area>num(state.drawing.workArea,300))out.push('有效切割區大於機台工作區，建議檢查 300×300 / 280×280 設定。');
+  if(info.margin<0)out.push('邊距不可為負數。');
+  if(info.margin*2>=info.area)out.push('邊距過大，已經吃掉整個有效切割區。');
+  if(info.gap<3)out.push('板件間距小於 3 mm，可能焦黑、變形或切穿相鄰線。');
+  else if(info.gap<6)out.push('板件間距偏小，建議先用測試片確認焦黑與翹曲情況。');
+  else if(info.gap>20)out.push('板件間距超過 20 mm，排版會比較浪費板材。');
+  if(scope==='all'||scope==='calc'){
+    const f=state.calc;
+    [['外寬 W',f.width],['外深 D',f.depth],['外高 H',f.height],['主板厚',f.thickness],['底板厚',f.bottomThickness]].forEach(([n,v])=>{if(num(v,0)<=0)out.push(n+' 必須大於 0 mm。')});
+    if(num(f.thickness,0)>num(f.width,0)/2||num(f.thickness,0)>num(f.depth,0)/2)out.push('板厚相對於寬 / 深過大，內尺寸可能變成負值。');
+    if(num(f.kerf,0)<0)out.push('切縫補償不可為負數。');
+    if(num(f.kerf,0)>1)out.push('切縫補償超過 1 mm，請確認是否輸入錯誤。');
+    if(f.type==='box'&&num(f.fingerSize,0)<4)out.push('榫齒寬小於 4 mm，雷射切割後可能太脆或難以組裝。');if(f.type==='box'&&(f.bottomJoint||'finger')==='finger'&&f.boxJoint!=='finger')out.push('底板接合方式為榫卯底板，但盒體接合目前是直切，實際組裝可能沒有對應卡合面。');
+    const a=analyzeCalcLayout();
+    if(a.error)out.push('計算結果檢查失敗，請確認尺寸輸入。');
+    const po=pieceOutputStats();if(po.total&&po.enabledCount===0)out.push('目前所有板件都設定為不輸出，SVG 會沒有木工板件。');
+    if(a.oversize.length)out.push('有 '+a.oversize.length+' 件板件無法放入目前排版區 '+round(info.usable)+'×'+round(info.usable)+' mm：'+a.oversize.slice(0,4).map(pieceDisplayName).join('、')+(a.oversize.length>4?' 等':'')+'。');
+    const manualRot=a.rotated.filter(p=>p.manualMode==='rotate');const autoRot=a.rotated.filter(p=>p.manualMode!=='rotate');if(autoRot.length)out.push('有 '+autoRot.length+' 件板件會自動旋轉 90° 進行排版：'+autoRot.slice(0,4).map(pieceDisplayName).join('、')+(autoRot.length>4?' 等':'')+'。');if(manualRot.length)out.push('有 '+manualRot.length+' 件板件已手動指定旋轉 90°：'+manualRot.slice(0,4).map(pieceDisplayName).join('、')+(manualRot.length>4?' 等':'')+'。');
+  }
+  if(scope==='all'||scope==='knob'){
+    const k=state.knob, dia=num(k.outerDiameter,0)+2*Math.max(0,num(k.kerf,0));
+    if(num(k.outerDiameter,0)<=0)out.push('旋鈕外徑 / 長度必須大於 0 mm。');
+    if(num(k.centerHole,0)<=0)out.push('旋鈕中心孔必須大於 0 mm。');
+    if(dia>info.usable)out.push('旋鈕外徑加補償後超出目前可排版內區 '+round(info.usable)+' mm。');
+    if(num(k.count,0)<1)out.push('旋鈕排版數量至少需要 1 個。');
+    const gap=info.gap;const cols=Math.max(1,Math.floor((info.usable+gap)/(Math.max(1,dia)+gap)));const rows=Math.max(1,Math.floor((info.usable+gap)/(Math.max(1,dia)+gap)));const cap=cols*rows;
+    if(num(k.count,0)>cap)out.push('目前旋鈕數量可能超過單片有效區容量，預估單片最多 '+cap+' 個，超出的不會顯示在同一片圖紙內。');
+  }
+  return out;
+}
+function validationHtml(scope='all'){
+  const info=safeAreaInfo();const warnings=collectWarnings(scope);const status=layoutOutputStatus(scope);const cls=status.level==='danger'?'check-box check-danger':(status.level==='warn'?'check-box check-warn':'check-box check-ok');
+  let extra='';
+  if(scope==='calc'||scope==='all'){
+    const a=analyzeCalcLayout();
+    if(!a.error){
+      const po=pieceOutputStats();if(po.disabledCount)extra+=`<div class="layout-summary" style="margin-top:8px"><strong>不輸出板件：</strong>${po.disabled.slice(0,8).map(p=>esc(pieceDisplayName(p))).join('、')}${po.disabledCount>8?' 等':''}</div>`;
+      if(a.oversize.length)extra+=`<div class="table-wrap" style="margin-top:8px"><table class="oversize-table"><thead><tr><th>超尺寸板件</th><th>尺寸</th><th>問題</th></tr></thead><tbody>${a.oversize.slice(0,8).map(p=>`<tr><td>${esc(pieceDisplayName(p))}</td><td>${round(p.origW)} × ${round(p.origH)} mm</td><td>超過排版區 ${round(info.usable)} × ${round(info.usable)} mm${info.outputOnlyFit?'；已設定不輸出到 SVG':p.manualMode==='rotate'?'；目前被手動指定旋轉':p.manualMode==='normal'?'；目前被手動指定原方向':(p.canRotate?'；旋轉方向可放但目前設定不允許':'。')}</td></tr>`).join('')}</tbody></table></div>`;
+      if(a.rotated.length){const manualRot=a.rotated.filter(p=>p.manualMode==='rotate');const autoRot=a.rotated.filter(p=>p.manualMode!=='rotate');if(autoRot.length)extra+=`<div class="layout-summary" style="margin-top:8px"><strong>已自動旋轉：</strong>${autoRot.slice(0,8).map(p=>esc(pieceDisplayName(p))).join('、')}</div>`;if(manualRot.length)extra+=`<div class="layout-summary" style="margin-top:8px"><strong>已手動旋轉：</strong>${manualRot.slice(0,8).map(p=>esc(pieceDisplayName(p))).join('、')}</div>`;}
+    }
+  }
+  const meta=`有效區 ${round(info.area)}×${round(info.area)} mm｜邊距 ${round(info.margin)} mm｜排版區 ${round(info.usable)}×${round(info.usable)} mm｜間距 ${round(info.gap)} mm｜自動旋轉 ${info.autoRotate?'開啟':'關閉'}｜手動指定 ${manualRotateCount()} 件｜只輸出可放入 ${info.outputOnlyFit?'開啟':'關閉'}｜SVG板件 ${pieceOutputStats().enabledCount}/${pieceOutputStats().total}`;
+  if(!warnings.length)return `<div data-check-scope="${esc(scope)}" class="${cls}"><span class="status-chip ${status.level}">${status.label}</span><br>檢查結果：目前可排版。<br>${meta}${extra}</div>`;
+  return `<div data-check-scope="${esc(scope)}" class="${cls}"><span class="status-chip ${status.level}">${status.label}</span><br><strong>檢查提醒：</strong><br>${meta}<ul>${warnings.map(w=>`<li>${esc(w)}</li>`).join('')}</ul>${extra}</div>`;
+}
+function currentCheckScope(){
+  if(state.page==='knob')return 'knob';
+  if(state.page==='drawing')return state.drawing.source==='knob'?'knob':'calc';
+  if(state.page==='home'||state.page==='more')return 'all';
+  return 'calc';
+}
+function globalCheckHtml(scope){
+  scope=scope||currentCheckScope();
+  const info=safeAreaInfo();
+  const warnings=collectWarnings(scope);
+  const status=layoutOutputStatus(scope);
+  const label=scope==='knob'?'旋鈕圖紙':scope==='calc'?'木工板件':'全部功能';
+  const cls=status.level==='danger'?'check-danger':(status.level==='warn'?'check-attn':'check-pass');
+  const meta=`有效區 ${round(info.area)}×${round(info.area)} mm｜邊距 ${round(info.margin)} mm｜排版區 ${round(info.usable)}×${round(info.usable)} mm｜間距 ${round(info.gap)} mm｜自動旋轉 ${info.autoRotate?'開啟':'關閉'}｜手動指定 ${manualRotateCount()} 件｜只輸出可放入 ${info.outputOnlyFit?'開啟':'關閉'}｜SVG板件 ${pieceOutputStats().enabledCount}/${pieceOutputStats().total}`;
+  if(!warnings.length){
+    return `<section class="card check-top ${cls}" data-check-global="1" data-check-scope="${esc(scope)}"><h2>目前檢查提醒</h2><div class="check-main"><span class="status-chip ${status.level}">${status.label}</span>｜${label}</div><div class="check-meta">${meta}</div></section>`;
+  }
+  return `<section class="card check-top ${cls}" data-check-global="1" data-check-scope="${esc(scope)}"><h2>目前檢查提醒</h2><div class="check-main"><span class="status-chip ${status.level}">${status.label}</span>｜發現 ${warnings.length} 項需要確認｜${label}</div><div class="check-meta">${meta}</div><ul>${warnings.map(w=>`<li>${esc(w)}</li>`).join('')}</ul></section>`;
+}
+function updateCheckPanels(){document.querySelectorAll('[data-check-scope]').forEach(el=>{const scope=el.dataset.checkScope||'all';const wrap=document.createElement('div');wrap.innerHTML=el.dataset.checkGlobal==='1'?globalCheckHtml(scope):validationHtml(scope);const next=wrap.firstElementChild;if(next)el.replaceWith(next);});}
+function downloadCheckHtml(){return `<div class="download-check"><div>1. 預覽版 SVG：含文字、尺寸線與旋轉提示，適合手機檢查，不建議直接切割。</div><div>2. 乾淨 SVG：移除文字標註與安全框，較適合正式切割。</div><div>3. 分層 SVG：CUT_RED 為切割線，GUIDE_GRAY 為有效區 / 排版區參考框，ENGRAVE_BLACK 為雕刻 / 標記線。</div><div>4. 匯入 LightBurn 後，請確認比例仍為 mm，並確認 280×280 mm 有效區、邊距與板件間距。</div></div>`}
+function downloadGuard(scope,kind='SVG'){
+  const warnings=collectWarnings(scope||'all');
+  const summary=downloadSummaryText(scope||'all',kind||'SVG');
+  const status=layoutOutputStatus(scope||'all');
+  let msg=summary+'\n\n輸出狀態：'+status.label+'\n'+status.detail;
+  if(warnings.length)msg+='\n\n目前有 '+warnings.length+' 項檢查提醒：\n- '+warnings.slice(0,8).join('\n- ');
+  else msg+='\n\n目前沒有警告。';
+  msg+='\n\n是否繼續下載？';
+  return confirm(msg);
+}
+function layoutSettingsHtml(){const info=safeAreaInfo();return `<div class="layout-card"><div><div class="label">排版模式</div><div class="mode-row"><button class="quick-btn ${info.layoutMode==='compact'?'active':''}" data-layout-mode="compact">緊密<small>4 mm</small></button><button class="quick-btn ${info.layoutMode==='standard'?'active':''}" data-layout-mode="standard">標準<small>8 mm</small></button><button class="quick-btn ${info.layoutMode==='safe'?'active':''}" data-layout-mode="safe">保守<small>12 mm</small></button></div></div><div class="grid two">${field('drawing.pieceGap','板件間距','number','mm')}${select('drawing.layoutMode','目前模式',[['compact','緊密'],['standard','標準'],['safe','保守'],['custom','自訂']])}</div><div class="toggle-row"><button class="quick-btn ${info.autoRotate?'active':''}" data-action="toggle-auto-rotate">自動旋轉：${info.autoRotate?'開':'關'}<small>保留自動判斷</small></button><button class="quick-btn ${info.showSafeFrame?'active':''}" data-action="toggle-safe-frame">安全框：${info.showSafeFrame?'顯示':'隱藏'}<small>預覽 / 分層參考</small></button><button class="quick-btn ${info.outputOnlyFit?'active only-fit-on':''}" data-action="toggle-output-only-fit">只輸出可放入：${info.outputOnlyFit?'開':'關'}<small>排除超尺寸</small></button></div><div class="layout-summary"><strong>目前排版區</strong><br>有效切割區：${round(info.area)} × ${round(info.area)} mm<br>安全邊距：${round(info.margin)} mm<br>實際排版區：${round(info.usable)} × ${round(info.usable)} mm<br>板件間距：${round(info.gap)} mm｜自動旋轉：${info.autoRotate?'開啟':'關閉'}｜手動指定：${manualRotateCount()} 件｜只輸出可放入：${info.outputOnlyFit?'開啟':'關閉'}</div><div class="small">建議標準間距 8 mm。3 mm 以下容易因焦黑、翹曲或切穿相鄰線影響切割。「只輸出可放入」開啟後，超尺寸板件不會進入 SVG，只會列在摘要與提醒。</div><div><div class="label">手動旋轉板件</div>${manualRotateControlsHtml()}</div></div>`}
+function calcOverviewHtml(res){
+  const f=state.calc;
+  const bottomMode=f.bottomJoint||'finger';
+  const bottomLabel={flat:'平放底板',inset:'內嵌底板',finger:'榫卯底板',none:'無底板'}[bottomMode]||'榫卯底板';
+  const st=pieceOutputStats();
+  return `<div class="calc-overview-grid"><div class="calc-flow"><strong>建議手機操作順序</strong><ol><li>先選製作類型：盒子 / 抽屜 / 櫃子。</li><li>再輸入主要尺寸與板厚。</li><li>盒子先決定底板接合方式。</li><li>需要時再展開板件輸出與每邊榫卯控制。</li><li>最後到圖紙頁檢查 SVG 與排版摘要。</li></ol></div><div class="calc-kpi-grid"><div class="calc-kpi"><strong>${esc(res.name)}</strong><span>目前製作類型</span></div><div class="calc-kpi"><strong>${round(f.width)}×${round(f.depth)}×${round(f.height)}</strong><span>主要尺寸 mm</span></div><div class="calc-kpi"><strong>${round(f.thickness)} mm</strong><span>主板厚</span></div><div class="calc-kpi"><strong>${esc(bottomLabel)}</strong><span>底板模式</span></div><div class="calc-kpi"><strong>${st.enabledCount}/${st.total}</strong><span>SVG 輸出板件</span></div><div class="calc-kpi"><strong>${state.calc.boxJoint==='finger'?'榫卯':'直切'}</strong><span>盒子接合</span></div></div><div class="calc-priority-note">這版只調整計算頁的排列與說明，不改尺寸計算邏輯。大型功能卡仍維持預設收合。</div></div>`
+}
+
+function renderCalc(){
+  const f=state.calc;
+  const res=calcResult();
+  const typeButtons=['box','drawer','cabinet'].map(t=>`<button class="quick-btn ${f.type===t?'active':''}" data-calc-type="${t}">${projectName(t)}<small>${t==='box'?'收納盒 / 雷射盒':t==='drawer'?'滑軌抽屜':'櫃體 / 層板'}</small></button>`).join('');
+  let typeBody='';
+  if(f.type==='box'){
+    typeBody=`<div class="grid two">${select('calc.sizeMode','尺寸模式',[['outer','輸入外尺寸'],['inner','輸入內尺寸']])}${select('calc.boxLid','蓋型',[['none','無蓋'],['plain','平蓋'],['hinge','合頁蓋']])}${select('calc.boxJoint','接合',[['finger','榫卯'],['straight','直切']])}${field('calc.fingerSize','榫齒寬','number','mm')}${field('calc.kerf','切縫補償','number','mm')}</div><div class="calc-priority-note" style="margin-top:10px">手機操作建議：先設定底板接合方式，再回來微調榫齒寬與切縫補償。</div>`
+  }else if(f.type==='drawer'){
+    typeBody=`<div class="grid two">${field('calc.slideClearance','滑軌單側預留','number','mm')}${field('calc.slideLength','滑軌長度','number','mm')}${field('calc.drawerGap','抽面縫隙','number','mm')}</div>`
+  }else{
+    typeBody=`<div class="grid two">${field('calc.shelfCount','層板數','number','片')}${field('calc.backThickness','背板厚','number','mm')}${field('calc.doorGap','門板預留縫','number','mm')}</div>`
+  }
+  return `${fold('calc-overview','計算頁總覽','依手機操作順序整理：類型 → 尺寸 → 底板 → 接合 → 輸出 → 結果。',calcOverviewHtml(res),true)}
+${fold('calc-type','1. 製作類型','先選要做盒子、抽屜或櫃子；後面的設定會依類型改變。',`<div class="calc-type-grid">${typeButtons}</div>`,true)}
+${fold('calc-size','2. 主要尺寸','先輸入寬、深、高與板厚；手機上保留兩欄，減少頁面過長。',`<div class="calc-size-grid">${field('calc.width','外寬 W','number','mm')}${field('calc.depth','外深 D','number','mm')}${field('calc.height','外高 H','number','mm')}${field('calc.thickness','主板厚','number','mm')}${field('calc.bottomThickness','底板厚','number','mm')}${field('calc.backThickness','背板厚','number','mm')}</div>`,true)}
+${fold('calc-bottom-joint','3. 底板接合方式','盒子先決定底板是平放、內嵌、榫卯或無底板；這會直接影響底板尺寸與 SVG。',bottomJointControlsHtml(),false)}
+${fold('calc-type-settings','4. 類型設定','再調整蓋型、榫齒、切縫、滑軌或層板等細節。',typeBody,false)}
+${fold('calc-piece-output','5. 板件輸出控制','選擇哪些板件要進入圖紙與 SVG 下載；大型控制卡預設收合。',pieceOutputControlsHtml(),false)}
+${fold('calc-edge-control','6. 每邊榫卯控制','盒子每片板件可設定上、右、下、左為直邊、公榫或母榫；大型控制卡預設收合。',edgeControlHtml(),false)}
+<section class="card"><h2>7. 目前檢查提醒</h2><div class="calc-check-wrap">${validationHtml('calc')}<div class="calc-action-row"><button class="primary" data-action="save-calc">儲存設定</button><button class="secondary" data-action="apply-drawing-calc">套用到圖紙</button><button class="secondary" data-action="reset-calc">恢復預設尺寸</button></div></div></section>
+${fold('calc-result','8. 計算結果','最後確認板件清單、尺寸與 280×280 有效區檢查。',validationHtml('calc')+pieceOutputSummaryHtml()+summaryHtml(res),false)}`
+}
+
 function renderKnob(){const k=state.knob;const styleBtns=[['round','圓形'],['hex','六角'],['star','星形'],['gear','齒輪止滑'],['flower','梅花'],['bar','長條']].map(([id,label])=>`<button class="quick-btn ${k.style===id?'active':''}" data-knob-style="${id}">${label}</button>`).join('');const tempBtns=['M3','M4','M5','M6','M8'].map(t=>`<button class="quick-btn ${k.template===t?'active':''}" data-knob-template="${t}">${t}<small>孔 / 螺母槽</small></button>`).join('');return `${fold('knob-style','樣式選擇','點子選項不會讓父層收合。',`<div class="grid three">${styleBtns}</div>`,true)}${fold('knob-template','規格模板','快速套用 M3～M8。',`<div class="grid five">${tempBtns}</div>`,false)}${fold('knob-size','尺寸設定','旋鈕外徑、中心孔、板厚與疊片。',`<div class="grid two">${field('knob.outerDiameter','外徑 / 長度','number','mm')}${field('knob.centerHole','中心孔','number','mm')}${field('knob.thickness','單片板厚','number','mm')}${field('knob.targetThickness','目標厚度','number','mm')}${field('knob.layerCount','疊片數','number','片')}${field('knob.count','排版數量','number','個')}</div>`,true)}${fold('knob-hole','孔型 / 螺母槽','六角螺母槽與補償。',`<div class="grid two">${select('knob.nutShape','螺母槽',[['hex','六角'],['round','圓形沉孔'],['none','不加']])}${field('knob.nutAcross','螺母對邊 / 沉孔直徑','number','mm')}${field('knob.nutDepth','螺母槽深度','number','mm')}${field('knob.kerf','切縫補償','number','mm')}</div>`,false)}${fold('knob-round','圓滑 / 補償助手','把凸起位置修得更圓，避免太尖。',`<div class="grid two">${rangeField('knob.roundness','圓滑度',0,100,1,'0～100')}<div class="muted">建議：圓形 / 六角可設 0～25；星形、梅花、齒輪止滑可先從 35～55 開始。數值越大，凸起越圓滑。</div></div>`,false)}${fold('knob-result','旋鈕結果與預覽','SVG 預覽與下載使用同一套輪廓與內嵌樣式。',`<div class="muted">建議疊片數：${Math.ceil(num(k.targetThickness)/Math.max(0.1,num(k.thickness)))} 片；目前設定 ${num(k.layerCount)} 片。</div><div id="knobPreviewBox" data-knob-preview="1" class="svg-box" style="margin-top:10px">${knobSvgPreview()}</div><div class="btn-row"><button class="primary" data-action="download-knob-svg">下載旋鈕 SVG</button><button class="secondary" data-action="refresh-knob-preview">套用預覽</button><button class="secondary" data-action="apply-drawing-knob">套用到圖紙</button></div>`,true)}`}
 function svgStyleBlock(mode='normal'){if(mode==='layered')return `<style><![CDATA[
-.cut{fill:none;stroke:#ff0000;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.cut{fill:none;stroke:#ff0000;stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:square}
 .guide{fill:none;stroke:#999;stroke-width:.7;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}
+.safe-frame{fill:none;stroke:#999;stroke-width:.7;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}
 .engrave{fill:none;stroke:#000;stroke-width:.8;vector-effect:non-scaling-stroke}
 .labelText{font-size:10px;fill:#000;font-weight:700;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 .dim{font-size:9px;fill:#666;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.rot-tag{font-size:9px;fill:#666;font-weight:700;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 .dimLine{fill:none;stroke:#999;stroke-width:.55;stroke-dasharray:2 2;vector-effect:non-scaling-stroke}
 .dimTick{stroke:#999;stroke-width:.55;vector-effect:non-scaling-stroke}
 ]]></style>`;return `<style><![CDATA[
 .cut{fill:none;stroke:#111;stroke-width:1.2;vector-effect:non-scaling-stroke}
 .guide{fill:none;stroke:#777;stroke-width:.7;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}
+.safe-frame{fill:none;stroke:#b88a44;stroke-width:.8;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}
 .engrave{fill:none;stroke:#444;stroke-width:.8;vector-effect:non-scaling-stroke}
 .labelText{font-size:10px;fill:#222;font-weight:700;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 .dim{font-size:9px;fill:#333;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.rot-tag{font-size:9px;fill:#8a5c1c;font-weight:700;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 .dimLine{fill:none;stroke:#555;stroke-width:.55;stroke-dasharray:2 2;vector-effect:non-scaling-stroke}
 .dimTick{stroke:#555;stroke-width:.55;vector-effect:non-scaling-stroke}
 ]]></style>`}
@@ -113,44 +554,347 @@ function polygonPath(pts){return 'M '+pts.map(p=>`${round(p[0],2)} ${round(p[1],
 function updateKnobPreview(fromSlider=false){const boxes=document.querySelectorAll('[data-knob-preview],#knobPreviewBox');boxes.forEach(box=>{box.innerHTML=knobSvgPreview();});const status=document.getElementById('knobLiveStatus');if(status)status.textContent='預覽已同步：'+new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});if(fromSlider&&window.requestAnimationFrame){requestAnimationFrame(()=>{document.querySelectorAll('[data-knob-preview],#knobPreviewBox').forEach(box=>{box.innerHTML=knobSvgPreview();});});}}
 function knobSvgPreview(){const k=state.knob;const d=num(k.outerDiameter),cx=80,cy=80,ko=Math.max(0,num(k.kerf,0));const holeR=Math.max(0.05,num(k.centerHole)/2-ko);let nut='';if(k.nutShape==='hex'){nut=`<path class="engrave" d="${polygonPath(knobPoints('hex',cx,cy,num(k.nutAcross)/Math.sqrt(3)))}"/>`}else if(k.nutShape==='round'){nut=`<circle class="engrave" cx="${cx}" cy="${cy}" r="${num(k.nutAcross)/2}"/>`}return `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock()}<rect x="1" y="1" width="158" height="158" fill="#fff" stroke="#eadcc2"/>${knobOutlineMarkup(k.style,cx,cy,d,k.roundness,ko)}<circle class="cut" cx="${cx}" cy="${cy}" r="${round(holeR,3)}"/>${nut}<text class="labelText" x="10" y="148">${esc(k.style)}｜外徑 ${round(d)}｜孔 ${round(k.centerHole)} mm｜補償 ${round(ko,3)}</text></svg>`}
 
-function renderDrawing(){const source=state.drawing.source;const svg=source==='knob'?knobBatchSvg({labels:true}):layoutSvg({labels:true,notes:true});return `${fold('drawing-source','圖紙來源','選擇目前木工計算或旋鈕。',`<div class="source-tabs"><button class="quick-btn ${source==='calc'?'active':''}" data-drawing-source="calc">目前計算結果<small>盒子 / 抽屜 / 櫃子</small></button><button class="quick-btn ${source==='knob'?'active':''}" data-drawing-source="knob">目前旋鈕結果<small>批量排版</small></button></div>`,true)}${fold('drawing-area','雷射工作區','以 10W 藍光 300×300 mm、有效 280×280 mm 為基準。',`<div class="grid three">${field('drawing.workArea','機台工作區','number','mm')}${field('drawing.effectiveArea','有效切割區','number','mm')}${field('drawing.margin','邊距','number','mm')}</div><div class="muted" style="margin-top:10px">建議有效區固定 280×280 mm，保留邊距、夾具與機台誤差。</div>`,false)}${fold('drawing-preview','SVG 預覽','v12.10 已加入分層 SVG：CUT_RED 供切割、GUIDE_GRAY 供參考、ENGRAVE_BLACK 供雕刻 / 標記。',`<div class="svg-box svg-small">${svg}</div><div class="btn-row"><button class="primary" data-action="download-current-svg">下載預覽版 SVG</button><button class="secondary" data-action="download-current-svg-clean">下載乾淨 SVG</button><button class="secondary" data-action="download-current-svg-layered">下載分層 SVG</button><button class="secondary" data-action="download-json">下載 JSON 設定</button></div><div class="muted" style="margin-top:10px">建議：LightBurn 匯入後把 CUT_RED 設正式切割、GUIDE_GRAY 設為關閉或低功率標記、ENGRAVE_BLACK 設雕刻或依需要關閉。</div>`,true)}`}
-function flattenPieces(pieces){const out=[];pieces.forEach(p=>{for(let i=0;i<p.qty;i++)out.push({...p,name:p.part+(p.qty>1?' '+(i+1):'')})});return out.sort((a,b)=>Math.max(b.w,b.h)-Math.max(a.w,a.h))}
-function nestPieces(pieces,area){let x=10,y=22,rowH=0,placed=[],board=1;for(const p of pieces){let w=num(p.w),h=num(p.h);let rot=false;if(w>area-20&&h<=area-20){[w,h]=[h,w];rot=true}if(x+w>area-10){x=10;y+=rowH+8;rowH=0}if(y+h>area-10){board++;x=10;y=22;rowH=0}placed.push({...p,x,y,w,h,rot,board});x+=w+8;rowH=Math.max(rowH,h)}return {placed,boards:board}}
 
-function edgeSegmentPointsHorizontal(pts,x0,x1,y,depth,tooth,inwardDown=true,phase=0){const len=Math.abs(x1-x0),dir=x1>=x0?1:-1;const n=Math.max(2,Math.round(len/Math.max(4,tooth)));const step=len/n;for(let i=0;i<n;i++){const a=x0+dir*i*step,b=x0+dir*(i+1)*step;const notch=(i+phase)%2===0;if(notch){const yy=y+(inwardDown?depth:-depth);pts.push([a,yy],[b,yy],[b,y]);}else pts.push([b,y]);}}
-function edgeSegmentPointsVertical(pts,y0,y1,x,depth,tooth,inwardRight=false,phase=0){const len=Math.abs(y1-y0),dir=y1>=y0?1:-1;const n=Math.max(2,Math.round(len/Math.max(4,tooth)));const step=len/n;for(let i=0;i<n;i++){const a=y0+dir*i*step,b=y0+dir*(i+1)*step;const notch=(i+phase)%2===0;if(notch){const xx=x+(inwardRight?depth:-depth);pts.push([xx,a],[xx,b],[x,b]);}else pts.push([x,b]);}}
-function fingerRectPath(x,y,w,h,tooth,depth){tooth=Math.max(4,num(tooth,18));depth=Math.max(1,Math.min(num(depth,3),Math.min(w,h)/4));const pts=[[x,y]];edgeSegmentPointsHorizontal(pts,x,x+w,y,depth,tooth,true,0);edgeSegmentPointsVertical(pts,y,y+h,x+w,depth,tooth,false,1);edgeSegmentPointsHorizontal(pts,x+w,x,y+h,depth,tooth,false,0);edgeSegmentPointsVertical(pts,y+h,y,x,depth,tooth,true,1);return 'M '+pts.map(p=>`${round(p[0],2)} ${round(p[1],2)}`).join(' L ')+' Z'}
-function addEdge(pts,kind,a,b,pos,tooth,depth,mode){if(mode==='flat'){if(kind==='h')pts.push([b,pos]);else pts.push([pos,b]);return}if(kind==='h'){const isTop=a<b&&mode;const inwardDown=(mode==='out')?(a<b?false:true):(a<b?true:false);edgeSegmentPointsHorizontal(pts,a,b,pos,depth,tooth,inwardDown,0);}else{const inwardRight=(mode==='out')?(a<b?true:false):(a<b?false:true);edgeSegmentPointsVertical(pts,a,b,pos,depth,tooth,inwardRight,0);}}
-function fingerRectPathByEdges(x,y,w,h,tooth,depth,edges){tooth=Math.max(4,num(tooth,18));depth=Math.max(1,Math.min(num(depth,3),Math.min(w,h)/4));edges=edges||{top:'flat',right:'flat',bottom:'flat',left:'flat'};const pts=[[x,y]];addEdge(pts,'h',x,x+w,y,tooth,depth,edges.top||'flat');addEdge(pts,'v',y,y+h,x+w,tooth,depth,edges.right||'flat');addEdge(pts,'h',x+w,x,y+h,tooth,depth,edges.bottom||'flat');addEdge(pts,'v',y+h,y,x,tooth,depth,edges.left||'flat');return 'M '+pts.map(p=>`${round(p[0],2)} ${round(p[1],2)}`).join(' L ')+' Z'}
+function zoomPreview(id,svg){return `<div class="zoom-toolbar" data-zoom-toolbar="${id}"><button type="button" data-zoom-action="fit" data-zoom-target="${id}">自適應</button><button type="button" data-zoom-action="out" data-zoom-target="${id}">－</button><button type="button" data-zoom-action="in" data-zoom-target="${id}">＋</button><button type="button" data-zoom-action="reset" data-zoom-target="${id}">100%</button><button type="button" class="full-btn" data-zoom-action="fullscreen" data-zoom-target="${id}">全螢幕</button><span class="zoom-readout" data-zoom-readout="${id}">自適應</span></div><div class="zoom-shell"><div class="zoom-side-scroll" aria-label="頁面上下滑動空白邊"></div><div id="${id}" class="svg-box zoom-box" data-zoom-box="1"><div class="zoom-stage" data-zoom-stage="1">${svg}</div></div><div class="zoom-side-scroll" aria-label="頁面上下滑動空白邊"></div></div><div class="zoom-help"><strong>白色圖紙框外左右空白處可上下滑頁面。</strong>圖紙框內保留雙指放大 / 縮小、單指拖曳；按「全螢幕」可用整個手機畫面檢查細節。</div>`}
+
+function drawingOverviewHtml(scope){
+  const info=safeAreaInfo();
+  const source=state.drawing.source;
+  const status=layoutOutputStatus(scope);
+  let piecesText='—';
+  if(scope==='calc'){
+    const st=pieceOutputStats();
+    piecesText=`${st.enabledCount}/${st.total}`;
+  }else{
+    piecesText=`${Math.max(0,Math.floor(num(state.knob.count,0)))} 個`;
+  }
+  return `<div class="drawing-overview-grid"><div class="drawing-flow"><strong>建議手機檢查順序</strong><ol><li>先確認圖紙來源：計算結果或旋鈕。</li><li>看目前檢查提醒，有超尺寸先回計算頁修正。</li><li>再看排版摘要與 SVG 預覽。</li><li>最後用下載區選預覽 SVG、乾淨 SVG 或分層 SVG。</li></ol></div><div class="drawing-kpi-grid"><div class="drawing-kpi"><strong>${source==='knob'?'旋鈕':'計算結果'}</strong><span>圖紙來源</span></div><div class="drawing-kpi"><strong>${round(info.usable)}×${round(info.usable)}</strong><span>實際排版區 mm</span></div><div class="drawing-kpi"><strong>${piecesText}</strong><span>${scope==='calc'?'SVG 輸出板件':'旋鈕數量'}</span></div><div class="drawing-kpi"><strong>${status.label}</strong><span>目前輸出狀態</span></div><div class="drawing-kpi"><strong>${info.autoRotate?'開啟':'關閉'}</strong><span>自動旋轉</span></div><div class="drawing-kpi"><strong>${info.outputOnlyFit?'開啟':'關閉'}</strong><span>只輸出可放入</span></div></div><div class="drawing-download-note">預覽 SVG 適合檢查尺寸與文字；乾淨 SVG 適合正式切割；分層 SVG 適合在 LightBurn 中分開管理切割線與參考線。</div></div>`
+}
+function drawingDownloadPanelHtml(scope){
+  return `<div class="drawing-overview-grid"><div class="drawing-download-note"><strong>下載前建議：</strong><br>先用「預覽版 SVG」檢查板件名稱、尺寸、旋轉與安全框；正式切割再用「乾淨 SVG」或「分層 SVG」。下載前彈窗會依目前摘要模式顯示精簡或詳細資訊。</div><div class="drawing-download-grid"><button class="primary download-main" data-action="download-current-svg">下載預覽版 SVG<small>含文字、尺寸線、安全框</small></button><button class="secondary" data-action="download-current-svg-clean">下載乾淨 SVG<small>正式切割優先</small></button><button class="secondary" data-action="download-current-svg-layered">下載分層 SVG<small>CUT / GUIDE / ENGRAVE</small></button><button class="secondary" data-action="download-json">下載 JSON 設定<small>備份目前參數</small></button></div><div class="drawing-compact-note">目前頁面只整理下載區與手機排版，不改 SVG 幾何生成邏輯。</div></div>`
+}
+
+function renderDrawing(){
+  const source=state.drawing.source;
+  const scope=source==='knob'?'knob':'calc';
+  const svg=source==='knob'?knobBatchSvg({labels:true}):layoutSvg({labels:true,notes:true});
+  return `${fold('drawing-overview','圖紙頁總覽','依手機檢查順序整理：來源 → 檢查 → 排版 → 預覽 → 下載。',drawingOverviewHtml(scope),true)}
+${fold('drawing-source','1. 圖紙來源','先選目前木工計算或旋鈕；來源不同，下載內容也不同。',`<div class="source-tabs"><button class="quick-btn ${source==='calc'?'active':''}" data-drawing-source="calc">目前計算結果<small>盒子 / 抽屜 / 櫃子</small></button><button class="quick-btn ${source==='knob'?'active':''}" data-drawing-source="knob">目前旋鈕結果<small>批量排版</small></button></div>`,true)}
+<section class="card"><h2>2. 目前檢查提醒</h2>${validationHtml(scope)}<div class="small">先看這裡。有超尺寸、間距過小或輸出板件為 0 時，建議回計算頁修正後再下載。</div></section>
+${fold('drawing-area','3. 雷射工作區','以 10W 藍光 300×300 mm、有效 280×280 mm 為基準；這裡通常不用常改。',`<div class="grid three">${field('drawing.workArea','機台工作區','number','mm')}${field('drawing.effectiveArea','有效切割區','number','mm')}${field('drawing.margin','邊距','number','mm')}</div><div class="muted" style="margin-top:10px">建議有效區固定 280×280 mm，邊距會實際套用到 SVG 排版區，用來保留夾具與機台誤差。</div>`,false)}
+${fold('drawing-layout','4. 雷射排版設定','設定板件間距、自動旋轉、安全框、只輸出可放入板件。',layoutSettingsHtml(),false)}
+${fold('drawing-summary','5. 排版摘要','預設精簡顯示；需要時可切到詳細，查看每片使用率、分片內容與超尺寸清單。',layoutSummaryHtml(scope),false)}
+${fold('drawing-preview','6. SVG 預覽','手機先用自適應與全螢幕檢查；預覽縮放不影響下載 SVG 實際尺寸。',`${zoomPreview('drawingZoom',svg)}<div class="drawing-preview-actions"><div class="drawing-compact-note">預覽區只負責檢查圖面。下載按鈕已移到下一張「7. SVG 下載區」，避免手機上預覽與下載按鈕擠在一起。</div></div>`,true)}
+${fold('drawing-download','7. SVG 下載區','依用途選擇預覽版、乾淨版或分層版 SVG；也可下載 JSON 備份。',drawingDownloadPanelHtml(scope),false)}
+${fold('drawing-check','8. 雷射輸出前檢查','最後確認尺寸、邊距、圖層與 LightBurn 比例。',validationHtml(scope)+downloadCheckHtml(),false)}`
+}
+
+function flattenPieces(pieces){const out=[];pieces.forEach(p=>{for(let i=0;i<p.qty;i++)out.push({...p,name:p.part+(p.qty>1?' '+(i+1):'')})});return out.sort((a,b)=>Math.max(b.w,b.h)-Math.max(a.w,a.h))}
+function basePieceForLayout(p,rot=false,reason=''){
+  const w0=num(p.w),h0=num(p.h),mode=getManualRotateMode(p);
+  return {...p,origW:w0,origH:h0,w:rot?h0:w0,h:rot?w0:h0,rot:!!rot,fitStatus:rot?'rotated':'normal',rotateReason:reason,manualMode:mode};
+}
+function fitsBoard(p,usable){return num(p.w)<=usable&&num(p.h)<=usable}
+function boardOrientations(raw,usable,autoRotate){
+  const mode=getManualRotateMode(raw);
+  const normal=basePieceForLayout(raw,false,'');
+  const rotated=basePieceForLayout(raw,true,mode==='rotate'?'手動指定':'原方向超出');
+  const out=[];
+  if(mode==='normal'){
+    if(fitsBoard(normal,usable))out.push(normal);
+    return out;
+  }
+  if(mode==='rotate'){
+    if(num(raw.w)===num(raw.h)){if(fitsBoard(normal,usable))out.push({...normal,rotateReason:'正方形不需旋轉'});return out;}
+    if(fitsBoard(rotated,usable))out.push(rotated);
+    return out;
+  }
+  if(fitsBoard(normal,usable))out.push(normal);
+  if(autoRotate&&num(raw.w)!==num(raw.h)&&fitsBoard(rotated,usable))out.push(rotated);
+  return out;
+}
+function orientationFailure(raw,usable,autoRotate){
+  const mode=getManualRotateMode(raw),normal=basePieceForLayout(raw,false,''),rotated=basePieceForLayout(raw,true,mode==='rotate'?'手動指定':'原方向超出');
+  const normalFits=fitsBoard(normal,usable),rotatedFits=num(raw.w)!==num(raw.h)&&fitsBoard(rotated,usable);
+  let p=mode==='rotate'?rotated:normal;
+  let problem='超過排版區';
+  if(mode==='rotate'&&normalFits&&!rotatedFits)problem='手動旋轉後超尺寸，改回自動或原方向可放入';
+  else if(mode==='normal'&&rotatedFits)problem='手動固定原方向後超尺寸，改回自動或旋轉可放入';
+  else if(mode==='auto'&&!autoRotate&&rotatedFits)problem='自動旋轉關閉，旋轉後其實可放入';
+  return {p,normalFits,rotatedFits,canRotate:rotatedFits,manualMode:mode,problem};
+}
+function pickOrientationForCurrentRow(raw,usable,autoRotate,remainW,remainH){
+  const opts=boardOrientations(raw,usable,autoRotate);
+  if(!opts.length)return null;
+  const normal=opts.find(p=>!p.rot);
+  if(normal&&num(normal.w)<=remainW&&num(normal.h)<=remainH)return normal;
+  const rotated=opts.find(p=>p.rot&&num(p.w)<=remainW&&num(p.h)<=remainH);
+  if(rotated)return {...rotated,rotateReason:rotated.manualMode==='rotate'?'手動指定':'補入同列'};
+  return null;
+}
+function pickOrientationForNewRow(raw,usable,autoRotate){
+  const opts=boardOrientations(raw,usable,autoRotate);
+  if(!opts.length)return null;
+  const normal=opts.find(p=>!p.rot);
+  if(normal)return normal;
+  const rotated=opts.find(p=>p.rot);
+  return rotated?{...rotated,rotateReason:rotated.manualMode==='rotate'?'手動指定':'原方向超出'}:opts[0];
+}
+function nestPieces(pieces,area,margin=10){
+  margin=Math.max(0,Math.min(num(margin,10),Math.max(0,area/3)));
+  const info=safeAreaInfo();const gap=Math.max(0,num(info.gap,8));const autoRotate=info.autoRotate;
+  const top=20+margin,bottom=20+area-margin,right=area-margin;
+  let x=margin,y=top,rowH=0,placed=[],oversize=[],board=1;
+  const usable=Math.max(1,area-2*margin);
+  for(const raw of pieces){
+    const opts=boardOrientations(raw,usable,autoRotate);
+    if(!opts.length){
+      const fail=orientationFailure(raw,usable,autoRotate);
+      const p={...fail.p,fitStatus:'oversize',canRotate:fail.canRotate,problem:fail.problem,manualMode:fail.manualMode};
+      oversize.push({...p,board:null});
+      if(x+Math.min(num(p.w),usable)>right){x=margin;y+=rowH+gap;rowH=0}
+      if(y+Math.min(num(p.h),usable)>bottom){board++;x=margin;y=top;rowH=0}
+      placed.push({...p,x,y,w:num(p.w),h:num(p.h),board,overflow:true});
+      x+=Math.min(num(p.w),usable)+gap;rowH=Math.max(rowH,Math.min(num(p.h),usable));
+      continue;
+    }
+    let remainW=right-x, remainH=bottom-y;
+    let p=pickOrientationForCurrentRow(raw,usable,autoRotate,remainW,remainH);
+    if(!p){
+      x=margin;y+=rowH+gap;rowH=0;
+      if(y>=bottom){board++;x=margin;y=top;}
+      p=pickOrientationForNewRow(raw,usable,autoRotate);
+      if(!p){
+        const fail=orientationFailure(raw,usable,autoRotate);const o={...fail.p,fitStatus:'oversize',canRotate:fail.canRotate,problem:fail.problem,manualMode:fail.manualMode};
+        oversize.push({...o,board:null});placed.push({...o,x,y,w:num(o.w),h:num(o.h),board,overflow:true});
+        x+=Math.min(num(o.w),usable)+gap;rowH=Math.max(rowH,Math.min(num(o.h),usable));continue;
+      }
+      if(y+num(p.h)>bottom){board++;x=margin;y=top;rowH=0;}
+    }
+    placed.push({...p,x,y,w:num(p.w),h:num(p.h),board,overflow:false});
+    x+=num(p.w)+gap;rowH=Math.max(rowH,num(p.h));
+  }
+  return {placed,oversize,boards:board,margin,usable,gap,autoRotate}
+}
+
+function segmentCount(len,tooth){
+  tooth=Math.max(4,num(tooth,18));
+  let n=Math.max(1,Math.round(Math.abs(len)/tooth));
+  if(n<1)n=1;
+  return n;
+}
+function pushTopEdge(pts,x,y,w,tooth,depth,mode){
+  if(mode==='flat'){pts.push([x+w,y]);return}
+  const n=segmentCount(w,tooth),step=w/n;
+  for(let i=0;i<n;i++){
+    const a=x+i*step,b=x+(i+1)*step;
+    if(i%2===0){const yy=mode==='out'?y-depth:y+depth;pts.push([a,yy],[b,yy],[b,y])}
+    else pts.push([b,y]);
+  }
+}
+function pushRightEdge(pts,x,y,h,tooth,depth,mode){
+  if(mode==='flat'){pts.push([x,y+h]);return}
+  const n=segmentCount(h,tooth),step=h/n;
+  for(let i=0;i<n;i++){
+    const a=y+i*step,b=y+(i+1)*step;
+    if(i%2===0){const xx=mode==='out'?x+depth:x-depth;pts.push([xx,a],[xx,b],[x,b])}
+    else pts.push([x,b]);
+  }
+}
+function pushBottomEdge(pts,x,y,w,tooth,depth,mode){
+  if(mode==='flat'){pts.push([x,y]);return}
+  const n=segmentCount(w,tooth),step=w/n;
+  for(let i=0;i<n;i++){
+    const a=x+w-i*step,b=x+w-(i+1)*step;
+    if(i%2===0){const yy=mode==='out'?y+depth:y-depth;pts.push([a,yy],[b,yy],[b,y])}
+    else pts.push([b,y]);
+  }
+}
+function pushLeftEdge(pts,x,y,h,tooth,depth,mode){
+  if(mode==='flat'){pts.push([x,y]);return}
+  const n=segmentCount(h,tooth),step=h/n;
+  for(let i=0;i<n;i++){
+    const a=y+h-i*step,b=y+h-(i+1)*step;
+    if(i%2===0){const xx=mode==='out'?x-depth:x+depth;pts.push([xx,a],[xx,b],[x,b])}
+    else pts.push([x,b]);
+  }
+}
+function fingerRectPath(x,y,w,h,tooth,depth){
+  return fingerRectPathByEdges(x,y,w,h,tooth,depth,{top:'out',right:'out',bottom:'out',left:'out'});
+}
+function fingerRectPathByEdges(x,y,w,h,tooth,depth,edges){
+  tooth=Math.max(4,num(tooth,18));
+  depth=Math.max(1,Math.min(num(depth,3),Math.min(w,h)/4));
+  edges=edges||{top:'flat',right:'flat',bottom:'flat',left:'flat'};
+  const pts=[[x,y]];
+  pushTopEdge(pts,x,y,w,tooth,depth,edges.top||'flat');
+  pushRightEdge(pts,x+w,y,h,tooth,depth,edges.right||'flat');
+  pushBottomEdge(pts,x,y+h,w,tooth,depth,edges.bottom||'flat');
+  pushLeftEdge(pts,x,y,h,tooth,depth,edges.left||'flat');
+  return 'M '+pts.map(p=>`${round(p[0],2)} ${round(p[1],2)}`).join(' L ')+' Z';
+}
 
 function dimensionMarkup(p,ox){const x=ox+p.x,y=p.y,w=num(p.w),h=num(p.h);const bx=y+h+8,rx=x+w+8;const midX=x+w/2,midY=y+h/2;return `<g class="dimMark"><line class="dimLine" x1="${x}" y1="${bx}" x2="${x+w}" y2="${bx}"/><line class="dimTick" x1="${x}" y1="${bx-3}" x2="${x}" y2="${bx+3}"/><line class="dimTick" x1="${x+w}" y1="${bx-3}" x2="${x+w}" y2="${bx+3}"/><text class="dim" text-anchor="middle" x="${midX}" y="${bx+10}">${round(w)} mm</text><line class="dimLine" x1="${rx}" y1="${y}" x2="${rx}" y2="${y+h}"/><line class="dimTick" x1="${rx-3}" y1="${y}" x2="${rx+3}" y2="${y}"/><line class="dimTick" x1="${rx-3}" y1="${y+h}" x2="${rx+3}" y2="${y+h}"/><text class="dim" x="${rx+4}" y="${midY}">${round(h)} mm</text></g>`}
 function pieceJointLabel(p,ox){if(!(p.sourceType==='box'&&p.joint==='finger'))return '';return `<text class="dim" x="${ox+p.x+3}" y="${p.y+24}">榫齒 ${round(p.fingerSize)} mm</text>`}
 function kerfOffsetForPiece(p){if(p.sourceType==='box')return Math.max(0,num(state.calc.kerf,0));return 0}
 function compensatedPieceBox(p,ox){const k=kerfOffsetForPiece(p);return {x:round(ox+p.x-k,3),y:round(p.y-k,3),w:round(num(p.w)+2*k,3),h:round(num(p.h)+2*k,3),k}}
-function pieceCutMarkup(p,ox,opts={}){const g=compensatedPieceBox(p,ox);const hasEdges=p.sourceType==='box'&&p.joint==='finger'&&p.edgeModes;const allFinger=p.sourceType==='box'&&p.joint==='finger'&&p.fingerEdges==='all';if(hasEdges){const d=fingerRectPathByEdges(g.x,g.y,g.w,g.h,p.fingerSize,p.jointDepth,p.edgeModes);return `<path class="cut" d="${d}"/>`;}if(allFinger){const d=fingerRectPath(g.x,g.y,g.w,g.h,p.fingerSize,p.jointDepth);return `<path class="cut" d="${d}"/>`;}return `<rect class="cut" x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}"/>`}
+function pieceCutMarkupRaw(p,ox){const g=compensatedPieceBox(p,ox);const hasEdges=p.sourceType==='box'&&p.joint==='finger'&&p.edgeModes;const allFinger=p.sourceType==='box'&&p.joint==='finger'&&p.fingerEdges==='all';if(hasEdges){const d=fingerRectPathByEdges(g.x,g.y,g.w,g.h,p.fingerSize,p.jointDepth,p.edgeModes);return `<path class="cut" d="${d}"/>`;}if(allFinger){const d=fingerRectPath(g.x,g.y,g.w,g.h,p.fingerSize,p.jointDepth);return `<path class="cut" d="${d}"/>`;}return `<rect class="cut" x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}"/>`}
+function pieceCutMarkup(p,ox,opts={}){if(p.rot){const local={...p,x:0,y:0,w:p.origW||p.h,h:p.origH||p.w};const tx=round(ox+p.x+p.w,3),ty=round(p.y,3);return `<g transform="translate(${tx},${ty}) rotate(90)">${pieceCutMarkupRaw(local,0)}</g>`;}return pieceCutMarkupRaw(p,ox)}
 
-function layoutSvg(opts={}){const showLabels=opts.labels!==false,showNotes=opts.notes!==false&&showLabels;const area=num(state.drawing.effectiveArea,280),res=calcResult(),pieces=flattenPieces(res.pieces).filter(p=>p.w>0&&p.h>0);const lay=nestPieces(pieces,area);const W=area*lay.boards+20*(lay.boards+1),H=area+(showNotes?66:24);let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock()}`;for(let b=1;b<=lay.boards;b++){const ox=20+(b-1)*(area+20);s+=`<rect x="${ox}" y="20" width="${area}" height="${area}" fill="#fff" stroke="#b88a44" stroke-width="1.5"/>`;if(showLabels)s+=`<text class="labelText" x="${ox}" y="15">第 ${b} 片｜有效 ${area}×${area} mm</text>`;lay.placed.filter(p=>p.board===b).forEach(p=>{s+=pieceCutMarkup(p,ox,{labels:showLabels});if(showLabels){s+=`<text class="labelText" x="${ox+p.x+3}" y="${p.y+12}">${esc(p.name)}</text>`;s+=`<text class="dim" x="${ox+p.x+3}" y="${p.y+p.h-4}">${round(p.w)}×${round(p.h)} mm</text>`;s+=pieceJointLabel(p,ox);s+=dimensionMarkup(p,ox);}});}const jointNote=state.calc.type==='box'?`｜盒子接合：${state.calc.boxJoint==='finger'?'榫卯':'直切'}`:'';if(showNotes){s+=`<text class="dim" x="20" y="${H-32}">來源：${esc(res.name)}${jointNote}｜預覽版顯示板件名稱、寬高尺寸線與榫齒提示；切線已套用切縫補償。</text><text class="dim" x="20" y="${H-20}">正式切割請下載乾淨 SVG，避免文字與標註一起進入雷射軟體；外輪廓已向外補償。</text><text class="dim" x="20" y="${H-8}">盒子榫卯已補到底板；v12.09 先套用外輪廓 / 內孔補償，後續可再做公母齒精準交錯。</text>`;}return s+`</svg>`}
-function knobBatchSvg(opts={}){const showLabels=opts.labels!==false;const area=num(state.drawing.effectiveArea,280),k=state.knob,d=num(k.outerDiameter),ko=Math.max(0,num(k.kerf,0)),cd=d+2*ko,gap=8;const cols=Math.max(1,Math.floor((area-20)/(cd+gap))),rows=Math.ceil(num(k.count)/cols);const H=Math.max(area+(showLabels?40:20),rows*(cd+gap)+(showLabels?60:40));let s=`<svg viewBox="0 0 ${area+40} ${H}" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock()}<rect x="20" y="20" width="${area}" height="${area}" fill="#fff" stroke="#b88a44" stroke-width="1.5"/>`;if(showLabels)s+=`<text class="labelText" x="20" y="15">旋鈕排版｜有效 ${area}×${area} mm</text>`;for(let i=0;i<num(k.count);i++){const c=i%cols,r=Math.floor(i/cols),cx=20+10+cd/2+c*(cd+gap),cy=34+cd/2+r*(cd+gap);if(cy+cd/2>20+area)continue;const holeR=Math.max(0.05,num(k.centerHole)/2-ko);s+=knobOutlineMarkup(k.style,cx,cy,d,k.roundness,ko)+`<circle class="cut" cx="${cx}" cy="${cy}" r="${round(holeR,3)}"/>`;if(k.nutShape==='hex')s+=`<path class="engrave" d="${polygonPath(knobPoints('hex',cx,cy,num(k.nutAcross)/Math.sqrt(3)))}"/>`;else if(k.nutShape==='round')s+=`<circle class="engrave" cx="${cx}" cy="${cy}" r="${num(k.nutAcross)/2}"/>`;}
-if(showLabels)s+=`<text class="dim" x="20" y="${H-8}">外徑 ${round(d)} mm｜中心孔 ${round(k.centerHole)} mm｜補償 ${round(ko,3)} mm｜數量 ${num(k.count)}</text>`;return s+`</svg>`}
+function layoutSvg(opts={}){const showLabels=opts.labels!==false,showNotes=opts.notes!==false&&showLabels;const area=num(state.drawing.effectiveArea,280),margin=Math.max(0,num(state.drawing.margin,10)),info=safeAreaInfo(),res=calcResult(),pieces=selectedCalcPiecesForLayout();const lay=nestPieces(pieces,area,margin);const W=area*lay.boards+20*(lay.boards+1),H=area+(showNotes?86:24);let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock()}`;for(let b=1;b<=lay.boards;b++){const ox=20+(b-1)*(area+20);const boardPieces=(lay.placed||[]).filter(p=>p.board===b && !(info.outputOnlyFit&&p.overflow));const fitPieces=boardPieces.filter(p=>!p.overflow);const usedArea=fitPieces.reduce((sum,p)=>sum+num(p.w)*num(p.h),0);const usage=usedArea/Math.max(1,num(lay.usable)*num(lay.usable))*100;s+=`<rect x="${ox}" y="20" width="${area}" height="${area}" fill="#fff" stroke="#b88a44" stroke-width="1.5"/>${showLabels&&info.showSafeFrame?`<rect class="safe-frame" x="${ox+margin}" y="${20+margin}" width="${Math.max(1,area-2*margin)}" height="${Math.max(1,area-2*margin)}"/>`:''}`;if(showLabels)s+=`<text class="labelText" x="${ox}" y="15">第 ${b} 片｜有效 ${area}×${area} mm｜邊距 ${margin} mm｜排版區 ${round(lay.usable)}×${round(lay.usable)}｜使用率 ${round(usage,1)}%</text>`;boardPieces.forEach(p=>{s+=pieceCutMarkup(p,ox,{labels:showLabels});if(showLabels){s+=`<text class="labelText" x="${ox+p.x+3}" y="${p.y+12}">${esc(p.name)}${p.rot?'｜已旋轉'+(p.rotateReason?'：'+p.rotateReason:''):''}${p.overflow?'｜超尺寸':''}</text>`;s+=`<text class="dim" x="${ox+p.x+3}" y="${p.y+p.h-4}">${round(p.w)}×${round(p.h)} mm${p.rot?'｜原 '+round(p.origW)+'×'+round(p.origH):''}</text>`;if(p.rot)s+=`<text class="rot-tag" x="${ox+p.x+3}" y="${p.y+24}">旋轉 90°${p.rotateReason?'｜'+esc(p.rotateReason):''}</text>`;s+=pieceJointLabel(p,ox);s+=dimensionMarkup(p,ox);}});}const jointNote=state.calc.type==='box'?`｜盒子接合：${state.calc.boxJoint==='finger'?'榫卯':'直切'}`:'';if(showNotes){s+=`<text class="dim" x="20" y="${H-52}">來源：${esc(res.name)}${jointNote}｜預覽版顯示板件名稱、尺寸、旋轉提示、安全框與每片使用率；切線已套用切縫補償。</text><text class="dim" x="20" y="${H-40}">雷射排版：有效 ${round(info.area)}×${round(info.area)} mm｜邊距 ${round(info.margin)} mm｜排版區 ${round(info.usable)}×${round(info.usable)} mm｜間距 ${round(info.gap)} mm｜自動旋轉 ${info.autoRotate?'開':'關'}。</text><text class="dim" x="20" y="${H-28}">只輸出可放入：${info.outputOnlyFit?'開啟，超尺寸板件不會進入 SVG':'關閉，超尺寸板件仍會在預覽中提示'}。</text><text class="dim" x="20" y="${H-16}">正式切割請下載乾淨 SVG，避免文字與標註一起進入雷射軟體；外輪廓已向外補償。</text><text class="dim" x="20" y="${H-4}">v12.15.3.1 整理底板接合方式說明與驗收提示；底層出圖邏輯沿用 v12.15.3。</text>`;}return s+`</svg>`}
+function knobBatchSvg(opts={}){const showLabels=opts.labels!==false;const area=num(state.drawing.effectiveArea,280),margin=Math.max(0,num(state.drawing.margin,10)),usable=Math.max(1,area-2*margin),k=state.knob,d=num(k.outerDiameter),ko=Math.max(0,num(k.kerf,0)),cd=d+2*ko,gap=Math.max(0,num(state.drawing.pieceGap,8));const cols=Math.max(1,Math.floor((usable+gap)/(cd+gap))),rows=Math.ceil(num(k.count)/cols);const H=Math.max(area+(showLabels?40:20),rows*(cd+gap)+(showLabels?60:40));let s=`<svg viewBox="0 0 ${area+40} ${H}" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock()}<rect x="20" y="20" width="${area}" height="${area}" fill="#fff" stroke="#b88a44" stroke-width="1.5"/>`;if(showLabels)s+=`<rect class="safe-frame" x="${20+margin}" y="${20+margin}" width="${usable}" height="${usable}"/><text class="labelText" x="20" y="15">旋鈕排版｜有效 ${area}×${area} mm｜邊距 ${margin} mm</text>`;for(let i=0;i<num(k.count);i++){const c=i%cols,r=Math.floor(i/cols),cx=20+margin+cd/2+c*(cd+gap),cy=20+margin+cd/2+r*(cd+gap);if(cx+cd/2>20+area-margin||cy+cd/2>20+area-margin)continue;const holeR=Math.max(0.05,num(k.centerHole)/2-ko);s+=knobOutlineMarkup(k.style,cx,cy,d,k.roundness,ko)+`<circle class="cut" cx="${cx}" cy="${cy}" r="${round(holeR,3)}"/>`;if(k.nutShape==='hex')s+=`<path class="engrave" d="${polygonPath(knobPoints('hex',cx,cy,num(k.nutAcross)/Math.sqrt(3)))}"/>`;else if(k.nutShape==='round')s+=`<circle class="engrave" cx="${cx}" cy="${cy}" r="${num(k.nutAcross)/2}"/>`;}
+if(showLabels)s+=`<text class="dim" x="20" y="${H-8}">外徑 ${round(d)} mm｜中心孔 ${round(k.centerHole)} mm｜補償 ${round(ko,3)} mm｜數量 ${num(k.count)}｜排版內區 ${round(usable)} mm</text>`;return s+`</svg>`}
 
-function layoutSvgLayered(){const area=num(state.drawing.effectiveArea,280),res=calcResult(),pieces=flattenPieces(res.pieces).filter(p=>p.w>0&&p.h>0);const lay=nestPieces(pieces,area);const W=area*lay.boards+20*(lay.boards+1),H=area+24;let guide='',cut='',engrave='';for(let b=1;b<=lay.boards;b++){const ox=20+(b-1)*(area+20);guide+=`<rect class="guide" x="${ox}" y="20" width="${area}" height="${area}"/>`;lay.placed.filter(p=>p.board===b).forEach(p=>{cut+=pieceCutMarkup(p,ox);});}return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock('layered')}<g id="GUIDE_GRAY">${guide}</g><g id="CUT_RED">${cut}</g><g id="ENGRAVE_BLACK">${engrave}</g></svg>`}
-function knobBatchSvgLayered(){const area=num(state.drawing.effectiveArea,280),k=state.knob,d=num(k.outerDiameter),ko=Math.max(0,num(k.kerf,0)),cd=d+2*ko,gap=8;const cols=Math.max(1,Math.floor((area-20)/(cd+gap))),rows=Math.ceil(num(k.count)/cols);const H=Math.max(area+20,rows*(cd+gap)+40);let guide=`<rect class="guide" x="20" y="20" width="${area}" height="${area}"/>`,cut='',engrave='';for(let i=0;i<num(k.count);i++){const c=i%cols,r=Math.floor(i/cols),cx=20+10+cd/2+c*(cd+gap),cy=34+cd/2+r*(cd+gap);if(cy+cd/2>20+area)continue;const holeR=Math.max(0.05,num(k.centerHole)/2-ko);cut+=knobOutlineMarkup(k.style,cx,cy,d,k.roundness,ko)+`<circle class="cut" cx="${cx}" cy="${cy}" r="${round(holeR,3)}"/>`;if(k.nutShape==='hex')engrave+=`<path class="engrave" d="${polygonPath(knobPoints('hex',cx,cy,num(k.nutAcross)/Math.sqrt(3)))}"/>`;else if(k.nutShape==='round')engrave+=`<circle class="engrave" cx="${cx}" cy="${cy}" r="${num(k.nutAcross)/2}"/>`;}
+function layoutSvgLayered(){const area=num(state.drawing.effectiveArea,280),margin=Math.max(0,num(state.drawing.margin,10)),info=safeAreaInfo(),res=calcResult(),pieces=selectedCalcPiecesForLayout();const lay=nestPieces(pieces,area,margin);const W=area*lay.boards+20*(lay.boards+1),H=area+24;let guide='',cut='',engrave='';for(let b=1;b<=lay.boards;b++){const ox=20+(b-1)*(area+20);guide+=`<rect class="guide" x="${ox}" y="20" width="${area}" height="${area}"/>${info.showSafeFrame?`<rect class="guide" x="${ox+margin}" y="${20+margin}" width="${Math.max(1,area-2*margin)}" height="${Math.max(1,area-2*margin)}"/>`:''}`;(lay.placed||[]).filter(p=>p.board===b && !(info.outputOnlyFit&&p.overflow)).forEach(p=>{cut+=pieceCutMarkup(p,ox);});}return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock('layered')}<g id="GUIDE_GRAY">${guide}</g><g id="CUT_RED">${cut}</g><g id="ENGRAVE_BLACK">${engrave}</g></svg>`}
+function knobBatchSvgLayered(){const area=num(state.drawing.effectiveArea,280),margin=Math.max(0,num(state.drawing.margin,10)),usable=Math.max(1,area-2*margin),k=state.knob,d=num(k.outerDiameter),ko=Math.max(0,num(k.kerf,0)),cd=d+2*ko,gap=Math.max(0,num(state.drawing.pieceGap,8));const cols=Math.max(1,Math.floor((usable+gap)/(cd+gap))),rows=Math.ceil(num(k.count)/cols);const H=Math.max(area+20,rows*(cd+gap)+40);let guide=`<rect class="guide" x="20" y="20" width="${area}" height="${area}"/><rect class="guide" x="${20+margin}" y="${20+margin}" width="${usable}" height="${usable}"/>`,cut='',engrave='';for(let i=0;i<num(k.count);i++){const c=i%cols,r=Math.floor(i/cols),cx=20+margin+cd/2+c*(cd+gap),cy=20+margin+cd/2+r*(cd+gap);if(cx+cd/2>20+area-margin||cy+cd/2>20+area-margin)continue;const holeR=Math.max(0.05,num(k.centerHole)/2-ko);cut+=knobOutlineMarkup(k.style,cx,cy,d,k.roundness,ko)+`<circle class="cut" cx="${cx}" cy="${cy}" r="${round(holeR,3)}"/>`;if(k.nutShape==='hex')engrave+=`<path class="engrave" d="${polygonPath(knobPoints('hex',cx,cy,num(k.nutAcross)/Math.sqrt(3)))}"/>`;else if(k.nutShape==='round')engrave+=`<circle class="engrave" cx="${cx}" cy="${cy}" r="${num(k.nutAcross)/2}"/>`;}
 return `<svg viewBox="0 0 ${area+40} ${H}" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock('layered')}<g id="GUIDE_GRAY">${guide}</g><g id="CUT_RED">${cut}</g><g id="ENGRAVE_BLACK">${engrave}</g></svg>`}
 
 function laserKerfPresetHtml(){return `<div class="notice" style="margin-bottom:12px"><strong>你的 10W 藍光實測切縫預設</strong><br>測試方式：LightBurn｜20 mm 方塊 × 10 個｜切口偏移 0<br>實測總長：98.7～98.8 mm（理想 100 mm）<br>推算切縫寬：約 0.12～0.13 mm<br>建議軟體切口偏移補償：0.06～0.065 mm<br>目前 App 預設補償值：0.065 mm</div><div class="btn-row"><button class="primary" data-action="apply-kerf-preset">套用實測切縫預設</button></div>`}
 
-function renderMore(){return `${fold('more-diagram','施工圖三視圖','正視圖、側視圖、俯視圖與尺寸標註。',`<div class="svg-box">${diagramSvg()}</div>`,true)}${fold('more-params','10W 藍光參數','已加入你的 20 mm × 10 方塊切縫實測資料，可一鍵套用到盒子與旋鈕補償。',`${laserKerfPresetHtml()}<div class="grid">${textArea('params.ply3','3mm 膠合板參考')}${textArea('params.ply5','5mm 膠合板參考')}${textArea('params.kerf','切縫補償備註')}${textArea('params.kerfTest','實測數據紀錄')}</div>`,false)}${fold('more-backup','JSON 備份 / 還原','v12.00 使用新的 localStorage key，不直接吃 v11 舊資料。',`<div class="btn-row"><button class="primary" data-action="download-json">匯出 JSON</button><label class="file-btn">匯入 JSON<input type="file" id="jsonFile" accept="application/json" hidden></label><button class="secondary danger" data-action="clear-v12">清除 v12 資料</button></div><textarea id="jsonText" readonly>${esc(JSON.stringify(state,null,2))}</textarea>`,false)}${fold('more-about','關於 v12.10','第一階段不含紙盒刀模、照片庫、DXF / PNG；本版新增 LightBurn 友善分層 SVG。',`<ul class="notice-list"><li>v12.00：木工板材核心乾淨骨架。</li><li>v12.01：補回 SVG 一致性與旋鈕圓滑調整。</li><li>v12.02：補上盒子榫卯接合圖紙對應。</li><li>v12.03：補上底板榫卯，新增乾淨無字 SVG 下載。</li><li>v12.04：修正首頁模板字串錯誤造成的啟動空白。</li><li>v12.05：圓滑度改為滑動條。</li><li>v12.06：圓滑度滑動時同步刷新旋鈕預覽。</li><li>v12.07：圖紙預覽版升級板件寬高尺寸標註，乾淨 SVG 保持無字。</li><li>v12.08：加入 10W 藍光實測切縫預設，切口偏移補償建議 0.06～0.065 mm。</li><li>v12.09：切縫補償正式套用到 SVG 幾何；外輪廓向外補償，中心孔向內補償。</li><li>v12.10：新增分層 SVG，可輸出 CUT_RED / GUIDE_GRAY / ENGRAVE_BLACK 給 LightBurn 使用。</li><li>v12.20：可規劃照片庫與正式 App 本機照片架構。</li></ul>`,false)}`}
-function diagramSvg(){const res=calcResult(),f=state.calc,W=num(f.width),D=num(f.depth),H=num(f.height);const vw=760,vh=280;const scale=Math.min(180/Math.max(W,D,1),180/Math.max(H,1));const fw=W*scale,fh=H*scale,sd=D*scale,tw=W*scale,td=D*scale;let s=`<svg viewBox="0 0 ${vw} ${vh}" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock()}<rect x="1" y="1" width="${vw-2}" height="${vh-2}" fill="#fff" stroke="#eadcc2"/>`;s+=viewBlock(40,50,fw,fh,'正視圖',`${W}×${H}`);s+=viewBlock(290,50,sd,fh,'側視圖',`${D}×${H}`);s+=viewBlock(520,70,tw,td,'俯視圖',`${W}×${D}`);s+=`<text class="labelText" x="40" y="250">${esc(res.name)}｜板件 ${res.pieces.reduce((a,p)=>a+p.qty,0)} 件｜施工前請確認實際板厚。</text></svg>`;return s}
+function moreOverviewHtml(){
+  return `<div class="more-mobile-grid"><div class="more-note-card">這一頁放施工圖、10W 藍光參數、JSON 備份與版本紀錄。v12.15.3.4 先把長內容整理成手機比較好讀的卡片與步驟。</div><div class="more-kpi-grid"><div class="more-kpi"><strong>300×300 mm</strong><span>機台工作範圍</span></div><div class="more-kpi"><strong>280×280 mm</strong><span>建議有效切割區</span></div><div class="more-kpi"><strong>0.065 mm</strong><span>預設切縫補償</span></div><div class="more-kpi"><strong>SVG 優先</strong><span>雷射切割輸出格式</span></div></div></div>`
+}
+function laserParamSummaryHtml(){
+  return `<div class="more-mobile-grid"><div class="more-kpi-grid"><div class="more-kpi"><strong>98.7～98.8 mm</strong><span>10 個 20 mm 方塊實測總長</span></div><div class="more-kpi"><strong>0.12～0.13 mm</strong><span>推算切縫寬</span></div><div class="more-kpi"><strong>0.06～0.065 mm</strong><span>建議偏移補償</span></div><div class="more-kpi"><strong>0.065 mm</strong><span>App 目前預設值</span></div></div>${laserKerfPresetHtml()}<div class="more-warning">下方文字區仍保留完整參數，可自行修改；平常只看上方摘要卡即可。</div><div class="grid">${textArea('params.ply3','3mm 膠合板參考')}${textArea('params.ply5','5mm 膠合板參考')}${textArea('params.kerf','切縫補償備註')}${textArea('params.kerfTest','實測數據紀錄')}</div></div>`
+}
+function backupPanelHtml(){
+  return `<div class="more-mobile-grid"><div class="more-note-card"><strong>建議操作：</strong><ol class="more-step-list"><li>修改尺寸或參數後，先匯出 JSON。</li><li>換手機、換瀏覽器或清快取前，也先匯出 JSON。</li><li>匯入 JSON 後，回到計算頁確認尺寸是否恢復。</li></ol></div><div class="backup-actions"><button class="primary" data-action="download-json">匯出 JSON</button><label class="file-btn">匯入 JSON<input type="file" id="jsonFile" accept="application/json" hidden></label><button class="secondary danger" data-action="clear-v12">清除 v12 資料</button></div><textarea id="jsonText" class="json-preview" readonly>${esc(JSON.stringify(state,null,2))}</textarea></div>`
+}
+function releaseSummaryHtml(){
+  return `<div class="release-list"><div class="release-item"><strong>v12.15.3.8</strong><span>版本號金屬藍顯示版：所有 App 介面可見版本號套用金屬藍字色。</span></div><div class="release-item"><strong>v12.15.3.7</strong><span>全功能穩定整理版：不新增功能，收斂計算頁、圖紙頁、更多頁與下載檔案。</span></div><div class="release-item"><strong>v12.15.3.6</strong><span>整理圖紙頁手機排版與下載區，將預覽與下載分區。</span></div><div class="release-item"><strong>v12.15.3.5</strong><span>整理計算頁手機排版與卡片順序，加入計算頁總覽與操作順序。</span></div><div class="release-item"><strong>v12.15.3.4</strong><span>整理更多頁手機排版：參數、備份、版本紀錄改成更易讀的卡片與步驟。</span></div><div class="release-item"><strong>v12.15.3.3</strong><span>修正 v12.15.3.2 的 render is not defined 啟動錯誤，保留三視圖手機排版。</span></div><div class="release-item"><strong>v12.15.3.1</strong><span>整理底板接合方式說明與手機驗收文字。</span></div><div class="release-item"><strong>v12.15.3</strong><span>新增底板接合方式：平放、內嵌、榫卯、無底板。</span></div><div class="release-item"><strong>v12.15.2.1</strong><span>修正每邊榫卯控制後 SVG 輪廓接線不完整與缺線問題。</span></div><div class="more-warning">完整版本紀錄仍保留在 README；App 內只顯示最近最重要的幾項，避免手機頁面過長。</div></div>`
+}
 
-function viewBlock(x,y,w,h,title,dim){w=Math.max(20,w);h=Math.max(20,h);return `<text class="labelText" x="${x}" y="${y-10}">${title}</text><rect class="cut" x="${x}" y="${y}" width="${w}" height="${h}"/><line class="dimLine" x1="${x}" y1="${y+h+8}" x2="${x+w}" y2="${y+h+8}"/><line class="dimTick" x1="${x}" y1="${y+h+5}" x2="${x}" y2="${y+h+11}"/><line class="dimTick" x1="${x+w}" y1="${y+h+5}" x2="${x+w}" y2="${y+h+11}"/><line class="dimLine" x1="${x+w+8}" y1="${y}" x2="${x+w+8}" y2="${y+h}"/><line class="dimTick" x1="${x+w+5}" y1="${y}" x2="${x+w+11}" y2="${y}"/><line class="dimTick" x1="${x+w+5}" y1="${y+h}" x2="${x+w+11}" y2="${y+h}"/><text class="dim" x="${x}" y="${y+h+22}">${dim} mm</text>`}
-function render(){renderNav();const view=$('view');if(state.page==='calc')view.innerHTML=renderCalc();else if(state.page==='knob')view.innerHTML=renderKnob();else if(state.page==='drawing')view.innerHTML=renderDrawing();else if(state.page==='more')view.innerHTML=renderMore();else view.innerHTML=renderHome();bindFolds();bindInputs();bindActions();}
-function bindActions(){document.querySelectorAll('[data-calc-type]').forEach(btn=>btn.onclick=()=>{state.calc.type=btn.dataset.calcType;save('製作類型已更新');render();});document.querySelectorAll('[data-knob-style]').forEach(btn=>btn.onclick=()=>{state.knob.style=btn.dataset.knobStyle;save('旋鈕樣式已更新');render();});document.querySelectorAll('[data-knob-template]').forEach(btn=>btn.onclick=()=>{state.knob.template=btn.dataset.knobTemplate;applyTemplateIfNeeded('knob.template');save('規格模板已套用');render();});document.querySelectorAll('[data-drawing-source]').forEach(btn=>btn.onclick=()=>{state.drawing.source=btn.dataset.drawingSource;save('圖紙來源已更新');render();});document.querySelectorAll('[data-action]').forEach(btn=>btn.onclick=()=>handleAction(btn.dataset.action,btn));const file=$('jsonFile');if(file)file.onchange=importJson;}
+function renderMore(){return `${fold('more-overview','更多頁總覽','本頁集中施工圖、10W 參數、JSON 備份與版本紀錄；v12.15.3.4 改成手機易讀卡片。',moreOverviewHtml(),true)}${fold('more-diagram','施工圖三視圖','正視圖、側視圖、俯視圖改成手機友善直向排版，避免字被圖擋住。',`<div class="svg-box">${diagramSvg()}</div>`,false)}${fold('more-params','10W 藍光參數','實測切縫資料改成摘要卡；完整文字參數仍可展開修改。',laserParamSummaryHtml(),false)}${fold('more-backup','JSON 備份 / 還原','手機操作步驟更清楚；匯出、匯入、清除資料分成直向按鈕。',backupPanelHtml(),false)}${fold('more-about','版本重點','手機內只列最近重點，完整紀錄看 README，避免頁面過長。',releaseSummaryHtml(),false)}`}
+function diagramSvg(){
+  const res=calcResult(),f=state.calc,W=num(f.width),D=num(f.depth),H=num(f.height);
+  const vw=760,vh=920;
+  let s=`<svg viewBox="0 0 ${vw} ${vh}" xmlns="http://www.w3.org/2000/svg">${svgStyleBlock()}<rect x="1" y="1" width="${vw-2}" height="${vh-2}" fill="#fff" stroke="#eadcc2"/>`;
+  s+=viewBlock(30,30,700,250,'正視圖',W,H,'寬 × 高','最常拿來確認整體外觀高度與正面寬度。');
+  s+=viewBlock(30,325,700,250,'側視圖',D,H,'深 × 高','側面主要看深度與高度，方便檢查前後方向。');
+  s+=viewBlock(30,620,700,220,'俯視圖',W,D,'寬 × 深','俯視圖可快速檢查盒體或櫃體的平面尺寸。');
+  s+=`<text class="labelText" x="40" y="885" style="font-size:13px">${esc(res.name)}｜板件 ${res.pieces.reduce((a,p)=>a+p.qty,0)} 件｜手機版已改為直向三段顯示。</text>`;
+  s+=`<text class="dim" x="40" y="905" style="font-size:11px">驗收重點：標題、尺寸字、視圖外框不互相遮擋。</text></svg>`;
+  return s
+}
 
-function handleAction(action,btn){if(action==='quick-calc'){state.calc.type=btn.dataset.type;setPage('calc',true);return}if(action==='quick-page'){setPage(btn.dataset.page,true);return}if(action==='save-calc'){save('計算設定已儲存');return}if(action==='apply-drawing-calc'){state.drawing.source='calc';setPage('drawing',true);return}if(action==='apply-drawing-knob'){state.drawing.source='knob';setPage('drawing',true);return}if(action==='refresh-knob-preview'){updateKnobPreview(false);save('旋鈕預覽已套用');return}if(action==='apply-kerf-preset'){state.calc.kerf=0.065;state.knob.kerf=0.065;state.params.kerf='10W 藍光實測：LightBurn 以 20 mm 為基礎製作 10 個獨立方塊，切口偏移設 0；實測總長 98.7～98.8 mm，推算切縫寬約 0.12～0.13 mm；建議軟體切口偏移補償 0.06～0.065 mm。App 內預設採 0.065 mm。';state.params.kerfTest='LightBurn｜20 mm 方塊 × 10 個｜切口偏移 0｜實測總長 98.7～98.8 mm｜推算切縫 0.12～0.13 mm｜補償值 0.06～0.065 mm。';save('已套用 10W 藍光實測切縫預設 0.065 mm');render();return}if(action==='download-current-svg'){downloadText('mokkou_v12_10_drawing_preview.svg',state.drawing.source==='knob'?knobBatchSvg({labels:true}):layoutSvg({labels:true,notes:true}),'image/svg+xml');return}if(action==='download-current-svg-clean'){downloadText('mokkou_v12_10_drawing_clean.svg',state.drawing.source==='knob'?knobBatchSvg({labels:false}):layoutSvg({labels:false,notes:false}),'image/svg+xml');return}if(action==='download-current-svg-layered'){downloadText('mokkou_v12_10_drawing_layered.svg',state.drawing.source==='knob'?knobBatchSvgLayered():layoutSvgLayered(),'image/svg+xml');return}if(action==='download-knob-svg'){downloadText('mokkou_v12_10_knob.svg',knobSvgPreview(),'image/svg+xml');return}if(action==='download-json'){downloadText('mokkou_v12_10_backup.json',JSON.stringify(state,null,2),'application/json');return}if(action==='reset-calc'){state.calc=structuredClone(defaults.calc);save('已恢復預設尺寸');render();return}if(action==='clear-v12'){if(confirm('確定清除 v12 本機資料？')){localStorage.removeItem(STORE);state=loadState();save('已清除 v12 資料');render();}}}
+function viewBlock(x,y,w,h,title,realW,realH,axisLabel,note){
+  realW=Math.max(1,num(realW));
+  realH=Math.max(1,num(realH));
+  const innerX=x+16, innerY=y+16, innerW=w-32;
+  const drawAreaTop=y+58;
+  const drawAreaBottom=y+h-78;
+  const drawAreaH=Math.max(60,drawAreaBottom-drawAreaTop);
+  const drawAreaW=innerW-90;
+  const scale=Math.min(drawAreaW/realW, drawAreaH/realH);
+  const dw=Math.max(36,realW*scale);
+  const dh=Math.max(36,realH*scale);
+  const dx=x+(w-dw)/2-20;
+  const dy=drawAreaTop+(drawAreaH-dh)/2;
+  const rightX=dx+dw+16;
+  const bottomY=dy+dh+18;
+  const dimLabel=`${round(realW)} × ${round(realH)} mm`;
+  return `
+  <g>
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="18" fill="#fcfaf4" stroke="#e5d7b8"/>
+    <text class="labelText" x="${innerX}" y="${innerY+13}" style="font-size:15px;font-weight:800">${title}</text>
+    <text class="dim" x="${innerX+86}" y="${innerY+13}" style="font-size:11px">${axisLabel}</text>
+
+    <rect x="${dx}" y="${dy}" width="${dw}" height="${dh}" class="cut"/>
+
+    <line class="dimLine" x1="${dx}" y1="${bottomY}" x2="${dx+dw}" y2="${bottomY}"/>
+    <line class="dimTick" x1="${dx}" y1="${bottomY-4}" x2="${dx}" y2="${bottomY+4}"/>
+    <line class="dimTick" x1="${dx+dw}" y1="${bottomY-4}" x2="${dx+dw}" y2="${bottomY+4}"/>
+    <text class="dim" text-anchor="middle" x="${dx+dw/2}" y="${bottomY+15}" style="font-size:12px">${round(realW)} mm</text>
+
+    <line class="dimLine" x1="${rightX}" y1="${dy}" x2="${rightX}" y2="${dy+dh}"/>
+    <line class="dimTick" x1="${rightX-4}" y1="${dy}" x2="${rightX+4}" y2="${dy}"/>
+    <line class="dimTick" x1="${rightX-4}" y1="${dy+dh}" x2="${rightX+4}" y2="${dy+dh}"/>
+    <text class="dim" x="${rightX+8}" y="${dy+dh/2}" style="font-size:12px">${round(realH)} mm</text>
+
+    <text class="dim" x="${innerX}" y="${y+h-28}" style="font-size:11px">${note}</text>
+    <text class="dim" x="${innerX}" y="${y+h-12}" style="font-size:11px">尺寸：${dimLabel}</text>
+  </g>`
+}
+
+function bindZoomPreviews(){document.querySelectorAll('[data-zoom-box]').forEach(initZoomBox);document.querySelectorAll('[data-zoom-action]').forEach(btn=>{btn.onclick=(e)=>{e.preventDefault();e.stopPropagation();const box=document.getElementById(btn.dataset.zoomTarget);if(!box)return;if(btn.dataset.zoomAction==='fullscreen'){openFullscreenPreview(box);return;}const st=box._zoomState;if(!st){initZoomBox(box);return;}if(btn.dataset.zoomAction==='fit')zoomFit(box,st);else if(btn.dataset.zoomAction==='reset'){st.scale=1;st.x=8;st.y=8;zoomUpdate(box,st);}else if(btn.dataset.zoomAction==='in')zoomAt(box,st,st.scale*1.22,box.clientWidth/2,box.clientHeight/2);else if(btn.dataset.zoomAction==='out')zoomAt(box,st,st.scale/1.22,box.clientWidth/2,box.clientHeight/2);};});}
+function openFullscreenPreview(sourceBox){const old=document.getElementById('previewModal');if(old)old.remove();const stage=sourceBox.querySelector('[data-zoom-stage]');if(!stage)return;const svg=stage.innerHTML;const modal=document.createElement('div');modal.id='previewModal';modal.className='preview-modal';modal.innerHTML=`<div class="preview-modal-head"><div class="preview-modal-title">全螢幕圖紙預覽</div><button type="button" data-modal-zoom="fit">自適應</button><button type="button" data-modal-zoom="out">－</button><button type="button" data-modal-zoom="in">＋</button><button type="button" data-modal-zoom="reset">100%</button><button type="button" data-modal-close="1">關閉</button></div><div class="preview-modal-body"><div id="fullscreenZoom" class="svg-box zoom-box" data-zoom-box="1"><div class="zoom-stage" data-zoom-stage="1">${svg}</div></div></div>`;document.body.appendChild(modal);document.body.classList.add('body-lock');const box=document.getElementById('fullscreenZoom');setTimeout(()=>{initZoomBox(box);},30);modal.querySelector('[data-modal-close]').onclick=closeFullscreenPreview;modal.querySelectorAll('[data-modal-zoom]').forEach(btn=>{btn.onclick=(e)=>{e.preventDefault();const st=box._zoomState;if(!st){initZoomBox(box);return;}const a=btn.dataset.modalZoom;if(a==='fit')zoomFit(box,st);else if(a==='reset'){st.scale=1;st.x=8;st.y=8;zoomUpdate(box,st);}else if(a==='in')zoomAt(box,st,st.scale*1.22,box.clientWidth/2,box.clientHeight/2);else if(a==='out')zoomAt(box,st,st.scale/1.22,box.clientWidth/2,box.clientHeight/2);};});}
+function closeFullscreenPreview(){const modal=document.getElementById('previewModal');if(modal)modal.remove();document.body.classList.remove('body-lock');}
+function getSvgViewBox(svg){const raw=svg.getAttribute('viewBox')||'0 0 320 240';const a=raw.trim().split(/[\s,]+/).map(Number);return {w:a[2]||320,h:a[3]||240};}
+function initZoomBox(box){const stage=box.querySelector('[data-zoom-stage]'),svg=stage&&stage.querySelector('svg');if(!stage||!svg)return;const vb=getSvgViewBox(svg);svg.setAttribute('width',vb.w);svg.setAttribute('height',vb.h);svg.style.width=vb.w+'px';svg.style.height=vb.h+'px';const st={stage,svg,w:vb.w,h:vb.h,scale:1,x:8,y:8,min:.05,max:8,pointers:new Map(),lastDist:0,lastCenter:null,lastPan:null};box._zoomState=st;zoomFit(box,st);box.onpointerdown=(e)=>{box.setPointerCapture(e.pointerId);st.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});st.lastPan={x:e.clientX,y:e.clientY};if(st.pointers.size===2){const p=[...st.pointers.values()];st.lastDist=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y);st.lastCenter={x:(p[0].x+p[1].x)/2-box.getBoundingClientRect().left,y:(p[0].y+p[1].y)/2-box.getBoundingClientRect().top};}};box.onpointermove=(e)=>{if(!st.pointers.has(e.pointerId))return;st.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(st.pointers.size>=2){const p=[...st.pointers.values()].slice(0,2);const rect=box.getBoundingClientRect();const dist=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y);const center={x:(p[0].x+p[1].x)/2-rect.left,y:(p[0].y+p[1].y)/2-rect.top};if(st.lastDist>0)zoomAt(box,st,st.scale*(dist/st.lastDist),center.x,center.y);st.lastDist=dist;st.lastCenter=center;}else if(st.pointers.size===1&&st.lastPan){const dx=e.clientX-st.lastPan.x,dy=e.clientY-st.lastPan.y;st.x+=dx;st.y+=dy;st.lastPan={x:e.clientX,y:e.clientY};zoomUpdate(box,st);}};box.onpointerup=box.onpointercancel=(e)=>{st.pointers.delete(e.pointerId);st.lastDist=0;st.lastCenter=null;st.lastPan=null;};box.onwheel=(e)=>{e.preventDefault();const rect=box.getBoundingClientRect();const factor=e.deltaY<0?1.12:.89;zoomAt(box,st,st.scale*factor,e.clientX-rect.left,e.clientY-rect.top);};}
+function zoomFit(box,st){const bw=Math.max(1,box.clientWidth-16),bh=Math.max(1,box.clientHeight-16);const s=Math.min(bw/st.w,bh/st.h);st.scale=Math.max(st.min,Math.min(st.max,s));st.x=Math.max(8,(box.clientWidth-st.w*st.scale)/2);st.y=Math.max(8,(box.clientHeight-st.h*st.scale)/2);zoomUpdate(box,st,'自適應');}
+function zoomAt(box,st,newScale,cx,cy){newScale=Math.max(st.min,Math.min(st.max,newScale));const px=(cx-st.x)/st.scale,py=(cy-st.y)/st.scale;st.scale=newScale;st.x=cx-px*st.scale;st.y=cy-py*st.scale;zoomUpdate(box,st);}
+function zoomUpdate(box,st,label){st.stage.style.transform=`translate(${st.x}px,${st.y}px) scale(${st.scale})`;const id=box.id,readout=document.querySelector(`[data-zoom-readout="${id}"]`);if(readout)readout.textContent=label||`${Math.round(st.scale*100)}%`;}
+
+function highlightVersionText(root=document.body){
+  if(!root)return;
+  const re=/v\d+\.\d+\.\d+(?:\.\d+)?/g;
+  const skipTags=new Set(['SCRIPT','STYLE','TEXTAREA','INPUT','SELECT','OPTION','CODE']);
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+    acceptNode(node){
+      const parent=node.parentElement;
+      if(!parent)return NodeFilter.FILTER_REJECT;
+      if(skipTags.has(parent.tagName))return NodeFilter.FILTER_REJECT;
+      if(parent.closest('.version-blue'))return NodeFilter.FILTER_REJECT;
+      if(!re.test(node.nodeValue)){re.lastIndex=0;return NodeFilter.FILTER_REJECT;}
+      re.lastIndex=0;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  const nodes=[];
+  while(walker.nextNode())nodes.push(walker.currentNode);
+  nodes.forEach(node=>{
+    const frag=document.createDocumentFragment();
+    let text=node.nodeValue,last=0;
+    text.replace(re,(m,idx)=>{
+      frag.appendChild(document.createTextNode(text.slice(last,idx)));
+      const span=document.createElement('span');
+      span.className='version-blue';
+      span.textContent=m;
+      frag.appendChild(span);
+      last=idx+m.length;
+      return m;
+    });
+    frag.appendChild(document.createTextNode(text.slice(last)));
+    node.parentNode.replaceChild(frag,node);
+  });
+}
+
+function render(){
+  try{
+    renderNav();
+    const view=$('view');let html='';
+    if(state.page==='calc')html=renderCalc();else if(state.page==='knob')html=renderKnob();else if(state.page==='drawing')html=renderDrawing();else if(state.page==='more')html=renderMore();else html=renderHome();
+    view.innerHTML=globalCheckHtml()+html;
+    bindFolds();bindInputs();bindActions();bindZoomPreviews();highlightVersionText(document.body);
+  }catch(err){
+    console.error(err);
+    const view=$('view');
+    if(view){
+      view.innerHTML=`<section class="card check-top check-attn"><h2>頁面載入錯誤</h2><div class="check-main">此頁渲染時發生錯誤，已避免整頁空白。</div><div class="check-meta">錯誤：${esc(err&&err.message?err.message:err)}</div><div class="btn-row"><button class="secondary" data-action="clear-v12">清除 v12 資料</button><button class="secondary" onclick="location.reload()">重新載入</button></div></section>`;
+      try{bindActions();}catch(e){}
+    }
+  }
+}
+function bindActions(){document.querySelectorAll('[data-calc-type]').forEach(btn=>btn.onclick=()=>{state.calc.type=btn.dataset.calcType;save('製作類型已更新');render();});document.querySelectorAll('[data-knob-style]').forEach(btn=>btn.onclick=()=>{state.knob.style=btn.dataset.knobStyle;save('旋鈕樣式已更新');render();});document.querySelectorAll('[data-knob-template]').forEach(btn=>btn.onclick=()=>{state.knob.template=btn.dataset.knobTemplate;applyTemplateIfNeeded('knob.template');save('規格模板已套用');render();});document.querySelectorAll('[data-drawing-source]').forEach(btn=>btn.onclick=()=>{state.drawing.source=btn.dataset.drawingSource;save('圖紙來源已更新');render();});document.querySelectorAll('[data-bottom-joint]').forEach(btn=>btn.onclick=()=>{state.calc.bottomJoint=btn.dataset.bottomJoint;save('底板接合方式已更新');render();});document.querySelectorAll('[data-layout-mode]').forEach(btn=>btn.onclick=()=>{const m=btn.dataset.layoutMode;state.drawing.layoutMode=m;state.drawing.pieceGap=gapForMode(m);save('排版模式已更新');render();});document.querySelectorAll('[data-manual-rotate-key]').forEach(btn=>btn.onclick=()=>{const map=manualRotateMap(),key=btn.dataset.manualRotateKey,mode=btn.dataset.manualRotateMode;if(mode==='auto')delete map[key];else map[key]=mode;save('手動旋轉已更新');render();});document.querySelectorAll('[data-piece-output-key]').forEach(btn=>btn.onclick=()=>{const map=pieceOutputMap(),key=btn.dataset.pieceOutputKey,mode=btn.dataset.pieceOutputMode;if(mode==='off')map[key]=false;else delete map[key];save(mode==='off'?'板件已設為不輸出':'板件已設為輸出');render();});document.querySelectorAll('[data-edge-key]').forEach(btn=>btn.onclick=()=>{setEdgeModeByKey(btn.dataset.edgeKey,btn.dataset.edgeSide,btn.dataset.edgeMode);save('每邊榫卯已更新');render();});document.querySelectorAll('[data-action]').forEach(btn=>btn.onclick=()=>handleAction(btn.dataset.action,btn));const file=$('jsonFile');if(file)file.onchange=importJson;}
+
+function handleAction(action,btn){if(action==='quick-calc'){state.calc.type=btn.dataset.type;setPage('calc',true);return}if(action==='quick-page'){setPage(btn.dataset.page,true);return}if(action==='piece-output-all'){state.calc.pieceOutput={};save('已恢復全部板件輸出');render();return}if(action==='piece-output-bottom-only'){const map=pieceOutputMap();allCalcPiecesFlattened().forEach(p=>{const key=pieceOutputKey(p);if(String(pieceDisplayName(p)).includes('底板'))delete map[key];else map[key]=false});save('已切換為只輸出底板');render();return}if(action==='reset-edge-modes'){state.calc.edgeModes={};save('已恢復預設榫卯');render();return}if(action==='toggle-summary-detail'){state.ui.summaryDetailOpen=!bool(state.ui.summaryDetailOpen);save(state.ui.summaryDetailOpen?'排版摘要已切到詳細':'排版摘要已切到精簡');render();return}if(action==='toggle-manual-rotate-panel'){state.ui.manualRotateOpen=!bool(state.ui.manualRotateOpen);save(state.ui.manualRotateOpen?'手動旋轉板件已展開':'手動旋轉板件已收合');render();return}if(action==='toggle-auto-rotate'){state.drawing.autoRotate=!bool(state.drawing.autoRotate);save('自動旋轉已更新');render();return}if(action==='clear-manual-rotate'){state.drawing.manualRotate={};save('手動旋轉已全部恢復自動');render();return}if(action==='toggle-safe-frame'){state.drawing.showSafeFrame=!bool(state.drawing.showSafeFrame);save('安全框顯示已更新');render();return}if(action==='toggle-output-only-fit'){state.drawing.outputOnlyFit=!bool(state.drawing.outputOnlyFit);save(state.drawing.outputOnlyFit?'已開啟只輸出可放入板件':'已關閉只輸出可放入板件');render();return}if(action==='save-calc'){save('計算設定已儲存');return}if(action==='apply-drawing-calc'){state.drawing.source='calc';setPage('drawing',true);return}if(action==='apply-drawing-knob'){state.drawing.source='knob';setPage('drawing',true);return}if(action==='refresh-knob-preview'){updateKnobPreview(false);save('旋鈕預覽已套用');return}if(action==='apply-kerf-preset'){state.calc.kerf=0.065;state.knob.kerf=0.065;state.params.kerf='10W 藍光實測：LightBurn 以 20 mm 為基礎製作 10 個獨立方塊，切口偏移設 0；實測總長 98.7～98.8 mm，推算切縫寬約 0.12～0.13 mm；建議軟體切口偏移補償 0.06～0.065 mm。App 內預設採 0.065 mm。';state.params.kerfTest='LightBurn｜20 mm 方塊 × 10 個｜切口偏移 0｜實測總長 98.7～98.8 mm｜推算切縫 0.12～0.13 mm｜補償值 0.06～0.065 mm。';save('已套用 10W 藍光實測切縫預設 0.065 mm');render();return}if(action==='download-current-svg'){if(!downloadGuard(state.drawing.source==='knob'?'knob':'calc','預覽版 SVG'))return;downloadText('mokkou_v12_15_3_8_drawing_preview.svg',state.drawing.source==='knob'?knobBatchSvg({labels:true}):layoutSvg({labels:true,notes:true}),'image/svg+xml');return}if(action==='download-current-svg-clean'){if(!downloadGuard(state.drawing.source==='knob'?'knob':'calc','乾淨 SVG'))return;downloadText('mokkou_v12_15_3_8_drawing_clean.svg',state.drawing.source==='knob'?knobBatchSvg({labels:false}):layoutSvg({labels:false,notes:false}),'image/svg+xml');return}if(action==='download-current-svg-layered'){if(!downloadGuard(state.drawing.source==='knob'?'knob':'calc','分層 SVG'))return;downloadText('mokkou_v12_15_3_8_drawing_layered.svg',state.drawing.source==='knob'?knobBatchSvgLayered():layoutSvgLayered(),'image/svg+xml');return}if(action==='download-knob-svg'){if(!downloadGuard('knob','旋鈕 SVG'))return;downloadText('mokkou_v12_15_3_8_knob.svg',knobSvgPreview(),'image/svg+xml');return}if(action==='download-json'){downloadText('mokkou_v12_15_3_8_backup.json',JSON.stringify(state,null,2),'application/json');return}if(action==='reset-calc'){state.calc=structuredClone(defaults.calc);save('已恢復預設尺寸');render();return}if(action==='clear-v12'){if(confirm('確定清除 v12 本機資料？')){localStorage.removeItem(STORE);state=loadState();save('已清除 v12 資料');render();}}}
 function downloadText(name,text,mime){const blob=new Blob([text],{type:mime+';charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);save('已產生下載檔')}
 function importJson(e){const file=e.target.files&&e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);state=deepMerge(defaults,data);save('JSON 已匯入');render();}catch(err){alert('JSON 匯入失敗：'+err.message)}};reader.readAsText(file,'utf-8')}
 $('topBtn').onclick=()=>window.scrollTo(0,0);
-render();save('已就緒');
+try{
+  render();
+  highlightVersionText(document.body);
+  save('已就緒');
+}catch(err){
+  console.error(err);
+  const view=$('view');
+  if(view){
+    view.innerHTML=`<section class="card"><h2>頁面載入錯誤</h2><div class="muted danger">此頁載入時發生錯誤：${esc(err&&err.message?err.message:err)}<br>請先回首頁或清除快取後重開；此錯誤卡片用來避免整頁空白。</div></section>`;
+  }
+  const note=$('saveNote');
+  if(note)note.textContent='本機儲存：載入錯誤，請查看頁面提示';
+}
+
 })();
 </script>
 </body>
