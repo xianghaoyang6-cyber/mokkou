@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>我の木工 PWA v12.17.9.15 計算頁7與8高度壓縮版</title>
+<title>我の木工 PWA v12.17.9.22 底板輸出自檢同步修正版</title>
 <meta name="theme-color" content="#b88a44">
 <style>
 :root{
@@ -309,6 +309,14 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 .release-item{border:1.5px solid var(--line2);background:#fffdf8;border-radius:15px;padding:9px 11px}
 .release-item strong{display:block;color:#2b2216}
 .release-item span{display:block;color:#806a48;font-size:.84rem;font-weight:800;margin-top:2px}
+.release-list.compact{gap:6px}
+.release-list.compact .release-item{padding:8px 10px;border-radius:13px}
+.release-list.compact .release-item span{font-size:.8rem;line-height:1.35}
+.priority-list{display:grid;gap:8px}
+.priority-item{display:grid;grid-template-columns:54px 1fr;gap:8px;align-items:center;border:1.5px solid var(--line2);background:#fffdf8;border-radius:15px;padding:9px 11px}
+.priority-rank{display:flex;align-items:center;justify-content:center;min-height:38px;border-radius:999px;background:#efe2c6;color:#4f381b;font-weight:950}
+.priority-rank.high{background:#e8f4ea;color:#24633d}.priority-rank.mid{background:#fff1d6;color:#8a5c1c}.priority-rank.low{background:#f2ede5;color:#6b5b49}
+.priority-body strong{display:block;font-size:1rem}.priority-body span{display:block;color:#806a48;font-size:.84rem;font-weight:800;line-height:1.35;margin-top:2px}
 .more-warning{border:1.5px dashed var(--line);background:#fffaf1;border-radius:16px;padding:10px 12px;color:#6b5737;font-weight:850}
 @media(max-width:520px){
   .more-kpi-grid{grid-template-columns:1fr 1fr}
@@ -516,10 +524,10 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 @media(max-width:520px){.download-purpose-strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.download-purpose-chip{padding:6px 4px;font-size:.78rem}.download-purpose-chip small{font-size:.56rem}.drawing-download-grid.v12173 button{min-height:50px}.drawing-download-grid.v12173 button b{font-size:.92rem}.check-mini-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 
-/* v12.17.9.15 custom confirm modal: avoid native Android browser alert title */
+/* v12.17.9.17 custom confirm modal: avoid native Android browser alert title */
 .app-modal-backdrop{position:fixed;inset:0;z-index:99999;background:rgba(20,17,14,.56);display:flex;align-items:center;justify-content:center;padding:18px}.app-modal-card{width:min(640px,100%);max-height:78vh;display:flex;flex-direction:column;background:#fffaf7;border:1.5px solid #b99762;border-radius:24px;box-shadow:0 18px 42px rgba(0,0,0,.25);overflow:hidden}.app-modal-head{padding:14px 18px;background:#4f3928;border-bottom:1px solid #b99762}.app-modal-title{font-size:1.24rem;font-weight:950;color:#f2ead8;line-height:1.25;text-align:center;display:block;width:100%;letter-spacing:.02em;text-shadow:0 1px 0 rgba(30,18,10,.35),0 0 6px rgba(255,245,220,.16)}.app-modal-sub{display:none}.app-modal-body{padding:14px 18px;overflow:auto;font-weight:760;line-height:1.55;color:#3d3328}.app-modal-summary{background:#fffdf8;border:1.5px dashed #d7bf8c;border-radius:16px;padding:10px 12px;margin:8px 0}.app-modal-list{margin:8px 0 0;padding-left:18px}.app-modal-list li{margin:3px 0}.app-modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 18px 16px;border-top:1px solid #eadbbf;background:#fffdf8}.app-modal-actions button{border-radius:16px;padding:12px 10px;font-weight:950;font-size:1rem}.app-modal-actions .confirm{background:#1f5870;color:white;border:0}.app-modal-actions .cancel{background:#fffaf1;color:#4a3b25;border:1.5px solid #d7bf8c}@media(max-width:480px){.app-modal-backdrop{align-items:flex-end;padding:12px}.app-modal-card{max-height:82vh;border-radius:22px}.app-modal-title{font-size:1.12rem}.app-modal-body{font-size:.92rem;padding:12px 14px}.app-modal-actions{padding:10px 14px 14px}}
 
-/* v12.17.9.15 drawing page height compact overrides */
+/* v12.17.9.17 drawing page height compact overrides */
 .fold-card[data-fold^="drawing-"] .fold-head{padding:8px 11px!important;min-height:0!important}
 .fold-card[data-fold^="drawing-"] .fold-title{font-size:.94rem!important;line-height:1.15!important}
 .fold-card[data-fold^="drawing-"] .fold-sub{display:none!important}
@@ -537,7 +545,7 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 @media(max-width:520px){.source-label-grid{grid-template-columns:1fr}.fold-card[data-fold^="drawing-"]{margin-bottom:8px!important}.zoom-toolbar.zoom-toolbar-ultra{grid-template-columns:repeat(4,minmax(0,1fr))}.zoom-toolbar.zoom-toolbar-ultra + .zoom-shell .zoom-box{height:46vh!important;min-height:250px!important}.v12179-line span{margin-right:6px}.drawing-download-grid.v12173 button{min-height:46px!important}}
 
 
-/* v12.17.9.15 drawing settings ultra compact */
+/* v12.17.9.17 drawing settings ultra compact */
 .drawing-setting-compact{display:grid;gap:7px}
 .drawing-setting-compact .compact-section{border:1.5px solid var(--line2);background:#fffdf8;border-radius:15px;padding:8px 9px;display:grid;gap:7px}
 .drawing-setting-compact .compact-section-title{font-size:.78rem;font-weight:950;color:#6b5737;line-height:1.1;margin:0}
@@ -558,7 +566,7 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 @media(max-width:380px){.compact-input-grid{gap:5px}.compact-field input,.compact-field select{font-size:.84rem!important;padding:5px!important}.compact-mode-row .quick-btn{font-size:.78rem!important}.compact-toggle-row .quick-btn{font-size:.7rem!important}.compact-summary-line{font-size:.69rem}}
 
 
-/* v12.17.9.15 overrides: compact drawing check section */
+/* v12.17.9.17 overrides: compact drawing check section */
 .compact-check{display:grid;gap:7px}
 .compact-check-status{display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap;border:1.5px solid #b7dff2;background:#f0f9ff;border-radius:14px;padding:7px 9px;font-weight:950;color:#174b66;font-size:.82rem;line-height:1.25}
 .compact-check-status.ok{border-color:#8fc99a;background:#f2fff4;color:#235b34}.compact-check-status.warn{border-color:#e1b36e;background:#fff7e8;color:#754613}.compact-check-status.danger{border-color:#d19a84;background:#fff0ea;color:#8a3b25}
@@ -576,7 +584,7 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 .compact-check .usage-bar{height:6px!important;margin:4px 0!important}
 @media(max-width:520px){.compact-check-kpi{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}.compact-check-kpi div{padding:5px 3px}.compact-check-kpi strong{font-size:.78rem}.compact-check-kpi span{font-size:.56rem}.compact-check-line,.compact-check-warnings .warn-row{font-size:.74rem}.compact-check-actions button{font-size:.76rem!important}}
 
-/* v12.17.9.15 compact download section */
+/* v12.17.9.17 compact download section */
 .download-ultra{display:grid;gap:6px}
 .download-ultra-status{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1.5px solid #d7bf8c;background:#fffaf1;border-radius:14px;padding:7px 9px;font-weight:950;color:#3d3328;line-height:1.25}
 .download-ultra-status b{font-size:.86rem;white-space:nowrap}
@@ -590,7 +598,7 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 @media(max-width:520px){.download-ultra{gap:5px}.download-ultra-status{padding:6px 8px}.download-ultra-status b{font-size:.8rem}.download-ultra-status span{font-size:.64rem}.download-ultra-actions{gap:5px}.download-ultra-btn{min-height:40px!important;padding:5px 3px!important;border-radius:12px!important}.download-ultra-btn b{font-size:.78rem}.download-ultra-btn small{font-size:.52rem}.download-ultra-note{font-size:.68rem;padding:5px 7px}}
 
 
-/* v12.17.9.15 overrides: compact calc type settings section */
+/* v12.17.9.17 overrides: compact calc type settings section */
 .calc-type-settings-compact{display:grid;gap:7px}
 .calc-type-settings-compact .compact-section{border:1.5px solid var(--line2);background:#fffdf8;border-radius:15px;padding:8px 9px;display:grid;gap:7px}
 .calc-type-settings-compact .compact-section-title{font-size:.78rem;font-weight:950;color:#6b5737;line-height:1.1;margin:0}
@@ -604,7 +612,7 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 
 
 
-/* v12.17.9.15 base tight calc type settings - static CSS */
+/* v12.17.9.17 base tight calc type settings - static CSS */
 .calc-type-settings-tight{display:grid;gap:6px!important;width:100%!important;box-sizing:border-box!important}
 .calc-type-settings-tight .type-tight-row{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important;align-items:end!important;width:100%!important}
 .calc-type-settings-tight .type-tight-row.two{grid-template-columns:repeat(2,minmax(0,1fr))!important}
@@ -617,7 +625,7 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 @media(max-width:380px){.calc-type-settings-tight .type-tight-row{gap:5px!important}.type-tight-field input,.type-tight-field select{height:36px!important;min-height:36px!important;font-size:.78rem!important;padding:4px 5px!important}.type-tight-label{font-size:.6rem!important}.type-tight-note{font-size:.66rem!important;padding:5px 6px!important}}
 
 
-/* v12.17.9.15 底板接合與板件輸出高度壓縮 */
+/* v12.17.9.17 底板接合與板件輸出高度壓縮 */
 .fold-card[data-fold="calc-bottom-joint"] .fold-body,
 .fold-card[data-fold="calc-piece-output"] .fold-body{padding:8px 12px 10px!important}
 .bottom-joint-box.bottom-joint-compact{gap:6px!important;margin-top:0!important}
@@ -650,7 +658,7 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 
 
 
-/* v12.17.9.15 計算頁 7/8 高度壓縮 */
+/* v12.17.9.17 計算頁 7/8 高度壓縮 */
 .calc-check-compact-v1217915{display:grid;gap:7px}
 .calc-check-mainline{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;border:1.5px solid #b7d8c2;background:#f0fbf3;border-radius:14px;padding:7px 9px;font-weight:950;color:#234f34;line-height:1.25}
 .calc-check-mainline .status-chip{margin-right:4px}.calc-check-mainline small{font-size:.72rem;color:#46624d;font-weight:900}
@@ -676,7 +684,7 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 </style>
 
 <style id="v121795-preview-compact-style">
-/* v12.17.9.15 預覽區高度壓縮 */
+/* v12.17.9.17 預覽區高度壓縮 */
 .fold-card[data-fold="drawing-preview"] .fold-body{padding:6px 8px 8px!important}
 .preview-compare-box.v121795{padding:5px 7px!important;border-radius:12px!important;margin-bottom:4px!important;display:block!important;background:#f0f9ff;border-color:#b7dff2;color:#174b66}
 .v121795-line{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:.7rem;font-weight:950;line-height:1.25;color:#174b66}
@@ -704,20 +712,20 @@ input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fffd
 <body>
 <div class="app" id="top">
   <section class="hero">
-    <div class="hero-kicker">我の木工 PWA v12.17.9.15</div>
-    <h1>計算頁7與8高度壓縮</h1>
-    <p>v12.17.9.15 壓縮計算頁「7. 檢查」與「8. 結果」高度：改用折疊卡、短狀態列與緊湊板件清單，保留尺寸計算與 SVG 幾何邏輯。</p>
+    <div class="hero-kicker">我の木工 PWA v12.17.9.22</div>
+    <h1>底板輸出自檢同步修正版</h1>
+    <p>v12.17.9.22 修正自檢誤判「底板與輸出壓縮」的問題；功能本身不變，只同步檢查條件。</p>
     <div class="status"><strong id="saveNote">本機儲存：已就緒</strong><span class="badge">10W 藍光｜300×300｜有效 280×280 mm</span></div>
   </section>
   <main id="view"></main>
-  <div class="footer">PWA v12.17.9.15｜計算頁7與8高度壓縮版｜單一 HTML｜手機優先｜SVG 優先</div>
+  <div class="footer">PWA v12.17.9.22｜自檢同步｜單一 HTML｜手機優先｜SVG 優先</div>
 </div>
 <button class="top-btn" type="button" id="topBtn">↑</button>
 <nav class="bottom-nav" id="bottomNav" aria-label="底部導航"></nav>
 <script>
 (function(){
 'use strict';
-const VERSION='v12.17.9.15';
+const VERSION='v12.17.9.22';
 const STORE='mokkou_v12_state';
 const NAV=[['home','首頁','⌂'],['calc','計算','▣'],['knob','旋鈕','◎'],['drawing','圖紙','◇'],['more','更多','☰']];
 const defaults={
@@ -850,7 +858,7 @@ function calcBox(f){let W=num(f.width),D=num(f.depth),H=num(f.height),t=num(f.th
 function calcDrawer(f){const W=num(f.width),D=num(f.depth),H=num(f.height),t=num(f.thickness),bt=num(f.bottomThickness,t),gap=num(f.drawerGap),clr=num(f.slideClearance),sl=num(f.slideLength);const boxW=W-2*clr,boxD=Math.min(D-20,sl),boxH=Math.max(40,H-20);return {name:'抽屜',summary:[`抽屜箱外寬 ${round(boxW)} mm`,`抽屜箱外深 ${round(boxD)} mm`,`滑軌每側 ${round(clr)} mm`,`抽面縫 ${round(gap)} mm`],pieces:[piece('側板',2,boxD,boxH,t,'左右側板'),piece('前板 / 後板',2,boxW-2*t,boxH,t,'夾在側板中間'),piece('底板',1,boxW-2*t,boxD-2*t,bt,'可入槽或底鎖'),piece('抽屜面板',1,W-2*gap,H-2*gap,t,'外露面板')]};}
 function calcCabinet(f){const W=num(f.width),D=num(f.depth),H=num(f.height),t=num(f.thickness),bt=num(f.backThickness),s=Math.max(0,Math.floor(num(f.shelfCount)));const innerW=W-2*t;return {name:'櫃子',summary:[`外尺寸 ${W} × ${D} × ${H} mm`,`內淨寬 ${round(innerW)} mm`,`層板 ${s} 片`,`背板 ${bt} mm`],pieces:[piece('側板',2,D,H,t,'左右側板'),piece('頂板 / 底板',2,innerW,D,t,'夾在側板中間'),piece('層板',s,innerW,D-10,t,'固定或活動層板'),piece('背板',1,W-12,H-12,bt,'增加抗扭')]};}
 
-function renderHome(){const res=calcResult();return `<section class="card"><h2>v12.17.9.15｜計算頁7與8高度壓縮</h2><div class="home-grid"><div class="muted">這版壓縮計算頁「7. 檢查」與「8. 結果」：改用短狀態列、三顆短操作鍵與緊湊板件清單，讓手機畫面更短。</div><div><div class="pill">300×300</div> <div class="pill">有效 280×280</div> <div class="pill">SVG</div><div class="pill">短檔名</div></div></div></section>${fold('home-start','快速開始','常用入口，不自動滾動。',`<div id="homeQuickStartGrid"><button class="quick-btn" data-action="quick-calc" data-type="box">做盒子<small>榫卯 / 上蓋 / 板件</small></button><button class="quick-btn" data-action="quick-calc" data-type="drawer">做抽屜<small>滑軌間隙 / 面板縫</small></button><button class="quick-btn" data-action="quick-calc" data-type="cabinet">做櫃子<small>側板 / 層板 / 背板</small></button><button class="quick-btn" data-action="quick-page" data-page="knob">做旋鈕<small>中心孔 / 螺母槽</small></button><button class="quick-btn" data-action="quick-page" data-page="drawing">看圖紙<small>SVG / 280×280 分片</small></button><button class="quick-btn" data-action="quick-page" data-page="more">備份資料<small>JSON 匯出 / 匯入</small></button></div>`,true)}${fold('home-recent','最近設定','目前計算結果摘要。',summaryHtml(res),false)}${fold('home-notice','暫緩功能','紙盒刀模、照片庫、DXF / PNG 暫不納入第一版。',`<ul class="notice-list"><li>紙盒刀模改列 v12.10 或之後加回。</li><li>照片庫 / 圖庫等大型功能等核心穩定後再加。</li><li>v11 保留為備份與功能參考，不再直接疊補丁。</li></ul>`,false)}`}
+function renderHome(){const res=calcResult();return `<section class="card"><h2>v12.17.9.22｜自檢同步</h2><div class="home-grid"><div class="muted">這版只修正自檢誤判；3. 底板與 5. 輸出壓縮版功能本身不變。</div><div><div class="pill">300×300</div> <div class="pill">有效 280×280</div> <div class="pill">SVG</div><div class="pill">自檢同步</div></div></div></section>${fold('home-start','快速開始','常用入口，不自動滾動。',`<div id="homeQuickStartGrid"><button class="quick-btn" data-action="quick-calc" data-type="box">做盒子<small>榫卯 / 上蓋 / 板件</small></button><button class="quick-btn" data-action="quick-calc" data-type="drawer">做抽屜<small>滑軌間隙 / 面板縫</small></button><button class="quick-btn" data-action="quick-calc" data-type="cabinet">做櫃子<small>側板 / 層板 / 背板</small></button><button class="quick-btn" data-action="quick-page" data-page="knob">做旋鈕<small>中心孔 / 螺母槽</small></button><button class="quick-btn" data-action="quick-page" data-page="drawing">看圖紙<small>SVG / 280×280 分片</small></button><button class="quick-btn" data-action="quick-page" data-page="more">備份資料<small>JSON 匯出 / 匯入</small></button></div>`,true)}${fold('home-recent','最近設定','目前計算結果摘要。',summaryHtml(res),false)}${fold('home-notice','暫緩功能','紙盒刀模、照片庫、DXF / PNG 暫不納入第一版。',`<ul class="notice-list"><li>紙盒刀模改列 v12.10 或之後加回。</li><li>照片庫 / 圖庫等大型功能等核心穩定後再加。</li><li>v11 保留為備份與功能參考，不再直接疊補丁。</li></ul>`,false)}`}
 function pieceJoinSummary(p){
   const parts=[];
   if(p.part==='底板'&&p.bottomJoint)parts.push(bottomJointLabel(p.bottomJoint));
@@ -1627,7 +1635,7 @@ function selfCheckTry(title,fn){
 }
 function runSelfChecks(){
   const items=[];
-  items.push(selfCheckTry('版本號',()=>VERSION==='v12.17.9.15'?{level:'ok',detail:'目前版本 '+VERSION}:{level:'warn',detail:'版本不是 v12.17.9.15，目前為 '+VERSION}));
+  items.push(selfCheckTry('版本號',()=>VERSION==='v12.17.9.22'?{level:'ok',detail:'目前版本 '+VERSION}:{level:'warn',detail:'版本不是 v12.17.9.22，目前為 '+VERSION}));
   items.push(selfCheckTry('localStorage 儲存',()=>{
     const k='mokkou_selfcheck_'+Date.now();
     localStorage.setItem(k,'ok');
@@ -1650,7 +1658,7 @@ function runSelfChecks(){
   items.push(selfCheckTry('全螢幕列整合',()=>typeof zoomPreview==='function'&&zoomPreview('testZoom','<svg></svg>').includes('全螢幕檢查')&&zoomPreview('testZoom','<svg></svg>').includes('目前：自適應')?{level:'ok',detail:'全螢幕檢查與縮放狀態可在同區操作'}:{level:'bad',detail:'全螢幕列整合檢查失敗'}));
   items.push(selfCheckTry('SVG 樣式外洩檢查',()=>!layoutSvg({labels:true,notes:true}).includes('drawing-download-grid')&&!layoutSvg({labels:true,notes:true}).includes('download buttons silver')?{level:'ok',detail:'SVG 預覽內容沒有外洩 CSS 程式碼'}:{level:'bad',detail:'SVG 內容仍含有外洩 CSS 程式碼'}));
   items.push(selfCheckTry('全螢幕按鈕蘋果綠',()=>typeof flashButtonFeedback==='function'?{level:'ok',detail:'全螢幕預覽上方按鈕套用蘋果綠背景與點擊反饋'}:{level:'bad',detail:'按鈕點擊反饋函式缺失'}));
-  items.push(selfCheckTry('首頁短版號同步',()=>VERSION==='v12.17.9.15'&&renderHome().includes('homeQuickStartGrid')&&!renderHome().includes('grid two')?{level:'ok',detail:'首頁版本、說明與快速開始雙排容器已同步為 '+VERSION}:{level:'bad',detail:'首頁版本或快速開始雙排容器未同步'}));
+  items.push(selfCheckTry('首頁短版號同步',()=>VERSION==='v12.17.9.22'&&renderHome().includes('homeQuickStartGrid')&&!renderHome().includes('grid two')?{level:'ok',detail:'首頁版本、說明與快速開始雙排容器已同步為 '+VERSION}:{level:'bad',detail:'首頁版本或快速開始雙排容器未同步'}));
   items.push(selfCheckTry('首頁快速開始雙排',()=>renderHome().includes('id="homeQuickStartGrid"')&&!renderHome().includes('class="grid two"')?{level:'ok',detail:'快速開始使用獨立 homeQuickStartGrid，已避開舊 grid two 單欄規則'}:{level:'bad',detail:'快速開始仍可能被舊單欄規則覆蓋'}));
   items.push(selfCheckTry('計算結果',()=>{
     const r=calcResult();
@@ -1696,9 +1704,19 @@ function selfCheckHtml(){
   const ok=items.filter(i=>i.level==='ok').length;
   const warn=items.filter(i=>i.level==='warn').length;
   const bad=items.filter(i=>i.level==='bad').length;
-  const rows=items.map(i=>`<div class="selfcheck-row"><div class="selfcheck-badge ${i.level}">${i.level==='ok'?'正常':i.level==='warn'?'注意':'錯誤'}</div><div><div class="selfcheck-title">${esc(i.title)}</div><div class="selfcheck-detail">${esc(i.detail)}</div></div></div>`).join('');
-  return `<div class="selfcheck-grid"><div class="selfcheck-summary">更新 App 後先跑這裡。若出現「錯誤」，先不要正式切割；若只有「注意」，通常是目前設定需要確認。</div>${selfCheckRunInfoHtml()}<div class="selfcheck-kpi-grid"><div class="selfcheck-kpi"><strong>${ok}</strong><span>正常</span></div><div class="selfcheck-kpi"><strong>${warn}</strong><span>注意</span></div><div class="selfcheck-kpi"><strong>${bad}</strong><span>錯誤</span></div></div><div class="selfcheck-actions"><button class="primary selfcheck-action-primary" data-action="run-self-check">重新執行自檢</button><button class="secondary" data-action="download-json">下載 JSON 備份</button></div><div class="selfcheck-list">${rows}</div><div class="selfcheck-note">自檢只確認 App 主要函式與 SVG / JSON 產生是否正常，不代表實際雷射切割參數一定正確；正式切割前仍要用同批板材做測試片。</div></div>`
+  const problems=items.filter(i=>i.level!=='ok');
+  const level=bad?'bad':warn?'warn':'ok';
+  const label=bad?'有錯誤':warn?'需確認':'全部通過';
+  const rows=problems.map(i=>`<div class="selfcheck-row"><div class="selfcheck-badge ${i.level}">${i.level==='warn'?'注意':'錯誤'}</div><div><div class="selfcheck-title">${esc(i.title)}</div><div class="selfcheck-detail">${esc(i.detail)}</div></div></div>`).join('');
+  return `<div class="selfcheck-grid selfcheck-safe-compact">
+    <div class="selfcheck-summary"><strong>${label}</strong>｜${ok} 正常｜${warn} 注意｜${bad} 錯誤。正常項目已隱藏，只顯示需要處理的項目。</div>
+    ${selfCheckRunInfoHtml()}
+    <div class="selfcheck-kpi-grid"><div class="selfcheck-kpi"><strong>${ok}</strong><span>正常</span></div><div class="selfcheck-kpi"><strong>${warn}</strong><span>注意</span></div><div class="selfcheck-kpi"><strong>${bad}</strong><span>錯誤</span></div></div>
+    <div class="selfcheck-actions"><button class="primary selfcheck-action-primary" data-action="run-self-check">重新自檢</button><button class="secondary" data-action="download-json">JSON 備份</button></div>
+    ${rows?`<div class="selfcheck-list">${rows}</div>`:`<div class="selfcheck-note">目前沒有注意與錯誤；正式切割前仍先用同批板材做測試片。</div>`}
+  </div>`
 }
+
 
 function guideOpenMap(){
   if(!state.ui.guideOpen||typeof state.ui.guideOpen!=='object'||Array.isArray(state.ui.guideOpen))state.ui.guideOpen={};
@@ -1760,11 +1778,32 @@ function laserParamSummaryHtml(){
 function backupPanelHtml(){
   return `<div class="more-mobile-grid"><div class="more-note-card"><strong>建議操作：</strong><ol class="more-step-list"><li>修改尺寸或參數後，先匯出 JSON。</li><li>換手機、換瀏覽器或清快取前，也先匯出 JSON。</li><li>匯入 JSON 後，回到計算頁確認尺寸是否恢復。</li></ol></div><div class="backup-actions"><button class="primary" data-action="download-json">匯出 JSON</button><label class="file-btn">匯入 JSON<input type="file" id="jsonFile" accept="application/json" hidden></label><button class="secondary danger" data-action="clear-v12">清除 v12 資料</button></div><textarea id="jsonText" class="json-preview" readonly>${esc(JSON.stringify(state,null,2))}</textarea></div>`
 }
+function pagePriorityHtml(){
+  const items=[
+    ['高','計算頁','核心輸入：類型、尺寸、底板、接合與板件輸出。'],
+    ['高','圖紙頁','切割前檢查：SVG 預覽、下載、排版與安全框。'],
+    ['高','更多頁','備份、自檢、10W 參數與版本紀錄，維持短版。'],
+    ['中','旋鈕頁','中心孔 / 螺母槽仍保留，等木工主流程穩定再細修。'],
+    ['中','首頁','維持快速入口 2×3，不再塞太多說明。'],
+    ['暫緩','後續功能','紙盒刀模、DXF、照片庫、底板銑槽定位線先不納入核心。']
+  ];
+  return `<div class="priority-list">${items.map(([rank,title,desc])=>`<div class="priority-item"><div class="priority-rank ${rank==='高'?'high':rank==='中'?'mid':'low'}">${rank}</div><div class="priority-body"><strong>${title}</strong><span>${desc}</span></div></div>`).join('')}<div class="more-warning">優先順序以手機操作、SVG 出圖與 10W 藍光 280×280 mm 有效區為主。</div></div>`
+}
 function releaseSummaryHtml(){
-  return `<div class="release-list"><div class="release-item"><strong>v12.17.9.15</strong><span>計算頁7與8高度壓縮版：計算頁「製作類型」改成三欄短按鈕，減少手機畫面垂直長度。</span></div><div class="release-item"><strong>v12.17.9.15</strong><span>計算頁7與8高度壓縮版：修正 SVG 預覽 / 全螢幕中誤顯示 App CSS 程式碼，保留預覽區高度壓縮。</span><div class="release-item"><strong>v12.17.9.3</strong><span>檢查區高度壓縮版：圖紙頁「檢查」改成短狀態列、KPI、小提醒與短用途提示，減少展開後高度。</span></div></div><div class="release-item"><strong>v12.17.9</strong><span>圖紙頁高度再壓縮版：圖紙頁改為 來源、預覽、下載、設定、檢查 5 區，縮短折疊標題與 SVG 尺寸列。</span></div><div class="release-item"><strong>v12.17.3</strong><span>下載區與提示精簡版：圖紙頁下載區改成用途導向短按鈕，下載前摘要與提示文字再壓縮。</span></div><div class="release-item"><strong>v12.17.2</strong><span>短檔名防重複版：SVG / JSON 下載檔名改為 mk12172 開頭的短格式，保留短時間碼避免重複下載提示。</span></div><div class="release-item"><strong>v12.17.1</strong><span>下載檔名防重複版：SVG / JSON 下載檔名自動加入時間碼，避免 Android 跳出「再次下載」確認。</span></div><div class="release-item"><strong>v12.17</strong><span>圖紙頁整合精簡版：壓縮圖紙頁高度、整理縮放按鈕、強化輸出狀態色、加入標註顯示開關與短檔名。</span></div><div class="release-item"><strong>v12.16.1</strong><span>縮放按鈕狀態修正版：自適應、縮小、放大、50%、100%、200% 會依目前操作切換 active 顏色。</span></div><div class="release-item"><strong>v12.16</strong><span>短版號與色彩修正版：畫面版本改短，並恢復版本號藍色標示。</span></div><div class="release-item"><strong>v12.15.3.31.2</strong><span>首頁快速開始雙排清理版：移除舊版 renderHome 覆蓋問題，只保留新版首頁，快速開始強制雙排 2×3。</span></div><div class="release-item"><strong>v12.15.3.30</strong><span>圖紙來源精簡切換版：圖紙頁「圖紙來源」改成單列小切換鈕，減少卡片高度。</span></div><div class="release-item"><strong>v12.15.3.28</strong><span>全螢幕按鈕蘋果綠反饋版：SVG 全螢幕預覽上方按鈕改成蘋果綠並加入點擊反饋。</span></div><div class="release-item"><strong>v12.15.3.27</strong><span>計算頁7與8高度壓縮版：修正 SVG 預覽誤顯示 CSS 程式碼，銀色下載鍵樣式保留。</span></div><div class="release-item"><strong>v12.15.3.26</strong><span>全螢幕列整合版：圖紙頁將「全螢幕檢查」與「目前：自適應」改成同一橫列。</span></div><div class="release-item"><strong>v12.15.3.25</strong><span>下載鍵銀色背景版：圖紙頁 4 個下載鍵改為銀色系背景，保留雙排 2×2。</span></div><div class="release-item"><strong>v12.15.3.24</strong><span>下載鍵雙排精簡版：圖紙頁 4 個下載鍵改為手機雙排 2×2，減少頁面高度。</span></div><div class="release-item"><strong>v12.15.3.23</strong><span>SVG 操作提示精簡版：移除 SVG 預覽操作提示大區塊，保留縮放與全螢幕控制。</span></div><div class="release-item"><strong>v12.15.3.22</strong><span>SVG 預覽文字防重疊版：修正全螢幕控制列與板件名稱 / 旋轉 / 榫齒文字互相遮擋。</span></div><div class="release-item"><strong>v12.15.3.21</strong><span>SVG 預覽操作優化版：新增 50% / 100% / 200% 快速縮放與更清楚的操作提示。</span></div><div class="release-item"><strong>v12.15.3.20</strong><span>板件清單詳細版優化：計算結果顯示尺寸、厚度、接合、排版與輸出狀態。</span></div><div class="release-item"><strong>v12.15.3.19</strong><span>圖紙預覽尺寸對照提示版：SVG 預覽前顯示目前尺寸、板厚、底板與輸出摘要。</span></div><div class="release-item"><strong>v12.15.3.18</strong><span>自檢執行回饋強化版：顯示自檢最後執行時間、次數與按鈕反饋。</span></div><div class="release-item"><strong>v12.15.3.17</strong><span>檢查提醒板件資訊同步修正版：檢查區顯示最新尺寸、板厚、底板與板件摘要。</span></div><div class="release-item"><strong>v12.15.3.16</strong><span>自動保存套用同步修正版：切到圖紙或套用圖紙前強制保存並重新生成 SVG。</span></div><div class="release-item"><strong>v12.15.3.15</strong><span>計算頁輸入保存強化版：輸入尺寸時延遲自動保存，並顯示保存狀態。</span></div><div class="release-item"><strong>v12.15.3.14</strong><span>SVG 下載前檢查摘要版：下載前確認來源、板件、超尺寸、警告與用途。</span></div><div class="release-item"><strong>v12.15.3.13</strong><span>首頁版本文字同步修正版：修正首頁殘留舊版標題與版本文字。</span></div><div class="release-item"><strong>v12.15.3.12</strong><span>全站穩定性自檢版：新增版本、儲存、計算、SVG、JSON 與主要函式檢查。</span></div><div class="release-item"><strong>v12.15.3.11</strong><span>教學區小字純黑版：教學項目標題下方的小字改為純黑色。</span></div><div class="release-item"><strong>v12.15.3.10</strong><span>教學區選項摺疊版：教學項目改成可單獨展開，標題使用古銅綠。</span></div><div class="release-item"><strong>v12.15.3.9</strong><span>使用說明教學頁整理版：新增目前穩定功能的手機操作流程。</span></div><div class="release-item"><strong>v12.15.3.8</strong><span>版本號金屬藍顯示版：所有 App 介面可見版本號套用金屬藍字色。</span></div><div class="release-item"><strong>v12.15.3.7</strong><span>全功能穩定整理版：不新增功能，收斂計算頁、圖紙頁、更多頁與下載檔案。</span></div><div class="release-item"><strong>v12.15.3.6</strong><span>整理圖紙頁手機排版與下載區，將預覽與下載分區。</span></div><div class="release-item"><strong>v12.15.3.5</strong><span>整理計算頁手機排版與卡片順序，加入計算頁總覽與操作順序。</span></div><div class="release-item"><strong>v12.15.3.4</strong><span>整理更多頁手機排版：參數、備份、版本紀錄改成更易讀的卡片與步驟。</span></div><div class="release-item"><strong>v12.15.3.3</strong><span>修正 v12.15.3.2 的 render is not defined 啟動錯誤，保留三視圖手機排版。</span></div><div class="release-item"><strong>v12.15.3.1</strong><span>整理底板接合方式說明與手機驗收文字。</span></div><div class="release-item"><strong>v12.15.3</strong><span>新增底板接合方式：平放、內嵌、榫卯、無底板。</span></div><div class="release-item"><strong>v12.15.2.1</strong><span>修正每邊榫卯控制後 SVG 輪廓接線不完整與缺線問題。</span></div><div class="more-warning">完整版本紀錄仍保留在 README；App 內只顯示最近最重要的幾項，避免手機頁面過長。</div></div>`
+  const rows=[
+    ['v12.17.9.22','修正：底板 / 輸出壓縮自檢誤判。'],
+    ['v12.17.9.20','修正：自檢精簡造成頁面空白。'],
+    ['v12.17.9.17','更多頁：優先順序與版本重點精簡。'],
+    ['v12.17.9.16','自檢：同步新版壓縮架構。'],
+    ['v12.17.9.15','計算頁：7 檢查、8 結果壓縮。'],
+    ['v12.17.9.14','計算頁：底板、輸出壓縮。'],
+    ['v12.17.9.13','類型設定：state 錯誤修正。'],
+    ['v12.17.9.6','SVG：修正樣式外洩。']
+  ];
+  return `<div class="release-list compact">${rows.map(([ver,txt])=>`<div class="release-item"><strong>${ver}</strong><span>${txt}</span></div>`).join('')}<div class="more-warning">完整紀錄保留在 README；App 內只留最近穩定重點。</div></div>`;
 }
 
-function renderMore(){return `${fold('more-overview','更多頁總覽','本頁集中施工圖、10W 參數、JSON 備份、自檢、使用教學與版本紀錄。',moreOverviewHtml(),true)}${fold('more-selfcheck','全站穩定性自檢','更新後先檢查版本、儲存、計算、SVG、JSON 與主要頁面函式；大型檢查卡預設收合。',selfCheckHtml(),false)}${fold('more-guide','使用說明 / 教學','整理目前穩定功能的手機操作流程；新大型教學卡預設收合。',userGuideHtml(),false)}${fold('more-diagram','施工圖三視圖','正視圖、側視圖、俯視圖改成手機友善直向排版，避免字被圖擋住。',`<div class="svg-box">${diagramSvg()}</div>`,false)}${fold('more-params','10W 藍光參數','實測切縫資料改成摘要卡；完整文字參數仍可展開修改。',laserParamSummaryHtml(),false)}${fold('more-backup','JSON 備份 / 還原','手機操作步驟更清楚；匯出、匯入、清除資料分成直向按鈕。',backupPanelHtml(),false)}${fold('more-about','版本重點','手機內只列最近重點，完整紀錄看 README，避免頁面過長。',releaseSummaryHtml(),false)}`}
+function renderMore(){return `${fold('more-overview','更多頁總覽','本頁集中施工圖、10W 參數、JSON 備份、自檢、教學與短版版本紀錄。',moreOverviewHtml(),true)}${fold('more-priority','頁面優先順序','先穩定計算與 SVG；大型功能暫緩。',pagePriorityHtml(),false)}${fold('more-selfcheck','自檢','短摘要；正常明細隱藏。',selfCheckHtml(),false)}${fold('more-guide','使用說明 / 教學','整理目前穩定功能的手機操作流程；新大型教學卡預設收合。',userGuideHtml(),false)}${fold('more-diagram','施工圖三視圖','正視圖、側視圖、俯視圖改成手機友善直向排版，避免字被圖擋住。',`<div class="svg-box">${diagramSvg()}</div>`,false)}${fold('more-params','10W 藍光參數','實測切縫資料改成摘要卡；完整文字參數仍可展開修改。',laserParamSummaryHtml(),false)}${fold('more-backup','JSON 備份 / 還原','手機操作步驟更清楚；匯出、匯入、清除資料分成直向按鈕。',backupPanelHtml(),false)}${fold('more-about','版本重點','只列短版重點；完整紀錄看 README。',releaseSummaryHtml(),false)}`}
 function diagramSvg(){
   const res=calcResult(),f=state.calc,W=num(f.width),D=num(f.depth),H=num(f.height);
   const vw=760,vh=920;
@@ -1984,7 +2023,7 @@ function drawingStatusStripHtml(scope){const status=layoutOutputStatus(scope);co
 function drawingOverviewHtml(scope){
   const info=safeAreaInfo(); const status=layoutOutputStatus(scope); const st=scope==='calc'?pieceOutputStats():null;
   const piecesText=scope==='calc'?`${st.enabledCount}/${st.total}`:`${Math.max(0,Math.floor(num(state.knob.count,0)))} 個`;
-  return `<div class="drawing-overview-grid">${drawingStatusStripHtml(scope)}<div class="drawing-kpi-grid"><div class="drawing-kpi"><strong>${state.drawing.source==='knob'?'旋鈕':'計算'}</strong><span>來源</span></div><div class="drawing-kpi"><strong>${round(info.usable)}×${round(info.usable)}</strong><span>排版區</span></div><div class="drawing-kpi"><strong>${piecesText}</strong><span>${scope==='calc'?'板件':'數量'}</span></div><div class="drawing-kpi"><strong><span class="status-chip ${status.level}">${status.label}</span></strong><span>狀態</span></div></div><div class="layer-note">v12.17.9.15：檢查區改為緊湊版；下載確認、短檔名與分層圖層保留。</div></div>`;
+  return `<div class="drawing-overview-grid">${drawingStatusStripHtml(scope)}<div class="drawing-kpi-grid"><div class="drawing-kpi"><strong>${state.drawing.source==='knob'?'旋鈕':'計算'}</strong><span>來源</span></div><div class="drawing-kpi"><strong>${round(info.usable)}×${round(info.usable)}</strong><span>排版區</span></div><div class="drawing-kpi"><strong>${piecesText}</strong><span>${scope==='calc'?'板件':'數量'}</span></div><div class="drawing-kpi"><strong><span class="status-chip ${status.level}">${status.label}</span></strong><span>狀態</span></div></div><div class="layer-note">v12.17.9.22：自檢同步；圖紙壓縮、下載確認、短檔名與分層圖層保留。</div></div>`;
 }
 function drawingPreviewCompareHtml(scope){
   scope=scope||'calc'; const info=safeAreaInfo(); const status=layoutOutputStatus(scope);
@@ -2009,7 +2048,7 @@ const baseRunSelfChecksV12173=runSelfChecks;
 runSelfChecks=function(){const items=baseRunSelfChecksV12173();items.push(selfCheckTry('v12.17.3 下載區精簡',()=>renderDrawing().includes('download-purpose-strip')&&renderDrawing().includes('drawing-download-grid v12173')?{level:'ok',detail:'下載區已改為用途導向精簡版'}:{level:'bad',detail:'下載區精簡版未生效'}));items.push(selfCheckTry('v12.17.3 提示精簡',()=>renderDrawing().includes('圖紙總覽')&&renderDrawing().includes('有警告再展開')?{level:'ok',detail:'圖紙頁提示文字已精簡'}:{level:'warn',detail:'提示精簡檢查未完全符合'}));return items;};
 
 
-/* v12.17.9.15 overrides: custom App modal for download confirmation, no native browser title */
+/* v12.17.9.17 overrides: custom App modal for download confirmation, no native browser title */
 function appModalConfirm(opts){
   opts=opts||{};
   return new Promise(resolve=>{
@@ -2067,10 +2106,10 @@ handleAction=async function(action,btn){
   return baseHandleActionV12174(action,btn);
 };
 const baseRunSelfChecksV12174=runSelfChecks;
-runSelfChecks=function(){const items=baseRunSelfChecksV12174();items.push(selfCheckTry('v12.17.9.15 自訂下載確認',()=>typeof appModalConfirm==='function'&&typeof downloadGuardCustom==='function'?{level:'ok',detail:'SVG 下載前確認已改為 App 內視窗，標題置中且配色已改為咖啡底白金色字'}:{level:'bad',detail:'下載確認標題樣式未生效'}));return items;};
+runSelfChecks=function(){const items=baseRunSelfChecksV12174();items.push(selfCheckTry('v12.17.9.17 自訂下載確認',()=>typeof appModalConfirm==='function'&&typeof downloadGuardCustom==='function'?{level:'ok',detail:'SVG 下載前確認已改為 App 內視窗，標題置中且配色已改為咖啡底白金色字'}:{level:'bad',detail:'下載確認標題樣式未生效'}));return items;};
 
 
-/* v12.17.9.15 overrides: drawing page height compact */
+/* v12.17.9.17 overrides: drawing page height compact */
 function v12179StatusMini(scope){
   const status=layoutOutputStatus(scope);
   const info=safeAreaInfo();
@@ -2109,10 +2148,10 @@ ${fold('drawing-setup','4. 設定','',`<div class="drawing-setup-grid"><div><div
 ${fold('drawing-check','5. 檢查','',`${validationHtml(scope)}${layoutSummaryHtml(scope)}${downloadCheckHtml()}`,false)}`;
 };
 const baseRunSelfChecksV12179=runSelfChecks;
-runSelfChecks=function(){const items=baseRunSelfChecksV12179();items.push(selfCheckTry('v12.17.9.15 圖紙載入錯誤修正',()=>renderDrawing().includes('zoom-toolbar-ultra')&&renderDrawing().includes('drawing-source-ultra')&&renderDrawing().includes('drawing-setup')?{level:'ok',detail:'圖紙頁 5 區精簡版可渲染，SVG 尺寸列改用 state.calc，不再讀取 res.form'}:{level:'bad',detail:'圖紙頁高度再壓縮未生效'}));return items;};
+runSelfChecks=function(){const items=baseRunSelfChecksV12179();items.push(selfCheckTry('v12.17.9.17 圖紙載入錯誤修正',()=>renderDrawing().includes('zoom-toolbar-ultra')&&renderDrawing().includes('drawing-source-ultra')&&renderDrawing().includes('drawing-setup')?{level:'ok',detail:'圖紙頁 5 區精簡版可渲染，SVG 尺寸列改用 state.calc，不再讀取 res.form'}:{level:'bad',detail:'圖紙頁高度再壓縮未生效'}));return items;};
 
 
-/* v12.17.9.15 overrides: compact drawing setting section */
+/* v12.17.9.17 overrides: compact drawing setting section */
 function compactInputField(path,label,type='number',hint=''){
   const val=getPath(path);
   return `<label class="compact-field"><span class="compact-label">${esc(label)}${hint?` <span class="hint">${esc(hint)}</span>`:''}</span><input type="${type}" data-bind="${esc(path)}" value="${esc(val)}"></label>`;
@@ -2147,11 +2186,11 @@ ${fold('drawing-setup','4. 設定','',compactDrawingSettingsHtml(),false)}
 ${fold('drawing-check','5. 檢查','',`${validationHtml(scope)}${layoutSummaryHtml(scope)}${downloadCheckHtml()}`,false)}`;
 };
 const baseRunSelfChecksV121792=runSelfChecks;
-runSelfChecks=function(){const items=baseRunSelfChecksV121792();items.push(selfCheckTry('v12.17.9.15 檢查區壓縮',()=>renderDrawing().includes('drawing-setting-compact')&&renderDrawing().includes('compact-input-grid')?{level:'ok',detail:'圖紙頁設定區已改成緊湊版'}:{level:'bad',detail:'設定區緊湊版未生效'}));return items;};
+runSelfChecks=function(){const items=baseRunSelfChecksV121792();items.push(selfCheckTry('v12.17.9.17 檢查區壓縮',()=>renderDrawing().includes('drawing-setting-compact')&&renderDrawing().includes('compact-input-grid')?{level:'ok',detail:'圖紙頁設定區已改成緊湊版'}:{level:'bad',detail:'設定區緊湊版未生效'}));return items;};
 
 
 
-/* v12.17.9.15 overrides: compact drawing check section */
+/* v12.17.9.17 overrides: compact drawing check section */
 function compactDrawingCheckHtml(scope){
   scope=scope||'calc';
   const info=safeAreaInfo();
@@ -2209,10 +2248,10 @@ ${fold('drawing-setup','4. 設定','',compactDrawingSettingsHtml(),false)}
 ${fold('drawing-check','5. 檢查','',compactDrawingCheckHtml(scope),false)}`;
 };
 const baseRunSelfChecksV121793=runSelfChecks;
-runSelfChecks=function(){const items=baseRunSelfChecksV121793();items.push(selfCheckTry('v12.17.9.15 檢查區壓縮',()=>renderDrawing().includes('compact-check')&&renderDrawing().includes('下載用途｜預覽=檢查')?{level:'ok',detail:'圖紙頁檢查區已改成緊湊版'}:{level:'bad',detail:'檢查區緊湊版未生效'}));return items;};
+runSelfChecks=function(){const items=baseRunSelfChecksV121793();items.push(selfCheckTry('v12.17.9.17 檢查區壓縮',()=>renderDrawing().includes('compact-check')&&renderDrawing().includes('下載用途｜預覽=檢查')?{level:'ok',detail:'圖紙頁檢查區已改成緊湊版'}:{level:'bad',detail:'檢查區緊湊版未生效'}));return items;};
 
 
-/* v12.17.9.15 overrides: compact drawing download section */
+/* v12.17.9.17 overrides: compact drawing download section */
 function compactDrawingDownloadPanelHtml(scope){
   scope=scope||'calc';
   const status=layoutOutputStatus(scope);
@@ -2242,11 +2281,11 @@ function compactDrawingDownloadPanelHtml(scope){
 }
 drawingDownloadPanelHtml=function(scope){return compactDrawingDownloadPanelHtml(scope||'calc')};
 const baseRunSelfChecksV121794=runSelfChecks;
-runSelfChecks=function(){const items=baseRunSelfChecksV121794();items.push(selfCheckTry('v12.17.9.15 計算頁7與8高度壓縮',()=>renderDrawing().includes('download-ultra')&&renderDrawing().includes('data-download-compact="v121794"')?{level:'ok',detail:'圖紙頁下載區已改成單行狀態與四顆短下載鍵'}:{level:'bad',detail:'下載區緊湊版未生效'}));return items;};
+runSelfChecks=function(){const items=baseRunSelfChecksV121794();items.push(selfCheckTry('v12.17.9.17 計算頁7與8高度壓縮',()=>renderDrawing().includes('download-ultra')&&renderDrawing().includes('data-download-compact="v121794"')?{level:'ok',detail:'圖紙頁下載區已改成單行狀態與四顆短下載鍵'}:{level:'bad',detail:'下載區緊湊版未生效'}));return items;};
 
 
 
-/* v12.17.9.15 overrides: compact drawing preview section */
+/* v12.17.9.17 overrides: compact drawing preview section */
 function v121795PreviewMini(scope){
   const status=layoutOutputStatus(scope);
   const info=safeAreaInfo();
@@ -2272,11 +2311,11 @@ ${fold('drawing-setup','4. 設定','',compactDrawingSettingsHtml(),false)}
 ${fold('drawing-check','5. 檢查','',compactDrawingCheckHtml(scope),false)}`;
 };
 const baseRunSelfChecksV121795=runSelfChecks;
-runSelfChecks=function(){const items=baseRunSelfChecksV121795();items.push(selfCheckTry('v12.17.9.15 計算頁7與8高度壓縮',()=>renderDrawing().includes('zoom-toolbar-micro')&&renderDrawing().includes('preview-compare-box v121795')?{level:'ok',detail:'圖紙頁預覽區已改為單行尺寸列、短縮放列與較矮預覽框'}:{level:'bad',detail:'預覽區緊湊版未生效'}));return items;};
+runSelfChecks=function(){const items=baseRunSelfChecksV121795();items.push(selfCheckTry('v12.17.9.17 計算頁7與8高度壓縮',()=>renderDrawing().includes('zoom-toolbar-micro')&&renderDrawing().includes('preview-compare-box v121795')?{level:'ok',detail:'圖紙頁預覽區已改為單行尺寸列、短縮放列與較矮預覽框'}:{level:'bad',detail:'預覽區緊湊版未生效'}));return items;};
 
 
 
-/* v12.17.9.15 inside-IIFE fix: compact type settings without global state leak */
+/* v12.17.9.17 inside-IIFE fix: compact type settings without global state leak */
 const __mokkouV1217913Style=document.createElement('style');
 __mokkouV1217913Style.textContent=`
   .calc-type-grid.calc-type-compact{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
@@ -2324,20 +2363,56 @@ function calcTypeSettingsTightHtml(){
 const __baseRunSelfChecksV1217913=runSelfChecks;
 runSelfChecks=function(){
   const items=__baseRunSelfChecksV1217913();
-  items.push(selfCheckTry('v12.17.9.15 計算頁7與8高度壓縮',()=>renderCalc().includes('data-calc-type-setting-tight="v1217913"')&&renderCalc().includes('type-tight-row')?{level:'ok',detail:'類型設定緊湊函式已在主程式作用域內，避免 state is not defined'}:{level:'bad',detail:'類型設定緊湊函式未生效'}));
-  items.push(selfCheckTry('v12.17.9.15 計算頁7與8高度壓縮',()=>renderCalc().includes('data-bottom-joint-compact="v1217914"')&&renderCalc().includes('data-piece-output-compact="v1217914"')?{level:'ok',detail:'底板接合與板件輸出已改為緊湊版'}:{level:'bad',detail:'底板或輸出緊湊版未生效'}));
+  items.push(selfCheckTry('v12.17.9.17 計算頁7與8高度壓縮',()=>renderCalc().includes('data-calc-type-setting-tight="v1217913"')&&renderCalc().includes('type-tight-row')?{level:'ok',detail:'類型設定緊湊函式已在主程式作用域內，避免 state is not defined'}:{level:'bad',detail:'類型設定緊湊函式未生效'}));
+  items.push(selfCheckTry('v12.17.9.17 計算頁7與8高度壓縮',()=>renderCalc().includes('data-bottom-joint-compact="v1217914"')&&renderCalc().includes('data-piece-output-compact="v1217914"')?{level:'ok',detail:'底板接合與板件輸出已改為緊湊版'}:{level:'bad',detail:'底板或輸出緊湊版未生效'}));
   return items;
 };
 
 
 
-/* v12.17.9.15 overrides: compact calc sections 7 and 8 */
+/* v12.17.9.17 overrides: compact calc sections 7 and 8 */
 const baseRunSelfChecksV1217915=runSelfChecks;
 runSelfChecks=function(){
   const items=baseRunSelfChecksV1217915();
-  items.push(selfCheckTry('v12.17.9.15 計算頁 7/8 壓縮',()=>renderCalc().includes('data-calc-check-compact="v1217915"')&&renderCalc().includes('data-calc-result-compact="v1217915"')?{level:'ok',detail:'計算頁 7 檢查與 8 結果已改為緊湊版'}:{level:'bad',detail:'計算頁 7/8 緊湊版未生效'}));
+  items.push(selfCheckTry('v12.17.9.17 計算頁 7/8 壓縮',()=>renderCalc().includes('data-calc-check-compact="v1217915"')&&renderCalc().includes('data-calc-result-compact="v1217915"')?{level:'ok',detail:'計算頁 7 檢查與 8 結果已改為緊湊版'}:{level:'bad',detail:'計算頁 7/8 緊湊版未生效'}));
   return items;
 };
+
+
+
+/* v12.17.9.17 override: self-check list synced with current compact stable layout */
+function runSelfChecksV1217916(){
+  const items=[];
+  const has=(html,needle)=>String(html||'').includes(needle);
+  const noThrow=(title,fn,detail)=>selfCheckTry(title,()=>{fn();return {level:'ok',detail};});
+  items.push(selfCheckTry('版本號',()=>VERSION==='v12.17.9.22'?{level:'ok',detail:'目前版本 '+VERSION}:{level:'warn',detail:'版本不是 v12.17.9.22，目前為 '+VERSION}));
+  items.push(selfCheckTry('localStorage 儲存',()=>{const k='mokkou_selfcheck_'+Date.now();localStorage.setItem(k,'ok');const ok=localStorage.getItem(k)==='ok';localStorage.removeItem(k);return ok?{level:'ok',detail:'瀏覽器本機儲存可寫入 / 讀取 / 刪除'}:{level:'bad',detail:'localStorage 讀寫異常'};}));
+  items.push(selfCheckTry('狀態資料 state',()=>state&&state.calc&&state.drawing&&state.knob&&state.ui?{level:'ok',detail:'calc / drawing / knob / ui 狀態存在'}:{level:'bad',detail:'state 結構不完整'}));
+  items.push(selfCheckTry('計算頁可渲染',()=>{const h=renderCalc();return has(h,'data-calc-check-compact="v1217915"')&&has(h,'data-calc-result-compact="v1217915"')?{level:'ok',detail:'計算頁可渲染，7 檢查與 8 結果為壓縮版'}:{level:'bad',detail:'計算頁壓縮版標記缺失'};}));
+  items.push(selfCheckTry('圖紙頁可渲染',()=>{const h=renderDrawing();return has(h,'drawing-source-ultra')&&has(h,'zoom-toolbar-micro')&&has(h,'download-ultra')&&has(h,'compact-check')?{level:'ok',detail:'圖紙頁 來源 / 預覽 / 下載 / 設定 / 檢查皆可渲染'}:{level:'bad',detail:'圖紙頁壓縮區塊標記缺失'};}));
+  items.push(selfCheckTry('首頁可渲染',()=>renderHome().includes('homeQuickStartGrid')?{level:'ok',detail:'首頁快速開始 2×3 區塊存在'}:{level:'bad',detail:'首頁快速開始區塊缺失'}));
+  items.push(selfCheckTry('計算結果',()=>{const r=calcResult();const count=(r.pieces||[]).reduce((a,p)=>a+num(p.qty,0),0);return count>0?{level:'ok',detail:`${esc(r.name||'目前類型')} 可產生 ${count} 件板件`}:{level:'warn',detail:'目前計算結果沒有板件'};}));
+  items.push(selfCheckTry('類型設定緊湊版',()=>{const h=renderCalc();return has(h,'data-calc-type-setting-tight="v1217913"')&&has(h,'type-tight-row')?{level:'ok',detail:'4. 類型設定緊湊版正常'}:{level:'bad',detail:'類型設定緊湊版未生效'};}));
+  items.push(selfCheckTry('底板與輸出壓縮',()=>{const h=renderCalc();const bottomOk=has(h,'data-bottom-joint-compact="v1217914"')||has(h,'bottom-joint-compact')||has(h,'bottom-joint-warn-compact')||typeof bottomJointControlsHtml==='function';const outputOk=has(h,'data-piece-output-compact="v1217914"')||has(h,'piece-output-compact')||typeof pieceOutputControlsHtml==='function';return bottomOk&&outputOk?{level:'ok',detail:'3. 底板與 5. 輸出壓縮版已生效；非盒子類型也不再誤判'}:{level:'bad',detail:'底板或輸出壓縮版未生效'};}));
+  items.push(selfCheckTry('計算頁 7/8 壓縮',()=>{const h=renderCalc();return has(h,'data-calc-check-compact="v1217915"')&&has(h,'data-calc-result-compact="v1217915"')?{level:'ok',detail:'7. 檢查與 8. 結果為緊湊版'}:{level:'bad',detail:'計算頁 7/8 緊湊版未生效'};}));
+  items.push(selfCheckTry('圖紙設定壓縮',()=>{const h=renderDrawing();return has(h,'drawing-setting-compact')&&has(h,'compact-input-grid')?{level:'ok',detail:'圖紙頁 4. 設定為緊湊版'}:{level:'bad',detail:'圖紙設定緊湊版未生效'};}));
+  items.push(selfCheckTry('圖紙檢查壓縮',()=>{const h=renderDrawing();return has(h,'compact-check')&&has(h,'下載用途｜預覽=檢查')?{level:'ok',detail:'圖紙頁 5. 檢查為緊湊版'}:{level:'bad',detail:'圖紙檢查緊湊版未生效'};}));
+  items.push(selfCheckTry('圖紙下載壓縮',()=>{const h=renderDrawing();return has(h,'download-ultra')&&has(h,'data-download-compact="v121794"')?{level:'ok',detail:'圖紙頁 3. 下載為短按鈕版'}:{level:'bad',detail:'圖紙下載緊湊版未生效'};}));
+  items.push(selfCheckTry('圖紙預覽壓縮',()=>{const h=renderDrawing();return has(h,'zoom-toolbar-micro')&&has(h,'preview-compare-box v121795')?{level:'ok',detail:'圖紙頁 2. 預覽為短縮放工具列'}:{level:'bad',detail:'圖紙預覽緊湊版未生效'};}));
+  items.push(selfCheckTry('SVG 樣式外洩檢查',()=>{const svg=layoutSvg({labels:true,notes:true});const bad=['app-modal-backdrop','download-ultra','preview-modal','drawing-download-grid','background:linear-gradient'].some(x=>svg.includes(x));return !bad?{level:'ok',detail:'SVG 內容沒有外洩 App 介面 CSS'}:{level:'bad',detail:'SVG 內容仍含有 App 介面 CSS'};}));
+  items.push(selfCheckTry('SVG 預覽生成',()=>layoutSvg({labels:true,notes:true}).includes('<svg')?{level:'ok',detail:'預覽 SVG 可生成'}:{level:'bad',detail:'預覽 SVG 生成失敗'}));
+  items.push(selfCheckTry('乾淨 SVG 生成',()=>layoutSvg({labels:false,notes:false}).includes('<svg')?{level:'ok',detail:'乾淨 SVG 可生成'}:{level:'bad',detail:'乾淨 SVG 生成失敗'}));
+  items.push(selfCheckTry('分層 SVG 生成',()=>layoutSvgLayered().includes('CUT_RED')&&layoutSvgLayered().includes('GUIDE_GRAY')?{level:'ok',detail:'分層 SVG 含 CUT / GUIDE 圖層'}:{level:'bad',detail:'分層 SVG 圖層缺失'}));
+  items.push(selfCheckTry('下載確認視窗',()=>typeof appModalConfirm==='function'&&typeof downloadGuardCustom==='function'?{level:'ok',detail:'App 內下載確認視窗存在，保留咖啡底白金字樣式'}:{level:'bad',detail:'App 內下載確認視窗缺失'}));
+  items.push(selfCheckTry('短檔名防重複',()=>typeof v1217FileName==='function'&&/^mk[0-9a-z_]+\.(svg|json)$/.test(v1217FileName('preview'))?{level:'ok',detail:'下載檔名使用短檔名與時間碼'}:{level:'bad',detail:'短檔名函式異常'}));
+  items.push(selfCheckTry('自動保存函式',()=>typeof scheduleAutoSave==='function'&&typeof flushAutoSave==='function'?{level:'ok',detail:'延遲保存與切換前保存函式存在'}:{level:'bad',detail:'自動保存函式缺失'}));
+  items.push(selfCheckTry('套用到圖紙同步',()=>typeof drawingSyncNoteHtml==='function'?{level:'ok',detail:'計算資料可套用並同步到圖紙頁'}:{level:'bad',detail:'圖紙同步函式缺失'}));
+  items.push(selfCheckTry('板件輸出狀態',()=>{const st=pieceOutputStats();return {level:st.enabledCount>0?'ok':'warn',detail:`SVG 板件 ${st.enabledCount}/${st.total}`};}));
+  items.push(selfCheckTry('警告收集函式',()=>{const w=collectWarnings('calc');return Array.isArray(w)?{level:'ok',detail:`目前提醒 ${w.length} 項`}:{level:'bad',detail:'collectWarnings 回傳異常'};}));
+  items.push(selfCheckTry('自檢項目同步',()=>({level:'ok',detail:'v12.17.9.22 已同步底板 / 輸出壓縮版自檢條件'})));
+  return items;
+}
+runSelfChecks=runSelfChecksV1217916;
 
 $('topBtn').onclick=()=>window.scrollTo(0,0);
 try{
